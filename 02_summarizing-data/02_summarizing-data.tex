@@ -1,6 +1,8 @@
 \documentclass[12pt, aspectratio=169]{beamer}
 
 \input{../header}
+\usepackage{booktabs}
+\usepackage[misc]{ifsym}
 
 
 \title{Summarizing Data}
@@ -37,6 +39,44 @@
                 \item Graphical summary
             \end{itemize}
         \end{itemize}
+    \end{frame}
+
+
+    \section{Tabular Summary}
+
+    \subsection{Frequency Table}
+
+    \begin{frame}{Frequency Table}
+        \begin{itemize}
+            \item Organizes data by listing distinct values or classes
+            \item Shows how often each value or class occurs
+            \item Can be constructed for categorical or numerical data:
+             \begin{itemize}
+                \item For categorical variable, it shows how many times each category appears in the sample
+                \item For discrete numeric variable, it shows how many times each value appears in the sample
+                \item For continuous numeric variable, classes or bins are formed first, then the table shows how many values fall in each class
+             \end{itemize}
+            \item Forms the basis for graphical summaries like bar charts and histograms
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Example: Frequency Table for Categorical Variable}
+        Suppose we have a discreete variable with four categories: A, B, C and D. The data in the sample is: A, B, A, D, A, A, B, C, C, B, A, A, C, D, D, B, D, C, C, B, C. The Frequency table would be:\\
+        \begin{center}
+            \begin{tabular}{ccc}
+                \textbf{Category} & \textbf{Tally} & \textbf{Frequency}\\
+                \toprule
+                A & \StrokeFive \StrokeOne & 6\\
+                B & \StrokeFive & 5\\
+                C & \StrokeFive \StrokeOne & 6\\
+                D & \StrokeFour & 4\\
+                \bottomrule
+            \end{tabular}
+        \end{center}
+        \vspace{0.5em}
+        The tally column is only used to keep track of the data when counting by hand.\\[0.5em]
+        One can add a percentage column in necessary.
     \end{frame}
 
 
