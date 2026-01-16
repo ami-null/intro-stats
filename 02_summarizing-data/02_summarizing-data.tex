@@ -3,6 +3,8 @@
 \input{../header}
 \usepackage{booktabs}
 \usepackage[misc]{ifsym}
+\usepackage{pgfplots}
+\usepackage{pgf-pie} 
 
 
 \title{Summarizing Data}
@@ -168,10 +170,10 @@
             \cmidrule(lr){2-3}
             \textbf{Smoking}   & \textbf{Yes} & \textbf{No} & \textbf{Total} \\
             \midrule
-            Smoker                 & 45            & 55           & 100 \\
+            Smoker                 & 55            & 45           & 100 \\
             Non-smoker             & 10            & 90           & 100 \\
             \midrule
-            \textbf{Total}         & 55            & 145          & 200 \\
+            \textbf{Total}         & 65            & 135          & 200 \\
             \bottomrule
         \end{tabular}
         \end{center}
@@ -190,6 +192,71 @@
             \item Clustered bar diagram, stacked bar diagram
             \item Pie chart
         \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Bar Diagram}
+        \centering
+        \begin{tikzpicture}
+            \begin{axis}[
+                ybar,
+                bar width=30pt,
+                width=6cm,
+                height=7cm,
+                ymin=0,
+                ymax=170,
+                ylabel={Frequency},
+                xlabel={Lung cancer},
+                % symbolic x coords={Yes, No},
+                % xtick=data,
+                xtick={1,2},                    % numeric positions
+                xticklabels={Yes, No},% assign the labels manually
+                xtick style={draw=none},
+                nodes near coords,
+                enlarge x limits=0.5,      % padding on left and right
+            ]
+                \addplot coordinates {(1,65) (2,135)};
+                
+            \end{axis}
+        \end{tikzpicture}
+    \end{frame}
+
+
+    \begin{frame}{Clustered Bar Diagram}
+        \centering
+        \begin{tikzpicture}
+            \begin{axis}[
+                ybar,
+                bar width=15pt,
+                width=7cm,
+                height=7cm,
+                ymin=0,
+                ymax=100,
+                ylabel={Frequency},
+                symbolic x coords={Smoker, Non-smoker},
+                xtick=data,
+                xtick style={draw=none},
+                enlarge x limits=0.3,          % adds padding on left and right
+                legend style={at={(0.5,-0.15)}, anchor=north, legend columns=2},
+                nodes near coords,
+                % ymajorgrids=true,
+            ]
+                \addplot coordinates {(Smoker,45) (Non-smoker,90)};
+                \addplot coordinates {(Smoker,55) (Non-smoker,10)};
+                \legend{Lung Cancer: No, Lung Cancer: Yes}
+            \end{axis}
+        \end{tikzpicture}
+    \end{frame}
+
+
+    \begin{frame}{Pie Chart}
+        \centering
+        \begin{tikzpicture}
+            \pie[
+                radius=2,
+                text=legend
+            ]{27.5/Lung Cancer: Yes, 72.5/Lung Cancer: No}
+        \end{tikzpicture}
     \end{frame}
 
 
