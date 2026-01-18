@@ -127,7 +127,7 @@
 
         \textbf{Solution}:\\[0.5em]
         The range in the sample is = highest value - lowest value = 130-5 = 125\\[0.5em]
-        Therefore, with 5 classes, the class interval would = 125/5=25
+        Therefore, with 5 classes, the class interval would = 125/5=25 \label{contfreqtab}
     \end{frame}
 
 
@@ -270,6 +270,69 @@
             \item Density Plot
             \item Scatterplot
         \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Frequency Polygon}
+        \begin{itemize}
+            \item Graphically shows the information provided by a frequency table
+            \item Not used for categorical variables
+            \item The information is laid out in a Cartesian plane (a 2D graph with two axes)
+            \item For discreet numeric variables, the $X$ axis shows the individual values of the variable
+            \item For continuous numeric variables, the variable is grouped into a few classes first, just like in Frequency table. Then the class midpoints are plotted on the $X$ axis
+            \item The $Y$ axis denotes the frequency of each value on the $X$ axis
+            \item Two empty classes with 0 frequency, are added at the start and the end of the data
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Example: Frequency Polygon}
+        Below is the frequency table from page \ref{contfreqtab}:
+        \begin{center}
+            \begin{tabular}{lcc}
+                \toprule
+                \textbf{Category} & \textbf{Class midpoint} & \textbf{Frequency}\\
+                \midrule
+                5-30    & 17.5  & 7\\
+                30-55   & 42.5  & 10\\
+                55-80   & 67.5  & 6\\
+                80-105  & 92.5  & 4\\
+                105-130 & 117.5 & 3\\
+                \bottomrule
+            \end{tabular}
+        \end{center}
+        The class the frequencies will be plotted against the class midpoints.
+    \end{frame}
+
+
+    \begin{frame}{Example: Frequency Polygon (cont.)}
+        \begin{center}
+            \begin{tikzpicture}
+                \begin{axis}[
+                    width=10cm,
+                    height=6.5cm,
+                    title={Frequency Polygon},
+                    xlabel={Class Midpoints},
+                    ylabel={Frequency},
+                    axis lines*=left, % Only show left and bottom axes
+                    ymin=0,
+                    xmin=0, xmax=145,
+                    minor x tick num=4,
+                    minor y tick num=4
+                ]
+                    % \addplot[sharp plot, mark=*, blue, ultra thick] coordinates {
+                    \addplot[sharp plot, mark=*, mDarkTeal, thick] coordinates {
+                        (0, 0)
+                        (17.5, 7)
+                        (42.5, 10)
+                        (67.5, 6)
+                        (92.5, 4)
+                        (117.5, 3)
+                        (142.5, 0)
+                    };
+                \end{axis}
+            \end{tikzpicture}
+        \end{center}
     \end{frame}
 
 
