@@ -416,7 +416,6 @@
     \end{frame}
 
 
-
     \begin{frame}{Greater-than Ogive}
         \begin{itemize}
             \item Plots greater-than cumulative frequency on the $Y$ axis
@@ -474,6 +473,41 @@
                 \end{axis}
             \end{tikzpicture}
         \end{center}
+    \end{frame}
+
+
+    \begin{frame}{Histogram}
+        \begin{itemize}
+            \item A histogram is a graphical display of the distribution of a continuous quantitative variable
+            \item The horizontal axis ($X$ axis) is divided into class intervals (bins) of equal or specified width
+            \item The height of each bar represents frequency, relative frequency (also called density) within the corresponding bin or class
+            \item There is no gap bewteen the bars, indicating continuity of the data
+            \item It helps reveal the shape of the distribution (symmetric or skewed, unimodal or multimodal etc.)
+            \item It is useful for identifying central tendency, dispersion, and potential outliers
+        \end{itemize}
+    \end{frame}
+    
+
+    \begin{frame}{Bar Diagram}
+        \centering
+        \begin{tikzpicture}
+            \begin{axis}[
+                width=12cm,
+                height=7.5cm,
+                axis lines*=left, % Only show left and bottom axes
+                ylabel={Frequency},
+                xtick style={draw=none},
+                xtick={5,30,55,80,105,130},
+                area style,
+                ymin=0,
+                xmin=0,
+                % grid=minor,
+                minor y tick num=1
+            ]
+                \addplot+[ybar interval,mark=no] plot coordinates { (0, 0) (5, 7) (30, 10) (55, 6) (80, 4) (105, 3) (130, 0) };
+                
+            \end{axis}
+        \end{tikzpicture}
     \end{frame}
 
 
