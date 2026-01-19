@@ -317,16 +317,17 @@
         \begin{center}
             \begin{tikzpicture}
                 \begin{axis}[
-                    width=10cm,
-                    height=6.5cm,
-                    title={Frequency Polygon},
+                    width=12cm,
+                    height=7.5cm,
+                    % title={Frequency Polygon},
                     xlabel={Class Midpoints},
                     ylabel={Frequency},
                     axis lines*=left, % Only show left and bottom axes
                     ymin=0,
                     xmin=0, xmax=145,
                     minor x tick num=4,
-                    minor y tick num=4
+                    minor y tick num=4,
+                    grid=major
                 ]
                     % \addplot[sharp plot, mark=*, blue, ultra thick] coordinates {
                     \addplot[sharp plot, mark=*, mDarkTeal, thick] coordinates {
