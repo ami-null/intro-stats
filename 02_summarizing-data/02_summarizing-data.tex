@@ -511,6 +511,62 @@
     \end{frame}
 
 
+    \begin{frame}{Scatterplot}
+        \begin{itemize}
+            \item A scatterplot displays the relationship between two quantitative variables: one of them called the explanatory (independent) variable, the other called the outcome (dependent) variable
+            \item Each point $(x, y)$ represents an observation
+            \item By convention, the $X$ axis shows the explanatory variable, the $Y$ axis shows the outcome variable
+            \item It helps assess the relationship between the two variables, including direction (positive or negative) and form (linear or nonlinear)
+            \item Patterns in a scatterplot can indicate strength of relationship, clusters, and outliers
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Example: Scatterplot, Positive Relationship}
+        \centering
+        \begin{tikzpicture}
+            \begin{axis}[
+                % title={Positive Relationship},
+                axis lines*=left,
+                height=7cm,
+                xlabel={$X$},
+                ylabel={$Y$},
+                xmin=0, xmax=10,
+                ymin=0, ymax=10,
+                minor y tick num=1,
+                minor x tick num=1,
+                grid=major,
+                only marks,
+                fill=mDarkTeal
+            ]
+                \addplot coordinates {(1, 1) (1, 2) (2, 2) (3, 3) (3, 2) (4, 4) (4, 5) (5, 5) (5, 4) (5, 6) (6, 6) (6, 5) (7, 7) (8, 8) (8, 7) (8, 6) (9, 9) (9, 10)};
+            \end{axis}
+        \end{tikzpicture}
+    \end{frame}
+
+
+    \begin{frame}{Example: Scatterplot, Negative Relationship}
+        \centering
+        \begin{tikzpicture}
+            \begin{axis}[
+                axis lines*=left,
+                height=7cm,
+                xlabel={$X$},
+                ylabel={$Y$},
+                xmin=0, xmax=10,
+                ymin=0, ymax=10,
+                minor y tick num=1,
+                minor x tick num=1,
+                grid=major,
+                only marks,
+                fill=mDarkTeal
+            ]
+                \addplot coordinates {(1, 9) (1, 8) (2, 8) (3, 7) (3, 8) (4, 6) (4, 5) (5, 5) (5, 6) (5, 3) (6, 3) (6, 4) (7, 2) (8, 1) (8, 2) (8, 4) (9, 8) (9, 0)};
+            \end{axis}
+        \end{tikzpicture}
+    \end{frame}
+
+
     \section*{Questions?}
 
 
