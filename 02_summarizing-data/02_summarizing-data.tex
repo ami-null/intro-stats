@@ -309,7 +309,7 @@
                 \bottomrule
             \end{tabular}
         \end{center}
-        The class the frequencies will be plotted against the class midpoints.
+        The class frequencies will be plotted against the class midpoints.
     \end{frame}
 
 
@@ -337,6 +337,137 @@
                         (92.5, 4)
                         (117.5, 3)
                         (142.5, 0)
+                    };
+                \end{axis}
+            \end{tikzpicture}
+        \end{center}
+    \end{frame}
+
+
+    \begin{frame}{Ogive Curve}
+        \begin{itemize}
+            \item An ogive is a graph of cumulative frequency or cumulative relative frequency
+            \item It is constructed by plotting cumulative frequencies against class boundaries
+            \item The points are joined by a smooth curve or straight line segments
+            \item Ogives are used to determine medians, quartiles, and percentiles graphically
+            \item Two common types exist: less-than ogive and greater-than ogive
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Less-than Ogive}
+        \begin{itemize}
+            \item Plots less-than cumulative frequency on the $Y$ axis
+            \item Uses upper class boundaries on the $X$ axis
+            \item Cumulative frequency increases from 0 to total frequency
+            \item Commonly used to estimate median, quartiles, and percentiles
+            \item The curve slopes upward from left to right
+            \item Each point $(x,y)$ in the plot, represents that there are $y$ observations in the sample that are less than $x$
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Example: Less-than Ogive}
+        Below is the frequency table from page \ref{contfreqtab}:
+        \begin{center}
+            \begin{tabular}{lcc}
+                \toprule
+                \textbf{Category} & \textbf{Frequency} & \textbf{Cumulative Frequency}\\
+                \midrule
+                5-30    & 7  & 7\\
+                30-55   & 10 & 17\\
+                55-80   & 6  & 23\\
+                80-105  & 4  & 27\\
+                105-130 & 3  & 30\\
+                \bottomrule
+            \end{tabular}
+        \end{center}
+        The cumulative frequencies will be plotted against the class upper-limits.
+    \end{frame}
+
+
+    \begin{frame}{Example: Less-than Ogive (cont.)}
+        \begin{center}
+            \begin{tikzpicture}
+                \begin{axis}[
+                    width=12cm,
+                    height=7.5cm,
+                    xlabel={Class upper limits},
+                    ylabel={Cumulative frequency},
+                    axis lines*=left, % Only show left and bottom axes
+                    ymin=0,
+                    xmin=0, xmax=145,
+                    minor x tick num=4,
+                    minor y tick num=4,
+                    grid=major
+                ]
+                    \addplot[smooth, mark=*, mDarkTeal, thick] coordinates {
+                        (0, 0)
+                        (30, 7)
+                        (55, 17)
+                        (80, 23)
+                        (105, 27)
+                        (130, 30)
+                    };
+                \end{axis}
+            \end{tikzpicture}
+        \end{center}
+    \end{frame}
+
+
+
+    \begin{frame}{Greater-than Ogive}
+        \begin{itemize}
+            \item Plots greater-than cumulative frequency on the $Y$ axis
+            \item Uses lower class boundaries on the $X$ axis
+            \item Cumulative frequency decreases from total frequency to 0
+            \item Useful for finding how many observations exceed a given value
+            \item The curve slopes downward from left to right
+            \item Each point $(x,y)$ in the plot, represents that there are $y$ observations in the sample that are greater than or equal to $x$
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Example: Greater-than Ogive}
+        Below is the frequency table from page \ref{contfreqtab}:
+        \begin{center}
+            \begin{tabular}{lcc}
+                \toprule
+                \textbf{Category} & \textbf{Frequency} & \textbf{Cumulative Frequency}\\
+                \midrule
+                5-30    & 7  & 30\\
+                30-55   & 10 & 23\\
+                55-80   & 6  & 13\\
+                80-105  & 4  & 7\\
+                105-130 & 3  & 3\\
+                \bottomrule
+            \end{tabular}
+        \end{center}
+        The cumulative frequencies will be plotted against the class lower-limits.
+    \end{frame}
+
+
+    \begin{frame}{Example: Greater-than Ogive (cont.)}
+        \begin{center}
+            \begin{tikzpicture}
+                \begin{axis}[
+                    width=12cm,
+                    height=7.5cm,
+                    xlabel={Class lower limits},
+                    ylabel={Cumulative frequency},
+                    axis lines*=left, % Only show left and bottom axes
+                    ymin=0,
+                    xmin=0, xmax=120,
+                    minor x tick num=4,
+                    minor y tick num=4,
+                    grid=major
+                ]
+                    \addplot[smooth, mark=*, mDarkTeal, thick] coordinates {
+                        (5, 30)
+                        (30, 23)
+                        (55, 13)
+                        (80, 7)
+                        (105, 3)
                     };
                 \end{axis}
             \end{tikzpicture}
