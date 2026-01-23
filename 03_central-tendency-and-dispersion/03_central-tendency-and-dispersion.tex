@@ -112,12 +112,79 @@
 
 
     \begin{frame}{Geometric Mean}
-        
+        \begin{itemize}
+            \item The geometric mean is a measure of central tendency defined as the $n$-th root of the product of $n$ positive observations
+            \item For positive data $x_1, x_2, \dots, x_n$, the geometric mean is
+            \[
+                G = \left( \prod_{i=1}^{n} x_i \right)^{1/n}
+            \]
+            \item It is only defined for positive values
+            \item The geometric mean is appropriate for data involving ratios, rates, or growth factors
+            \item It reduces the influence of very large values compared to the arithmetic mean
+            \item The geometric mean is commonly used for percentage changes and financial returns
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Geometric Mean for Grouped Data}
+        \begin{itemize}
+            \item For grouped data, the geometric mean is calculated using class frequencies
+            \item Let $x_1, x_2, \dots, x_k$ be the class midpoints and $f_1, f_2, \dots, f_k$ the corresponding frequencies
+            \item The geometric mean is given by
+            \[
+                G = \left( \prod_{i=1}^{k} x_i^{\,f_i} \right)^{1/n},
+            \]
+            where $n = \sum_{i=1}^{k} f_i$
+            \item In practice, the computation is often simplified using logarithms:
+            \[
+                \log G = \frac{1}{n} \sum_{i=1}^{k} f_i \log x_i
+            \]
+        \end{itemize}
     \end{frame}
 
 
     \begin{frame}{Harmonic mean}
-        
+        \begin{itemize}
+            \item The harmonic mean is a measure of central tendency defined as the reciprocal of the arithmetic mean of reciprocals
+            \item For positive data $x_1, x_2, \dots, x_n$, the harmonic mean is
+            \[
+                H = \frac{n}{\sum_{i=1}^{n} \frac{1}{x_i}}
+            \]
+            \item It is only defined for positive values
+            \item The harmonic mean gives more weight to smaller observations
+            \item It is appropriate for averaging rates or ratios, such as speeds or densities
+            \item The harmonic mean is strongly affected by very small values
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Harmonic Mean for Grouped Data}
+        \begin{itemize}
+            \item For grouped data, the harmonic mean is calculated using class frequencies
+            \item Let $x_1, x_2, \dots, x_k$ be the class midpoints and $f_1, f_2, \dots, f_k$ the corresponding frequencies.
+            \item The harmonic mean is given by
+            \[
+                H = \frac{n}{\sum_{i=1}^{k} \dfrac{f_i}{x_i}},
+            \]
+            where $n = \sum_{i=1}^{k} f_i$
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Mode}
+        \begin{itemize}
+            \item The mode is the value that occurs most frequently in a dataset
+            \item A dataset may have:
+            \begin{itemize}
+                \item one mode (unimodal),
+                \item two modes (bimodal), or
+                \item more than two modes (multimodal)
+            \end{itemize}
+            \item The mode can be used for both numerical and categorical data
+            \item A dataset may have no mode if all values occur with the same frequency
+            \item The mode is not affected by extreme values
+            \item For grouped data, the mode is estimated using the modal class
+        \end{itemize}
     \end{frame}
 
 
@@ -131,11 +198,6 @@
             \item It is not affected by extreme values (outliers)
             \item Therefore, it is useful for skewed distributions or data with outliers
         \end{itemize}
-    \end{frame}
-
-
-    \begin{frame}{Mode}
-        
     \end{frame}
 
 
