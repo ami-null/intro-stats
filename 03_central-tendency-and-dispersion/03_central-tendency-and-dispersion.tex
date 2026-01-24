@@ -432,18 +432,60 @@
     \end{frame}
 
 
-    \begin{frame}{Standard Deviation}
-        
+    \begin{frame}{Variance}
+        \begin{itemize}
+            \item Variance is a measure of dispersion based on squared deviations from the mean
+            \item It measures how far observations spread out from the mean, on average
+            \item For a population, the variance is
+            \[
+                \sigma^2 = \frac{1}{N} \sum_{i=1}^{N} (x_i - \mu)^2
+            \]
+            \item For a sample, the variance is
+            \[
+                s^2 = \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2
+            \]
+            \item Squaring the deviations removes cancellation of positive and negative values
+            \item Variance uses all observations and is sensitive to extreme values
+            \item The units of variance are the square of the original data units
+        \end{itemize}
     \end{frame}
 
 
-    \begin{frame}{Variance}
-        
+    \begin{frame}{Standard Deviation}
+        \begin{itemize}
+            \item Standard deviation is a widely used measure of dispersion
+            \item It measures the average spread of observations around the mean
+            \item It is defined as the square root of the variance.
+            \item For a population, the standard deviation is
+            \[
+                \sigma = \sqrt{\frac{1}{N} \sum_{i=1}^{N} (x_i - \mu)^2}
+            \]
+            \item For a sample, the standard deviation is
+            \[
+                s = \sqrt{\frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2}
+            \]
+            \item Standard deviation uses all observations and is sensitive to extreme values
+            \item It is expressed in the same units as the original data
+        \end{itemize}
     \end{frame}
 
 
     \begin{frame}{Coefficient of Variation}
-        
+        \begin{itemize}
+            \item The coefficient of variation is a relative measure of dispersion (the ones before this were absolute measures)
+            \item It expresses variability relative to the mean of the dataset
+            \item The coefficient of variation is defined as
+            \[
+                \text{CV} = \frac{\text{standard deviation}}{\text{mean}}.
+            \]
+            \item It is often expressed as a percentage:
+            \[
+                \text{CV} = \frac{s}{\bar{x}} \times 100\%
+            \]
+            \item The coefficient of variation is unit-free
+            \item It is useful for comparing variability between datasets with different units or different means
+            \item The coefficient of variation is meaningful only when the mean is non-zero
+        \end{itemize}
     \end{frame}
 
 
