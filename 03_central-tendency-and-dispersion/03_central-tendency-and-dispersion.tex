@@ -356,23 +356,79 @@
     \section{Dispersion}
 
 
+    \begin{frame}{Dispersion}
+        \begin{itemize}
+            \item Dispersion describes the extent to which data values are spread out
+            \item It indicates the variability or consistency present in a dataset
+            \item A low dispersion indicates that data values are close to each other, while a high dispersion indicates greater variability
+            \item Measures of dispersion complement measures of central tendency
+            \item Common measures of dispersion include:
+            \begin{itemize}
+                \item Range,
+                \item Interquartile range,
+                \item Mean deviation, Mean absolute deviation
+                \item Variance and standard deviation
+            \end{itemize}
+            \item Dispersion is essential for comparing datasets with similar central tendencies.
+        \end{itemize}
+    \end{frame}
+
+
     \begin{frame}{Range}
-        
+        \begin{itemize}
+            \item The range is the simplest measure of dispersion
+            \item It gives a quick idea of the overall spread of the data
+            \item It is defined as the difference between the largest and smallest observations in a dataset
+            \item If the minimum value is $\min(x)$ and the maximum value is $\max(x)$, then
+            \[
+                \text{Range} = \max(x) - \min(x)
+            \]
+            \item It is highly sensitive to extreme values (outliers)
+            \item The range does not use all observations and provides only a rough measure of variability
+        \end{itemize}
     \end{frame}
 
 
     \begin{frame}{Inter-quartile Range}
-        Used when the range is unduly affected by outliers
+        \begin{itemize}
+            \item The interquartile range (IQR) is a measure of dispersion based on quartiles
+            \item It is defined as the difference between the third and first quartiles
+            \[
+                \textsf{IQR} = Q_3 - Q_1
+            \]
+            \item The IQR measures the spread of the middle 50\% of the data
+            \item Threfore it is not affected by extreme values or outliers
+            \item The IQR is particularly useful for skewed distributions
+            \item It is commonly used to identify outliers
+        \end{itemize}
     \end{frame}
 
 
     \begin{frame}{Mean Deviation}
-        
+        \begin{itemize}
+            \item The mean deviation is defined as the arithmetic mean of deviations from the mean
+            \item For observations $x_1, x_2, \dots, x_n$ with mean $\bar{x}$,
+            \[
+                \frac{1}{n} \sum_{i=1}^{n} (x_i - \bar{x})
+            \]
+            \item The positive and negative deviations cancel each other out
+            \item As a result, the value of this mean deviation is always zero
+            \item Because it is always zero, it is not useful as a measure of dispersion
+            \item This limitation motivates the use of absolute deviations or squared deviations
+        \end{itemize}
     \end{frame}
 
 
     \begin{frame}{Mean Absolute Deviation}
-        
+        \begin{itemize}
+            \item Mean absolute deviation is defined as the arithmetic mean of the absolute deviations of observations from a central value
+            \item For observations $x_1, x_2, \dots, x_n$ with mean $\bar{x}$,
+            \[
+                \text{Mean Deviation} = \frac{1}{n} \sum_{i=1}^{n} |x_i - \bar{x}|.
+            \]
+            \item Mean deviation uses all observations in the dataset
+            \item It is less affected by extreme values than variance and standard deviation
+        \end{itemize}
     \end{frame}
 
 
