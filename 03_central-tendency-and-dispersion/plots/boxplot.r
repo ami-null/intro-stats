@@ -39,7 +39,9 @@ ggplot() +
         axis.ticks.y = element_blank(),
         axis.text.y = element_blank(),
         panel.grid.major.y = element_blank(),
-        panel.grid.minor.y = element_blank()
+        panel.grid.minor.y = element_blank(),
+        panel.background = element_rect(fill = "transparent", colour = NA), # Transparent panel bg
+        plot.background = element_rect(fill = "transparent", colour = NA),   # Transparent plot bg
     )
 
 ggsave("boxplot.pdf", width = 6, heigh = 1.5, units = "in")
@@ -65,7 +67,9 @@ ggplot() +
         axis.ticks.y = element_blank(),
         axis.text.y = element_blank(),
         panel.grid.major.y = element_blank(),
-        panel.grid.minor.y = element_blank()
+        panel.grid.minor.y = element_blank(),
+        panel.background = element_rect(fill = "transparent", colour = NA), # Transparent panel bg
+        plot.background = element_rect(fill = "transparent", colour = NA),   # Transparent plot bg
     )
 
 ggsave("boxplot-annotated.pdf", width = 6, heigh = 1.5, units = "in")
@@ -84,7 +88,9 @@ ggplot(df) +
         # axis.ticks.y = element_blank(),
         # axis.text.y = element_blank(),
         panel.grid.major.y = element_blank(),
-        panel.grid.minor.y = element_blank()
+        panel.grid.minor.y = element_blank(),
+        panel.background = element_rect(fill = "transparent", colour = NA), # Transparent panel bg
+        plot.background = element_rect(fill = "transparent", colour = NA),   # Transparent plot bg
     )
 
 ggsave("boxplot-pair.pdf", width = 6, heigh = 2.5, units = "in")
