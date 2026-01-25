@@ -598,6 +598,37 @@
     \end{frame}
 
 
+    \begin{frame}{Kurtosis}
+        \begin{itemize}
+            \item \textbf{Kurtosis} describes the peakedness and tail heaviness of a distribution
+            \item It indicates how concentrated the data are around the mean
+            \item \textbf{Leptokurtic}: sharper peak with heavier tails
+            \item \textbf{Mesokurtic}: peak not too sharp and tails neither heavy nor light
+            \item \textbf{Platykurtic}: flatter peak with lighter tails
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Kurtosis Comparison}
+        \begin{center}
+            \includegraphics[width=0.8\textwidth]{plots/kurtosis-comparison.pdf}
+        \end{center}
+    \end{frame}
+
+    
+    \begin{frame}{Calculating Kurtosis}
+        \[
+            \text{Kurtosis} = \frac{\frac{\sum (x_i - \bar{x})^4}{n}}{\left(\frac{\sum (x_i - \bar{x})^2}{n}\right)^2}-3
+        \]
+
+        \begin{itemize}
+            \item If kurtosis = 0, then the distribution is mesokurtic
+            \item If it is positive, then leptokurtic
+            \item If it is negative, then platykurtic
+        \end{itemize}
+    \end{frame}
+
+
     \section{Outlier}
 
 
