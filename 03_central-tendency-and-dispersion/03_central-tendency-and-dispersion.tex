@@ -631,6 +631,71 @@
 
     \section{Outlier}
 
+    \begin{frame}{Outlier}
+        \begin{itemize}
+            \item Outliers are observations that are different from the rest of the data
+            \item They may arise due to measurement errors, data entry errors, or genuine extreme values
+            \item Outliers can strongly affect measures such as the mean, variance, and standard deviation
+            \item Measures like the median and interquartile range are more resistant to outliers
+            \item A common rule for identifying outliers is based on the interquartile range:
+            \[
+                \text{Lower bound} = Q_1 - 1.5 \times \text{IQR}, \quad
+                \text{Upper bound} = Q_3 + 1.5 \times \text{IQR}
+            \]
+            \item Values outside this range are considered outliers
+            \item Outliers should be investigated carefully before being removed
+        \end{itemize}
+    \end{frame}
+
+
+    \section{Boxplot}
+
+    % \begin{frame}{Boxplot}
+    %     \begin{center}
+    %         \includegraphics[width=\textwidth]{plots/boxplot.pdf}
+    %     \end{center}
+    % \end{frame}
+
+    \begin{frame}{Boxplot}
+        \begin{center}
+            \includegraphics[width=\textwidth]{plots/boxplot.pdf}
+        \end{center}
+
+        \vfill
+
+        \begin{itemize}
+            \item A boxplot is a graphical method for summarizing the distribution of a dataset
+            \item It is based on the five-number summary: a lower fence, $Q_1$, median ($Q_2$), $Q_3$, and an upper fence
+            \item The box represents the interquartile range ($Q_3 - Q_1$)
+            \item The line inside the box indicates the median
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Boxplot (cont.)}
+        \begin{center}
+            \includegraphics[width=\textwidth]{plots/boxplot-annotated.pdf}
+        \end{center}
+
+        \vfill
+
+        \begin{itemize}
+            \item \textbf{Lower fence} $=Q_1 - 1.5 \times \text{IQR}$, \textbf{upper fence} $=Q_3 + 1.5 \times \text{IQR}$
+            \item Whiskers extend to the smallest and largest non-outlier observations (lower fence and upper fence)
+            \item Observations beyond the whiskers are plotted individually as outliers
+            \item Thus boxplots can be used to detect outliers graphically
+        \end{itemize}
+        % \vspace{1.28em}
+    \end{frame}
+
+
+    \begin{frame}{Comparing Groups with Boxplot}
+        \begin{center}
+            \includegraphics[width=\textwidth]{plots/boxplot-pair.pdf}
+        \end{center}
+        Section 2 has lower average (median) score, but its maximum score is higher than that of section 1. Further, section 2 has higher variability.
+    \end{frame}
+
 
     \section*{Questions?}
 
