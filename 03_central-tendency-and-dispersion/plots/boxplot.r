@@ -22,13 +22,19 @@ df <- data.frame(
 
 # boxplot(Score ~ Section, df, horizontal = T)
 
+xq1 <- quantile(x, 0.25)
+xq2 <- quantile(x, 0.5)
+xq3 <- quantile(x, 0.75)
+xll <- xq1 - 1.5* IQR(x)
+xul <- xq3 + 1.5* IQR(x)
+
 library(ggplot2)
 ggplot() +
     aes(x=x) +
-    geom_boxplot(alpha = 0.75, width = 0.75, staplewidth = 0.35) +
+    geom_boxplot(alpha = 0.75, width = 0.65, staplewidth = 0.35) +
     theme_minimal(base_size = 14) +
-    xlab("Marks") +
-    ylim(c(-0.6, 0.6)) +
+    xlab("Score") +
+    ylim(c(-0.65, 0.65)) +
     theme(
         axis.ticks.y = element_blank(),
         axis.text.y = element_blank(),
@@ -37,6 +43,32 @@ ggplot() +
     )
 
 ggsave("boxplot.pdf", width = 6, heigh = 1.5, units = "in")
+
+
+ggplot() +
+    aes(x=x) +
+    geom_boxplot(alpha = 0.75, width = 0.65, staplewidth = 0.35) +
+    theme_minimal(base_size = 14) +
+    xlab("Score") +
+    ylim(c(-0.65, 0.65)) +
+    annotate("text", x = xq1, y = -0.55, label = "Q1", colour = "red") +
+    annotate("text", x = xq2, y = -0.55, label = "Q2", colour = "red") +
+    annotate("text", x = xq3, y = -0.55, label = "Q3", colour = "red") +
+    annotate("text", x = xll, y = -0.55, label = "Q1-1.5 IQR", colour = "red") +
+    annotate("text", x = xul, y = -0.55, label = "Q3+1.5 IQR", colour = "red") +
+    # annotate("text", x = xq1, y = -0.3, label = "|", colour = "red") +
+    # annotate("text", x = xq2, y = -0.3, label = "|", colour = "red") +
+    # annotate("text", x = xq3, y = -0.3, label = "|", colour = "red") +
+    # annotate("text", x = xll, y = -0.3, label = "|", colour = "red") +
+    # annotate("text", x = xul, y = -0.3, label = "|", colour = "red") +
+    theme(
+        axis.ticks.y = element_blank(),
+        axis.text.y = element_blank(),
+        panel.grid.major.y = element_blank(),
+        panel.grid.minor.y = element_blank()
+    )
+
+ggsave("boxplot-annotated.pdf", width = 6, heigh = 1.5, units = "in")
 
 
 
