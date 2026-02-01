@@ -78,7 +78,7 @@ ggsave("boxplot-annotated.pdf", width = 6, height = 1.5, units = "in")
 
 
 
-library(ggplot2)
+
 ggplot(df) +
     aes(x=Score, group = Section, y = Section) +
     geom_boxplot(alpha = 0.75, width = 0.5, staplewidth = 0.35) +
@@ -119,7 +119,7 @@ ggplot() +
         panel.background = element_rect(fill = "transparent", colour = NA), # Transparent panel bg
         plot.background = element_rect(fill = "transparent", colour = NA),   # Transparent plot bg
     )
-ggsave("boxplot-symmetric.pdf", width = 6, height = 2.5, units = "in")
+ggsave("boxplot-symmetric.pdf", width = 6, height = 1.5, units = "in")
 
 
 set.seed(2)
@@ -140,7 +140,7 @@ ggplot() +
         panel.background = element_rect(fill = "transparent", colour = NA), # Transparent panel bg
         plot.background = element_rect(fill = "transparent", colour = NA),   # Transparent plot bg
     )
-ggsave("boxplot-left-skewed.pdf", width = 6, height = 2.5, units = "in")
+ggsave("boxplot-left-skewed.pdf", width = 6, height = 1.5, units = "in")
 
 
 set.seed(3)
@@ -161,4 +161,4 @@ ggplot() +
         panel.background = element_rect(fill = "transparent", colour = NA), # Transparent panel bg
         plot.background = element_rect(fill = "transparent", colour = NA),   # Transparent plot bg
     )
-ggsave("boxplot-right-skewed.pdf", width = 6, height = 2.5, units = "in")
+ggsave("boxplot-right-skewed.pdf", width = 6, height = 1.5, units = "in")
