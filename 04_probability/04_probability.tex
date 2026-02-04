@@ -28,8 +28,163 @@
 	\section{Introduction}
 
     \begin{frame}{What is Probability?}
-        
+        Probability deals with uncertainty and quantifies how likely an event is to occur.
+		\begin{itemize}
+			\item Many real-life situations involve uncertainty rather than certainty
+			\item Probability helps us make informed decisions under uncertainty
+			\item It provides a numerical measure of chance, between 0 and 1
+			\item A probability close to 0 indicates a rare event
+			\item A probability close to 1 indicates a highly likely event
+		\end{itemize}
     \end{frame}
 
+
+	\begin{frame}{Examples}
+		Probability concepts appear naturally in daily activities.
+		\begin{itemize}
+			\item Weather forecasting: chance of rain tomorrow
+			\item Medical testing: likelihood that a test result is correct
+			\item Games and sports: chances of winning or losing
+			\item Traffic planning: probability of congestion at a given time
+			\item Finance: risk assessment and expected returns
+		\end{itemize}
+	\end{frame}
+
+
+	\begin{frame}{Example: Tossing a Coin}
+		\begin{itemize}
+			\item The experiment consists of tossing a fair coin once
+			\item Possible outcomes are Head (H) and Tail (T)
+			\item Each outcome has an equal chance of occurring
+			\item Probability of Head = $0.5$
+			\item Probability of Tail = $0.5$
+		\end{itemize}
+	\end{frame}
+
+
+	\section{Key Concept and Terms}
+
+
+	\begin{frame}{Experiment}
+		\begin{itemize}
+			\item An experiment is any process that can be repeated under certain conditions and that produces an observable result
+			\item The result of an experiment is called an outcome
+			\item Example:
+			\begin{itemize}
+				\item Tossing a coin or a dice
+				\item Measuring daily rainfall
+				\item Conducting chemical reactions
+			\end{itemize}
+		\end{itemize}		
+	\end{frame}
+
+
+	\begin{frame}{Outcome}
+		\begin{itemize}
+			\item An outcome is a single possible result of an experiment
+			\item There can be one or more \emph{potential} outcomes
+			\item Each experiment produces exactly one outcome
+			\item Outcomes may be numerical or categorical
+			\item Example:
+			\begin{itemize}
+				\item Getting a head when tossing a coin
+				\item Getting a 4 when throwing a dice
+			\end{itemize}
+		\end{itemize}		
+	\end{frame}
+
+
+	\begin{frame}{Types of Experiment}
+		Experiments can be categorized in to two types based on the nature of their outcome(s):
+		\begin{itemize}
+			\item Deterministic: outcome is known or can be predicted with certainty
+			\item Random: outcome is unknown and cannot be predicted with certainty
+		\end{itemize}
+	\end{frame}
+
+
+	\begin{frame}{Random Experiment}
+	A random experiment is an experiment whose outcome cannot be predicted with certainty.
+		\begin{itemize}
+			\item The same experiment may produce different outcomes on repetition
+			\item Potential outcomes are known, but which one will occur is uncertain
+			\item Examples:
+			\begin{itemize}
+				\item Tossing a coin
+				\item Rolling a dice
+				\item Drawing a card from a shuffled deck
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
+
+
+	\begin{frame}{Deterministic Experiment}
+		A deterministic experiment is an experiment whose outcome can be predicted with certainty.
+		\begin{itemize}
+			\item Repeating the experiment under identical conditions gives the same result
+			\item No randomness is involved
+			\item Examples:
+			\begin{itemize}
+				\item Calculating the sum of two fixed numbers
+				\item Measuring the boiling point of pure water at standard pressure
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
+
+
+	\begin{frame}{Iteration (Trial or Repetition)}
+	An iteration refers to repeating an experiment under identical conditions.
+		\begin{itemize}
+			\item Each repetition is called a trial.
+			\item Iterations help study long-run behavior of outcomes.
+			\item Examples:
+			\begin{itemize}
+				\item Tossing a coin 100 times.
+				\item Rolling a die repeatedly and recording outcomes.
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
+
+	
+	\begin{frame}{Permutation}
+		A permutation is an arrangement of objects where the order matters.
+		\begin{itemize}
+			\item Number of permutations of $r$ objects chosen from $n$ distinct objects:
+			\[
+				^nP_r = \frac{n!}{(n-r)!}
+			\]
+			\item Used when positions or order are important
+			\item Example:
+			\begin{itemize}
+				\item Number of ways to arrange 3 students out of 5 in a row:
+				\[
+					^5P_3 = \frac{5!}{2!} = 60
+				\]
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
+
+
+	\begin{frame}{Combination}
+	A combination is a selection of objects where the order does not matter.
+		\begin{itemize}
+			\item Number of combinations of $r$ objects chosen from $n$ distinct objects:
+			\[
+				^nC_r = \frac{n!}{r!(n-r)!}
+			\]
+			\item Used when only selection matters, not arrangement
+			\item Example:
+			\begin{itemize}
+				\item Number of ways to choose 3 students from 5:
+				\[
+					^5C_3 = \frac{5!}{3!2!} = 10
+				\]
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
+
+
+
+	\section*{Thank you.}
 
 \end{document}
