@@ -292,6 +292,59 @@
 	\end{frame}
 
 
+	\section{Definition of Probability}
+
+
+	\begin{frame}{Classical Definition of Probability}
+		The classical definition applies when outcomes are equally likely.
+		\begin{itemize}
+			\item If $A$ is an event:
+			\[
+				P(A) = \frac{\text{Number of favorable outcomes}}{\text{Total number of outcomes}}
+			\]
+			\item Example:
+			\begin{itemize}
+				\item Probability of getting an even number on a dice:
+				\[
+					P(\text{getting an even number}) = \frac{3}{6} = \frac{1}{2}
+				\]
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
+
+
+	\begin{frame}{Frequency (Empirical) Definition of Probability}
+		Probability is defined as the long-run relative frequency of an event.
+		\begin{itemize}
+			\item Based on repeated experiments
+			\item If an event $A$ occurs $f$ times in $n$ trials:
+			\[
+				P(A) \approx \lim_{n \to \infty} \frac{f}{n}
+			\]
+			\item Becomes more accurate as $n$ increases
+			\item For example, if a coin is tossed $1{,}000$ times and $520$ heads are seen, then probability of getting a head is $520/1000=0.52$
+		\end{itemize}
+	\end{frame}
+
+
+	\begin{frame}{Axiomatic Definition of Probability}
+	Probability is defined using a set of axioms.
+		\begin{itemize}
+			\item Proposed by Kolmogorov
+			\item For any event $A$:
+			\begin{itemize}
+				\item $0 \le P(A) \le 1$ \emph{(probability is a number between $0$ and $1$)}
+				\item $P(S) = 1$ \emph{(probability of sample space is $1$)}
+				\item For a sequence of disjoint (mutually exclusive) events $A_1, A_2,...,A_k$:
+				\[
+					P(A_1, A_2,...,A_k) = P(A_1) + P(A_2) + ... + P(A_k)
+				\]
+			\end{itemize}
+			\item Forms the foundation of modern probability theory
+		\end{itemize}
+	\end{frame}
+
+
 
 
 	\section*{Thank you.}
