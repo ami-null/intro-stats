@@ -471,8 +471,36 @@
 			
 			$1 - P(M \cup C) = 1 - 0.8 = 0.2$
 		\end{enumerate}
-		
 	\end{frame}
+
+
+	\begin{frame}{Conditional Probability}
+		Conditional probability measures the likelihood of an event given that another event has occurred.
+		\[
+		P(A \mid B) = \frac{P(A \cap B)}{P(B)}, \quad P(B) > 0
+		\]
+
+		% \textbf{Example:}
+		% If \(P(A \cap B) = 0.2\) and \(P(B) = 0.4\),
+		% \[
+		% P(A \mid B) = \frac{0.2}{0.4} = 0.5
+		% \]
+
+		\begin{center}
+			\begin{tikzpicture}[scale=0.9]
+				\draw (-2.85, -1.8) rectangle (2.85, 1.8);
+				\draw (1,0) circle (1.5);
+				\fill[gray!30] (1,0) circle (1.7);
+				\draw (-1,0) circle (1.7);
+				\node at (-2.5,1.4) {$A$};
+				\node at (2.5,1.4) {$B$};
+				\node at (0,0) {$A \cap B$};
+				\node at (3.1,1.65) {$S$};
+			\end{tikzpicture}
+		\end{center}
+		The information that event $B$ has already occured, shrinks the samples space to the set denoted by $B$.
+	\end{frame}
+
 
 
 
