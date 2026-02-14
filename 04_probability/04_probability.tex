@@ -502,6 +502,46 @@
 	\end{frame}
 
 
+	\begin{frame}{Conditional Probability: Example 1}
+		The sample space of a dice throw is, $S = \{1, 2, 3, 4, 5, 6\}$, then the probability of getting a $2$ is: $P(2) = 1/6$.
+
+		\vspace{1.5em}
+
+		Suppose it is known that an even number occured (the specific number that occured, is not yet disclosed).
+		
+		\vspace{0.5em}
+		
+		Then the sample space shrinks, it becomes: $S^* = \{2, 4, 6\}$. Then $P(2 | \text{even}) = 1/3$.
+
+		\vspace{1.5em}
+
+		It can also be written as: $P(2 | \text{even}) = \frac{P(2 \, \text{and even})}{P(\text{even})} = \frac{1/6}{3/6} = \frac{1}{3}$.
+	\end{frame}
+
+	
+	\begin{frame}{Conditional Probability: Example 2}
+		In a company, $60\%$ of the employees have motorcycle, $40\%$ have private car and $20\%$ have both.
+		
+		\vspace{0.5em}
+
+		If an employee is selected randomly from that company. What is the probability that:
+
+		\begin{enumerate}
+			\item the employee has a car given that he/she has a motorcycle?
+			\item the employee has a motorcycle given that he/she has a car?
+		\end{enumerate}
+	\end{frame}
+
+
+	\begin{frame}{Conditional Probability: Example 2 Solution}
+		\begin{enumerate}
+			\item Probability that the employee has a car given that he/she owns a motorcycle:
+				\[P(C|M) = \frac{P(C \cap M)}{P(M)} = \frac{0.2}{0.6} = 1/3\]
+
+			\item Probability that the employee has a motorcycle given that he/she owns a car:
+				\[P(M|C) = \frac{P(C \cap M)}{P(C)} = \frac{0.2}{0.4} = 1/2\]
+		\end{enumerate}
+	\end{frame}
 
 
 	\section*{Thank you.}
