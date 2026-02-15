@@ -481,16 +481,23 @@
 
 	\begin{frame}{Conditional Probability}
 		Conditional probability measures the likelihood of an event given that another event has occurred.
+
+		\vspace{0.5em}
+		Probability that the event $A$ will occur given that the $B$ has already occurred:
 		\[
 		P(A \mid B) = \frac{P(A \cap B)}{P(B)}, \quad P(B) > 0
 		\]
 
-		% \textbf{Example:}
-		% If \(P(A \cap B) = 0.2\) and \(P(B) = 0.4\),
-		% \[
-		% P(A \mid B) = \frac{0.2}{0.4} = 0.5
-		% \]
+		Since $B$ has already occurred:
+		\begin{itemize}
+			\item if the event $A$ is to occur, then the set of favourable outcomes is given by $A \cap B$
+			\item it also shrinks the samples to $B$ only
+		\end{itemize}
 
+	\end{frame}
+
+
+	\begin{frame}{Conditional Probability (cont.)}
 		\begin{center}
 			\begin{tikzpicture}[scale=0.9]
 				\draw (-2.85, -1.8) rectangle (2.85, 1.8);
