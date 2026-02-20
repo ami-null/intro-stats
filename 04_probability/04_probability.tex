@@ -638,6 +638,8 @@
 		
 		Let $D$ be the event that an item is defective.
 
+		\vspace{0.5em}
+
 		\(P(B_1)=0.6\), \quad \(P(B_2)=0.4\)  
 
 		\(P(D \mid B_1)=0.02\), \quad \(P(D \mid B_2)=0.05\)
@@ -647,6 +649,38 @@
 
 		Overall probability of a defective item is \(0.032\).
 	\end{frame}
+
+
+	\begin{frame}{Law of Total Probability (cont.)}
+		For two events $E$ and $F$, the law can also be written as:
+		\[
+			P(E) = P(E \mid F) \, P(F) + P(E \mid F^c) \, P(F^c)
+		\]
+	\end{frame}
+
+
+	\begin{frame}{Bayes' Theorem}
+		Bayes' theorem reverses conditional probabilities. Assuming $P(B) > 0$:
+
+		\begin{align*}
+			P(A \mid B) &= \frac{P(B \cap A)}{P(B)}\\
+						&= \frac{P(B \mid A)\,P(A)}{P(B)}\\
+						&= \frac{P(B \mid A)\,P(A)}{P(B \mid A)\,P(A) + P(B \mid A^c)\,P(A^c)}
+		\end{align*}
+
+		% \[
+		% 	P(A \mid B) = \frac{P(B \mid A)\,P(A)}{P(B)}, \quad P(B) > 0
+		% \]
+
+		% \textbf{Example:}
+		% Let \(P(A) = 0.3\), \(P(B \mid A) = 0.5\), and \(P(B) = 0.4\).
+		% \[
+		% P(A \mid B) = \frac{0.5 \times 0.3}{0.4} = 0.375
+		% \]
+
+	\end{frame}
+
+
 
 
 	\section*{Thank you.}
