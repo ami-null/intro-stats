@@ -647,7 +647,7 @@
 		P(D)=0.02(0.6)+0.05(0.4)=0.012+0.02=0.032
 		\]
 
-		Overall probability of a defective item is \(0.032\).
+		Overall probability of a defective item is \(0.032\). \label{total-prob-example}
 	\end{frame}
 
 
@@ -662,11 +662,13 @@
 	\begin{frame}{Bayes' Theorem}
 		Bayes' theorem reverses conditional probabilities. Assuming $P(B) > 0$:
 
-		\begin{align*}
-			P(A \mid B) &= \frac{P(B \cap A)}{P(B)}\\
-						&= \frac{P(B \mid A)\,P(A)}{P(B)}\\
-						&= \frac{P(B \mid A)\,P(A)}{P(B \mid A)\,P(A) + P(B \mid A^c)\,P(A^c)}
-		\end{align*}
+		\begin{align}
+			P(A \mid B) &= \frac{P(B \cap A)}{P(B)} \notag \\ 
+						&= \frac{P(B \mid A)\,P(A)}{P(B)} \label{eq:bayes1}\\
+						&= \frac{P(B \mid A)\,P(A)}{P(B \mid A)\,P(A) + P(B \mid A^c)\,P(A^c)} \label{eq:bayes2}
+		\end{align}
+
+		Equation (\ref{eq:bayes1}) ans (\ref{eq:bayes2}) are known as the Bayes' Rule.
 
 		% \[
 		% 	P(A \mid B) = \frac{P(B \mid A)\,P(A)}{P(B)}, \quad P(B) > 0
@@ -681,6 +683,65 @@
 	\end{frame}
 
 
+	\begin{frame}{Bayes' Theorem (cont.)}
+		\[
+			P(A \mid B) = \frac{P(B \mid A)\,P(A)}{P(B)}
+		\]
+
+		\vspace{0.5em}
+
+		This theorem provies a framework to update one's belief when faced with new information.
+
+		\vspace{0.5em}
+
+		\begin{itemize}
+			\item $P(A)$ is the \emph{prior} belief regarding the probability of event $A$
+			\item The event $B$ has occured, is the new information
+			\item $P(A \mid B)$ is the \emph{posterior} or the updated belief after it gets known that $B$ has occured
+		\end{itemize}
+	\end{frame}
+
+
+	\begin{frame}{Bayes' Theorem: Example 1}
+		Let \(P(A) = 0.3\), \(P(B \mid A) = 0.5\), and \(P(B) = 0.4\).
+		\[
+			P(A \mid B) = \frac{0.5 \times 0.3}{0.4} = 0.375
+		\]
+	\end{frame}
+
+
+	\begin{frame}{Bayes' Theorem: Example 2}
+		Continuing from the example in page \ref{total-prob-example}, suppose an item is found to be defective, calculate the probability that:
+		\begin{enumerate}
+			\item it was produced by machine $B_1$
+			\item it was produced by machine $B_2$
+		\end{enumerate}
+		
+		\vspace{1em}
+
+		Recall the following from page \ref{total-prob-example}:
+
+		\(P(B_1)=0.6\), \quad \(P(B_2)=0.4\)
+
+		\(P(D \mid B_1)=0.02\), \quad \(P(D \mid B_2)=0.05\)
+		\(
+			P(D)=0.02(0.6)+0.05(0.4)=0.012+0.02=0.032
+		\)
+	\end{frame}
+
+
+	\begin{frame}{Bayes' Theorem: Example 2 Solution}
+		\begin{enumerate}
+			\item Probability that the item was produced by $B_1$ given that the item was defective:
+			\[
+				P(B_1 \mid D) = \frac{P(D \mid B_1) \, P(B_1)}{P(D)} = \frac{0.02 \times 0.6}{0.032} = 0.375
+			\]
+			\item Probability that the item was produced by $B_2$ given that the item was defective:
+			\[
+				P(B_2 \mid D) = \frac{P(D \mid B_2) \, P(B_2)}{P(D)} = \frac{0.05 \times 0.4}{0.032} = 0.625
+			\]
+		\end{enumerate}
+	\end{frame}
 
 
 	\section*{Thank you.}
