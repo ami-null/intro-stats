@@ -653,9 +653,10 @@
 
 	\begin{frame}{Law of Total Probability (cont.)}
 		For two events $E$ and $F$, the law can also be written as:
-		\[
-			P(E) = P(E \mid F) \, P(F) + P(E \mid F^c) \, P(F^c)
-		\]
+		\begin{align*}
+			P(E) &= P(E \cap F) + P(E \cap F^c) \\
+			     &= P(E \mid F) \, P(F) + P(E \mid F^c) \, P(F^c)
+		\end{align*}
 	\end{frame}
 
 
