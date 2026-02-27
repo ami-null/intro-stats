@@ -232,6 +232,14 @@
 	\end{frame}
 
 
+	\begin{frame}{Joint Probability}
+		\begin{itemize}
+			\item When it is of interest to find the probability that two events will occur simultaneously, it is called joint probability
+			\item For example, the probability that both event $A$ and $B$ will occur is given by: $P(A \cap B)$
+		\end{itemize}
+	\end{frame}
+
+
 	\begin{frame}{Mutually Exclusive Events}
 		Two or more events are mutually exclusive if they cannot occur simultaneously.
 		\begin{itemize}
@@ -240,6 +248,7 @@
 			\[
 				A \cap B = \varnothing
 			\]
+			\item Therefore, $$P(A \cap B) = 0$$
 			\item Example (dice roll):
 			\begin{itemize}
 				\item $A$: getting an even number
@@ -352,7 +361,7 @@
 				\item $P(S) = 1$ \emph{(probability of sample space is $1$)}
 				\item For a sequence of disjoint (mutually exclusive) events $A_1, A_2,...,A_k$:
 				\[
-					P(A_1, A_2,...,A_k) = P(A_1) + P(A_2) + ... + P(A_k)
+					P(A_1 \cap A_2 \cap ... \cap A_k) = P(A_1) + P(A_2) + ... + P(A_k)
 				\]
 			\end{itemize}
 			\item Forms the foundation of modern probability theory
@@ -427,7 +436,7 @@
 	\begin{frame}{Addition Law of Probability (Disjoint Case, More than Two Events)}
 		For a sequence of disjoint (mutually exclusive) events $A_1, A_2,...,A_k$:
 		\[
-			P(A_1, A_2,...,A_k) = P(A_1) + P(A_2) + ... + P(A_k)
+			P(A_1 \cap A_2 \cap ... \cap A_k) = P(A_1) + P(A_2) + ... + P(A_k)
 		\]
 	\end{frame}
 
