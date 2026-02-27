@@ -30,8 +30,86 @@
 	\section{Random Variable}
 
     \begin{frame}{Introduction}
-        A variable which takes numerical values resulting from random experiments, is called a random variable.
+        A variable which takes numerical values resulting from random experiments, is called a random variable (RV).
+
+		\begin{itemize}
+			\item There is a probability associated with each possible values
+			\item Random variables are denoted by capital letters such as $X, Y, Z$ etc.
+			\item Possible values are denoted by small letters such as $x, y, z$ etc.
+			\item Example:
+			\begin{itemize}
+				\item Height of students
+				\item Number of heads when tossing a coin three times
+			\end{itemize}
+		\end{itemize}
     \end{frame}
+
+
+	\begin{frame}{Types of Random Variable}
+		\begin{itemize}
+			\item \textbf{Discrete random variable}: A random variable defined over a discrete sample space
+			\begin{itemize}
+				\item Number of students in a class, sample space, $S = {0, 1, 2, ..., \infty}$
+				\item Number of correct answers in among $50$ questions, $S = {0, 1, 2, ..., 50}$
+			\end{itemize}
+			\item \textbf{Continuous random variable}: A random variable defined over a continuous sample space
+			\begin{itemize}
+				\item Monthly income, $S = {X: 0 \leq x < \infty}$
+				\item Monthly profit, $S = {X: -\infty < x < \infty}$
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
+
+
+	\section{Probability Distribution}
+
+	\begin{frame}{Probability Distribution}
+		\begin{itemize}
+			\item Probability distribution means the distribution of the probabilities among the different values of a random variable
+			\item For example, when tossing a coin twice, the sample space, $S = \{HH, HT, TH, TT\}$
+			\item Let an RV, $X = $ number of heads in two coin tosses, then $X$ can take the values: $0, 1, 2$
+			\item Then the probability of each value of $X$:
+			\begin{center}
+				\begin{tabular}{c|c}
+					\hline
+					$x$ & $P(X = x)$ \\
+					\hline
+					$0$ & $1/4$ \\
+					$1$ & $2/4$ \\
+					$2$ & $1/4$ \\
+					\hline
+				\end{tabular}
+			\end{center}
+		\end{itemize}
+	\end{frame}
+
+
+	\begin{frame}{Types of Probability Distributions}
+		Depending on the type of variable, distributions are of two types:
+		\begin{itemize}
+			\item \textbf{Discrete probability distribution}: probability distribution of a discrete random variable
+			\item \textbf{Continuous probability distribution}: probability distribution of a continuous random variable
+		\end{itemize}
+	\end{frame}
+
+
+	\begin{frame}{Discrete probability distribution}
+		\begin{itemize}
+			\item The probability distribution of a discrete random variable is a table, graph, formula, or other device used to specify all possible values of a discrete random variable along with their respective probabilities
+			\item If we let the discrete probability distribution be represented by the function $p(x)$, then $p(x) = P(X = x)$ is the probability of the discrete random variable $X$ to assume a value $x$
+			\item $p(x)$ is called a probability mass function (PMF)
+		\end{itemize}
+	\end{frame}
+
+
+	\begin{frame}{Probability Mass Function (PMF)}
+		A function, p(x), of a discrete random variable X will be called a PMF, if and only if all the following conditions are satisfied:
+		\begin{enumerate}
+			\item $p(x) \ge 0; \, \forall x$
+			\item $\displaystyle \sum_{x} p(x) = 1$
+			\item $P(X = a) = p(a)$
+		\end{enumerate}
+	\end{frame}
 
 
 
