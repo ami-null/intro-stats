@@ -103,6 +103,10 @@
 
 
 	\begin{frame}{Probability Mass Function (PMF)}
+		A probability mass function gives the probability of each of the value of a discrete random variable.
+
+		\vspace{0.5em}
+
 		A function, $p(x)$, of a discrete random variable $X$ will be called a PMF, if and only if all the following conditions are satisfied:
 		\begin{enumerate}
 			\item $p(x) \ge 0; \, \forall x$
@@ -128,6 +132,51 @@
 			\end{center}
 	\end{frame}
 
+
+	\begin{frame}{Probabiilty Desity Function (PDF)}
+		The probability distribution of a continuous random variable is called continuous probability distribution. The probabilities are given by the probability density function (PDF) of that distribution.
+
+		\vspace{0.5em}
+
+		A function $f(x)$ of a continuous random variable $X$ is called the PDF of $X$ if and only if the following conditions are satisfied:
+		\begin{enumerate}
+			\item $f(x) \ge 0; \, \forall x$
+			\item $\int_x f(x) dx = 1$
+			\item $P(a \le X \le b) = \int_a^b f(x) dx$
+		\end{enumerate}
+		Here, $\int_x f(x) dx$ means integration of $f(x)$ over the whole sample space of $X$. Sometimes, it's also written as $\int_{-\infty}^{\infty} f(x) dx$.
+	\end{frame}
+
+
+	\begin{frame}{PDF: Example}
+		Suppose $X$ is a continuous random variable whose density function is given by:
+		\[
+			f(x) = \begin{cases}
+					C(4x - 2x^2) \quad & \text{if}\, 0 < x < 2 \\
+					0 & \text{otherwise}
+				\end{cases}
+		\]
+		\begin{enumerate}
+			\item What is the value of $C$?
+			\item Find $P(X>1)$.
+		\end{enumerate}
+	\end{frame}
+
+
+	\begin{frame}{PDF: Example Solution}
+		\begin{enumerate}
+			\item \begin{align*}
+				& \int_x f(x) dx = 1 \\
+				\Rightarrow & \int_0^2 C(4x - 2x^2) dx = 1 \\
+				\Rightarrow &\,  C\big[4x^2/2 - 2x^3/3\big]_0^2 = 1 \\
+				\Rightarrow &\, C = 3/8
+			\end{align*}
+
+			\item \[
+				P(X>1) = \int_1^2 \frac{3}{8} (4x - 2x^2) = 1/2
+			\]
+		\end{enumerate}
+	\end{frame}
 
 
     \section*{Thank you.}
