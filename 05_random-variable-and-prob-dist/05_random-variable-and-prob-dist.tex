@@ -180,6 +180,22 @@
 			\]
 		\end{enumerate}
 	\end{frame}
+	
+
+	\begin{frame}{Cumulative Distribution Function (CDF)}
+		The cumulative distribution function (CDF) gives the probability that a random variable $X$ is lower than some value $x$. Sometimes, it is also called ``distribution function''.
+
+		\begin{itemize}
+			\item For discrete random variable, it is given by  $P(X<x) = \displaystyle \sum_{k=-\infty}^{x} p(k)$
+			\item For continuous case, it is denoted by $F(x)$
+			\[
+				F(x) = P(X<x) = \int_{-\infty}^{x} f(x) dx
+			\]
+			\item It is a non-decreasing function
+		\end{itemize}
+
+		Here, summing/integrating from $-\infty$ means that the lower limit of the sum/integral is the smallest value in the domain of the random variable $X$.
+	\end{frame}
 
 
 	\begin{frame}{CDF: Example 1}
@@ -214,22 +230,6 @@
 
 
 	\section{Mathematical Expectation and Variance}
-
-
-	\begin{frame}{Cumulative Distribution Function (CDF)}
-		The cumulative distribution function (CDF) gives the probability that a random variable $X$ is lower than some value $x$. Sometimes, it is also called ``distribution function''.
-
-		\begin{itemize}
-			\item For discrete random variable, it is given by  $P(X<x) = \displaystyle \sum_{k=-\infty}^{x} p(k)$
-			\item For continuous case, it is denoted by $F(x)$
-			\[
-				F(x) = P(X<x) = \int_{-\infty}^{x} f(x) dx
-			\]
-			\item It is a non-decreasing function
-		\end{itemize}
-
-		Here, summing/integrating from $-\infty$ means that the lower limit of the sum/integral is the smallest value in the domain of the random variable $X$.
-	\end{frame}
 
 
 	\begin{frame}{Mathematical Expectation}
