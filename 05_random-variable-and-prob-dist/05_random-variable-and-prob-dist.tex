@@ -225,7 +225,15 @@
 					0 & \text{otherwise}
 				\end{cases}
 		\]
-		Find the CDF of $X$.
+		Find the CDF of $X$:
+
+		\begin{align*}
+			F(X) &= \int_{0}^{x} f(x) dx \\
+			&=  \int_{0}^{x} \frac{3}{8}(4x - 2x^2) dx \\
+			&= \frac{3}{8} \big[(4x^2/2 - 2x^3/3) \big]_0^x
+			= \frac{3}{8} \big[(2x^2 - 2x^3/3) - 0 \big]
+			= \frac{3}{8} (2x^2 - 2x^3/3)
+		\end{align*}
 	\end{frame}
 
 
