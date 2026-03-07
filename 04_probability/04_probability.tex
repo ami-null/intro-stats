@@ -754,6 +754,116 @@
 	\end{frame}
 
 
+	\section{Calculating Approximate Probability from Contingency Table}
+
+	\begin{frame}{Contingency Table}
+        \begin{itemize}
+            \item A contingency table is used to summarize the relationship between two (or more) categorical variables
+            \item Data are arranged in rows and columns, where each cell contains the frequency for a specific combination of categories
+            \item Row totals, column totals, and a grand total are often included
+            \item It helps identify patterns, associations, or possible dependence between variables
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Example: Contingency Table}
+        \begin{center}
+        \begin{tabular}{l|cc|c}
+            \toprule
+             & \multicolumn{2}{c|}{\textbf{Lung Cancer}} & \\
+            \cmidrule(lr){2-3}
+            \textbf{Smoking}   & \textbf{Yes} & \textbf{No} & \textbf{Total} \\
+            \midrule
+            Smoker                 & 55            & 35           & 90 \\
+            Non-smoker             & 15            & 95           & 110 \\
+            \midrule
+            \textbf{Total}         & 70            & 130          & 200 \\
+            \bottomrule
+        \end{tabular}
+        \end{center}
+        \vspace{0.5em}
+        In the above, it can be seen that lung cancer percentage is higher among the smokers compared to those who do not smoke.
+    \end{frame}
+
+
+	\begin{frame}{Probability from Contingency Table}
+		Three types of probabilities can be calculated from contingency tables:
+		\begin{itemize}
+			\item \textbf{Marginal probability}: Marginal probability is the probability of a single event regardless of the other variable
+			\item \textbf{Joint probability}: Joint probability is the probability that two events occur simultaneously
+			\item \textbf{Conditional probability}: Conditional probability is the probability of an event occurring given that another event has already occurred
+		\end{itemize}
+	\end{frame}
+
+
+	\begin{frame}{Marginal Probability}
+		Marginal probability is the probability of a single event regardless of the other variable.
+
+		It is calculated using the row totals or column totals.
+
+		\textbf{Examples}:
+
+		Probability that a randomly selected individual is a smoker:
+
+		\[
+		P(\text{Smoker}) = \frac{90}{200} = 0.45
+		\]
+
+		Probability that a randomly selected individual has lung cancer:
+
+		\[
+		P(\text{Cancer}) = \frac{70}{200} = 0.35
+		\]
+
+		These probabilities come from the margins (totals) of the table.
+	\end{frame}
+
+
+	\begin{frame}{Joint Probability}
+		Joint probability is the probability that two events occur simultaneously.
+
+		\[
+		P(A \cap B)
+		\]
+
+		In a contingency table, joint probabilities are obtained by dividing the cell frequency by the total number of observations.
+
+		\textbf{Examples}:
+
+		\[
+		P(\text{Smoker and Cancer}) = \frac{55}{200} = 0.275
+		\]
+
+		\[
+		P(\text{Non-smoker and No Cancer}) = \frac{95}{200} = 0.475
+		\]
+
+		Each cell in the table corresponds to a joint probability.
+	\end{frame}
+
+
+	\begin{frame}{Conditional Probability}
+		Conditional probability is the probability of an event occurring given that another event has already occurred.
+		\[
+		P(A|B) = \frac{P(A \cap B)}{P(B)}
+		\]
+
+		Probability of lung cancer given that the person is a smoker:
+		\[
+		P(\text{Cancer}|\text{Smoker}) =
+		\frac{55}{90} \approx 0.611
+		\]
+
+		Probability of lung cancer given that the person is a non-smoker:
+		\[
+		P(\text{Cancer}|\text{Non-smoker}) =
+		\frac{15}{110} \approx 0.136
+		\]
+
+		Conditional probabilities use the row or column total corresponding to the given condition.
+	\end{frame}
+
+
 	\section*{Thank you.}
 
 \end{document}
