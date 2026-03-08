@@ -299,32 +299,98 @@
 	\end{frame}
 
 
-	\begin{frame}{Expectation and Variance: Example 3}
-		
-	\end{frame}
-
-
 	\begin{frame}{Properties of Expecation and Variance}
+		Let $a$, $b$ and $C$ be some constants, and $X$ and $Y$ be two independent random variables.
+		\begin{columns}
+			\begin{column}{0.5\textwidth}
+				\begin{enumerate}
+					\item \(\E(c) = c\)
+					\item \(\E(cX) = c \E(X)\)
+					\item \(\E(c + X) = c + \E(X)\)
+					\item \(\E(aX + bY) = a \E(X) + b \E(Y)\)
+				\end{enumerate}
+			\end{column}
+			
+			\begin{column}{0.5\textwidth}
+				\begin{enumerate}
+					\item \(\V(c) = 0\)
+					\item \(\V(cX) = c^2 \V(X)\)
+					\item \(\V(c + X) = c + \V(X)\)
+					\item \(\V(aX + bY) = a^2 \V(X) + b^2 \V(Y)\)
+				\end{enumerate}
+			\end{column}
+		\end{columns}
 		
+		\vspace{1em}
+
+		If $X$ and $Y$ are dependent: \(\V(aX + bY) = a^2 \V(X) + b^2 \V(Y) + 2ab \operatorname{CoV}(a,b)\).
+
+		\vspace{0.5em}
+		
+		Here, $\operatorname{CoV}(a,b)$ is the covariance of $X$ and $Y$. More on covariance in a future lecture.
 	\end{frame}
 
 
-	\begin{frame}{Properties of Expecation and Variance: Example}
-		
+	\begin{frame}{Properties of Expecation and Variance: Example 1}
+		Suppose $X$ is a random variable with \(\E(X) = 5\) and \(\V(X)=2\).
+
+		\begin{itemize}
+			\item \(\E(2X) = 2 \E(X) = 2 \times 5 = 10\)
+			\item \(\V(2X) = 2^2 \V(X) = 4 \times 2 = 8\)
+			\item \(\E(2X - 3) = 2 \E(X) - 3 = 2 \times 5 - 3= 10 - 3 = 7\)
+			\item \(\V(2X - 3) = 2^2 \V(X) - 3 = 4 \times 2 - 3 = 8 - 3 = 5\)
+		\end{itemize}
 	\end{frame}	
 
+
+	% \begin{frame}{Properties of Expecation and Variance: Exercise}
+		
+	% \end{frame}
 
 
 	\section{Some Common Discrete Probability Distributions}
 
 
 	\begin{frame}{Bernoulli Process}
-		
+		When a random process or experiment, called a trial, can result in only one of two mutually exclusive outcomes, such as dead or alive, sick or well, full-term or premature, the trial is called a Bernoulli trial.
+
+		\begin{itemize}
+			\item Each trial results in one of two possible, mutually exclusive, outcomes. One of the possible outcomes is denoted (arbitrarily) as a success, and the other is denoted a failure
+			\item The probability of a success, denoted by $p$, remains constant from trial to trial. The probability of a failure, $1 - p$, is denoted by $q$
+			\item The trials are independent; that is, the outcome of any particular trial is not affected by the outcome of any other trial
+		\end{itemize}
+	\end{frame}
+
+
+	\begin{frame}{Bernoulli Distribution}
+		Let $X$ be the number of successe in a single Bernoulli trial. THen $X$ follows a Bernoulli distribution. It is written as:
+		\[X \sim \mathrm{Bernoulli}(p)\].
+
+		The probability mass function (PMF) of $X$ is given as:
+		\[
+			p(x) = p^x (1-p)^{1-x} \, ; \quad x = 0, 1
+		\]
+
+		\begin{itemize}
+			\item \(\E(X) = p\)
+			\item \(\V(X) = p(1-p)\)
+		\end{itemize}
 	\end{frame}
 
 
 	\begin{frame}{Binomial Distribution}
-		
+		Let $X$ be the number of successes in $n$ Bernoulli trials, where the probability of success is $p$. Then the random variable $X$ follows a binomial distribution. It is written as:
+		\[X \sim \mathrm{binom}(n, p)\].
+
+		The probability mass function (PMF) of $X$ is given as:
+		\[
+			p(x) = ^nC_x \, p^x (1-p)^{n-x} \, ; \quad x = 0, 1, 2, 3...
+		\]
+
+		\begin{itemize}
+			\item \(\E(X) = np\)
+			\item \(\V(X) = np(1-p)\)
+		\end{itemize}
 	\end{frame}
 
 
