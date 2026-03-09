@@ -7,6 +7,7 @@
 \DeclareMathOperator{\E}{E}
 \DeclareMathOperator{\Var}{Var}
 \DeclareMathOperator{\V}{V}
+\DeclareMathOperator{\C}{C}
 
 
 \title{Random Variable and Probabiilty Distribution}
@@ -387,13 +388,52 @@
 
 		The probability mass function (PMF) of $X$ is given as:
 		\[
-			p(x) = ^nC_x \, p^x (1-p)^{n-x} \, ; \quad x = 0, 1, 2, 3...
+			p(x) = ^n\C_x \, p^x (1-p)^{n-x} \, ; \quad x = 0, 1, 2, 3...
 		\]
 
 		\begin{itemize}
 			\item \(\E(X) = np\)
 			\item \(\V(X) = np(1-p)\)
 		\end{itemize}
+	\end{frame}
+
+
+	\begin{frame}{Examples of Binomial Variables}
+		\begin{itemize}
+			\item Number of defective products among a batch of products
+			\item Number of patients carrying a ceratain pathogen among a group of patients
+			\item Number of heads when a coin is tossed several times
+		\end{itemize}
+	\end{frame}
+
+
+	\begin{frame}{Binomial Distribution: Example}
+		There are 3 multiple choice questions in a MCQ test. Each MCQ consists of four
+possible choices and only one of them is correct. If an examinee answers those
+MCQ randomly (without knowing the correct answers)
+		\begin{enumerate}
+			\item What is the probability that exactly any two of the answers will be correct?
+			\item What is the probability that at least two of the answers will be correct?
+			\item What is the probability that at most two of the answers will be correct?
+			\item What will be the average or expected number of correct answers?
+			\item Also, find the standard deviation of number of correct answers.
+		\end{enumerate}
+	\end{frame}
+
+
+	\begin{frame}{Binomial Distribution: Example Solution}
+		Each MCQ has $4$ options. So, when answering randomly, probability of correct answer, $p = 1/4 = 0.25$.
+		Let the random variable $X$ denote the number of correct answers. Then, \(X \sim \mathrm{binomial}(3, 0.25)\).
+
+		\begin{enumerate}
+			\item Probability of two correct answers, \(P(X=2) = ^3\C_2 \, 0.25^2 \, (1-0.25)^{3-2}\)
+			\item Probability of \emph{at least} two correct answers \(=P(X=2) + P(X=3)\)
+			\item Probability of \emph{at most} two correct answers \(=P(X=0) + P(X=1) + P(X=2)\)
+			\item Expected number of correct answers, \(\E(X) = 3 \times 0.25 = 0.75\)
+			\item Variance of number of correct answers, \(\V(X) = 3 \times 0.25 \times (1-0.25)\)
+		\end{enumerate}
+
+		The calculations for question 2 and 3, are left as exercises.
 	\end{frame}
 
 
@@ -423,6 +463,9 @@
 	\begin{frame}{Exponential Distribution}
 		
 	\end{frame}
+
+	
+	\section{Approximating Probabilities using the Normal Distribution}
 
 
     \section*{Thank you.}
