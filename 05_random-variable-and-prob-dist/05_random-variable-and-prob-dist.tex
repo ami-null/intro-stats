@@ -363,8 +363,8 @@
 
 
 	\begin{frame}{Bernoulli Distribution}
-		Let $X$ be the number of successe in a single Bernoulli trial. THen $X$ follows a Bernoulli distribution. It is written as:
-		\[X \sim \mathrm{Bernoulli}(p)\].
+		Let $X$ be the number of successe in a single Bernoulli trial. Then $X$ follows a Bernoulli distribution. It is written as:
+		\[X \sim \mathrm{Bernoulli}(p).\]
 
 		The probability mass function (PMF) of $X$ is given as:
 		\[
@@ -372,15 +372,18 @@
 		\]
 
 		\begin{itemize}
-			\item \(\E(X) = p\)
-			\item \(\V(X) = p(1-p)\)
+			\item Expected value, \(\E(X) = 1 \times p + 0 \times (1-p) = 1\)
+			\item Variance: \begin{align*}
+				\V(X) = \E(X^2) - [\E(X)]^2 &= (1^2 \times p + 0^2 \times (1-p)) - p^2 \\
+				 &= p^2 - p = p(1-p)
+			\end{align*}
 		\end{itemize}
 	\end{frame}
 
 
 	\begin{frame}{Binomial Distribution}
 		Let $X$ be the number of successes in $n$ Bernoulli trials, where the probability of success is $p$. Then the random variable $X$ follows a binomial distribution. It is written as:
-		\[X \sim \mathrm{binom}(n, p)\].
+		\[X \sim \mathrm{binom}(n, p).\]
 
 		The probability mass function (PMF) of $X$ is given as:
 		\[
