@@ -438,7 +438,55 @@ MCQ randomly (without knowing the correct answers)
 
 
 	\begin{frame}{Poisson Distribution}
+		A Poisson random variable is a discrete random variable that counts the number of times a certain event occurs within fixed interval of time, or area, or volume or any other unit.
+
+		\vspace{0.5em}
 		
+		The Poisson distribution describes the probability of these counts.
+
+		\vspace{0.5em}
+
+		Let \(X ~ \sim \mathrm{Poisson}(\lambda)\), then the PMF of $X$ is given by:
+		\[
+			P(X=x) = \frac{e^{-\lambda} \lambda^x}{x!} \,; \quad \lambda > 0; \, \quad x=0, 1, 2, 3,...
+		\]
+
+		\begin{itemize}
+			\item $\lambda$ is the parameter of the distribution
+			\item \(\E(X)=\lambda\)
+			\item \(\V(X)=\lambda\)
+		\end{itemize}
+	\end{frame}
+
+
+	\begin{frame}{Assumptions of a Poisson Process}
+		\begin{itemize}
+			\item Events occur independently of each other
+			\item The probability of more than one event in a very small interval is negligible
+			\item The average rate of occurrence $\lambda$ is constant over the interval
+			\item The probability of an event occurring is proportional to the length of the interval
+		\end{itemize}
+	\end{frame}
+
+
+	\begin{frame}{Examples of Poisson Random Variables}
+		\begin{itemize}
+			\item Number of phone calls received by a call center in one minute
+			\item Number of typing errors on a page of text
+			\item Number of accidents at an intersection in a day
+			\item Number of emails arriving in an hour
+		\end{itemize}
+	\end{frame}
+
+
+	\begin{frame}{Poisson Distribution: Example}
+		The average number of errors on a page of a certain magazine is 0.2. What is the probability that the next page (or a randomly selected page) you read contains:
+		\begin{enumerate}
+			\item $0$ (zero) error?
+			\item $2$ or more errors?
+			\item What is the average error per page?
+			\item Also, find standard deviation of the number of errors.
+		\end{enumerate}
 	\end{frame}
 
 
