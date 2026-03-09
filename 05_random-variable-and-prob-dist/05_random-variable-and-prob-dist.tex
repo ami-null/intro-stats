@@ -480,12 +480,53 @@ MCQ randomly (without knowing the correct answers)
 
 
 	\begin{frame}{Poisson Distribution: Example}
-		The average number of errors on a page of a certain magazine is 0.2. What is the probability that the next page (or a randomly selected page) you read contains:
+		The average number of errors on a page of a certain magazine is 0.2. What is the probability that:
 		\begin{enumerate}
-			\item $0$ (zero) error?
-			\item $2$ or more errors?
+			\item a randomly selected page contains $0$ (zero) error?
+			\item a randomly selected page contains $2$ or more errors?
+			\item two consecutive pages have $3$ errors?
 			\item What is the average error per page?
-			\item Also, find standard deviation of the number of errors.
+			\item Also, find standard deviation of the number of errors in a page.
+		\end{enumerate}
+	\end{frame}
+
+
+	\begin{frame}{Poisson Distribution: Example Solution}
+		Here, error rate, \(\lambda = 0.2\).
+		\begin{enumerate}
+			\item Probability that a randomly selected page contains $0$ errors is 
+			\[
+				P(X=0) = \frac{e^{-0.2} \, 0.2^0}{0!}
+			\]
+			\item Probability that a randomly selected page contains $2$ or more errors is
+			\begin{align*}
+				P(X \geqslant 2) &= 1 - P(X < 2) \\
+				&= 1 - [P(X=0) + P(X=1)]
+			\end{align*}
+		\end{enumerate}
+		The above calculations are left as an exercise.
+	\end{frame}
+
+
+	\begin{frame}{Poisson Distribution: Example Solution (cont.)}
+		
+		\begin{enumerate}
+			\setcounter{enumi}{2}
+			\item Probability that two consecutive pages have $3$ errors:
+			
+			\vspace{0.25em}
+			
+			The error rate for two pages is, \(\lambda_{new} = 0.2 \times 2 = 0.4\)/
+
+			\vspace{0.25em}
+
+			Therefore, the desired probability is:
+			\[
+				\frac{e^{-0.4} \, 0.4^3}{3!}.
+			\]
+
+			\item Average error per page is \(\E(X) = \lambda = 0.2\).
+			\item Standard deviation of number of errors in a page, \(\operatorname{SD}(X) = \sqrt{\V(X)} = \sqrt{0.2}\).
 		\end{enumerate}
 	\end{frame}
 
