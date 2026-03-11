@@ -612,7 +612,62 @@ MCQ randomly (without knowing the correct answers)
 
 
 	\begin{frame}{Exponential Distribution}
+		Let \(X\) be a continuous random variable measuring the waiting time until an event occurs. The event is assumed to occur randomly but at a constant average rate. And let \(\lambda\) be the average number of events in one unit of time.
+
+		\vspace{0.5em}
+
+		Then \(X\) is said to follow the exponential distribution with rate parameter \(\lambda\), written as \(X \sim \mathrm{exponential}(\lambda)\).
+
+		\vspace{0.5em}
+
+		The PDF of \(X\) is given by 
+		\[
+			f(x) = \lambda e^{-\lambda x} \,; \quad x> 0, \quad \lambda > 0.
+		\]
+
+		\begin{itemize}
+			\item \(E(X) = 1/\lambda\), it denotes the average waiting time between events
+			\item \(\V(X) = 1/\lambda^2\)
+		\end{itemize}
+	\end{frame}
+
+
+	\begin{frame}{Exponential Distribution and Poisson Distribution}
+		If events occur randomly and independently with but at a constant average rate, \(\lambda\), then:
+
+		\begin{itemize}
+			\item The number of events in a fixed time interval follows a Poisson distribution
+			\item The waiting time between those events follows an exponential distribution
+		\end{itemize}
 		
+		Here, \(\lambda\) is the number of events that occur in one unit of time.
+	\end{frame}
+
+
+	\begin{frame}{Exponential Ddistribution Shape}
+		\centering
+		\includegraphics[width=\textwidth]{plots/exponential_shapes.pdf}
+	\end{frame}
+
+
+	\begin{frame}{Exponential Distribution: Example 1}
+		Average time required to repair a machine is \(0.5\) hours. What is the probability that the next repair will take more than \(2\) hours?
+
+		\vspace{0.5em}
+
+		Let, \(X\) = time required to repair the machine
+
+		Average time required to repare a machine:
+		\[
+			\E(X) = \frac{1}{\lambda} a= 0.5 \Rightarrow \lambda = 2
+		\]
+
+		Therefore, \(X \sim \mathrm{exponential(2)}\)
+
+		Now, Probability that the next repair will take more than two hours:
+		\[
+			P(X>2) = \int_{0}^{\infty} 2 e^{-2x} dx = \big[-e^{-2x}\big]_0^{\infty} = \big[-0 + e^{2 \times 2}\big] = e^{-4} = 0.0183.
+		\]
 	\end{frame}
 
 	
