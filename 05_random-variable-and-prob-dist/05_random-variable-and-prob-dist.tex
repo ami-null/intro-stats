@@ -324,11 +324,11 @@
 		
 		\vspace{1em}
 
-		If $X$ and $Y$ are dependent: \(\V(aX + bY) = a^2 \V(X) + b^2 \V(Y) + 2ab \operatorname{CoV}(a,b)\).
+		If $X$ and $Y$ are dependent: \(\V(aX + bY) = a^2 \V(X) + b^2 \V(Y) + 2ab \operatorname{CoV}(X,Y)\).
 
 		\vspace{0.5em}
 		
-		Here, $\operatorname{CoV}(a,b)$ is the covariance of $X$ and $Y$. More on covariance in a future lecture.
+		Here, $\operatorname{CoV}(X,Y)$ is the covariance of $X$ and $Y$. More on covariance in a future lecture.
 	\end{frame}
 
 
@@ -465,6 +465,16 @@ MCQ randomly (without knowing the correct answers)
 	\end{frame}
 
 
+	\begin{frame}{Examples of Poisson Random Variables}
+		\begin{itemize}
+			\item Number of phone calls received by a call center in one minute
+			\item Number of typing errors on a page of text
+			\item Number of accidents at an intersection in a day
+			\item Number of emails arriving in an hour
+		\end{itemize}
+	\end{frame}
+
+
 	\begin{frame}{Poisson Distribution: Shape}
 		\centering
 		\includegraphics[width=\textwidth]{plots/poisson_shapes.pdf}
@@ -477,16 +487,6 @@ MCQ randomly (without knowing the correct answers)
 			\item The probability of more than one event in a very small interval is negligible
 			\item The average rate of occurrence $\lambda$ is constant over the interval
 			\item The probability of an event occurring is proportional to the length of the interval
-		\end{itemize}
-	\end{frame}
-
-
-	\begin{frame}{Examples of Poisson Random Variables}
-		\begin{itemize}
-			\item Number of phone calls received by a call center in one minute
-			\item Number of typing errors on a page of text
-			\item Number of accidents at an intersection in a day
-			\item Number of emails arriving in an hour
 		\end{itemize}
 	\end{frame}
 
@@ -644,7 +644,7 @@ MCQ randomly (without knowing the correct answers)
 	\end{frame}
 
 
-	\begin{frame}{Exponential Ddistribution Shape}
+	\begin{frame}{Exponential Distribution Shape}
 		\centering
 		\includegraphics[width=\textwidth]{plots/exponential_shapes.pdf}
 	\end{frame}
