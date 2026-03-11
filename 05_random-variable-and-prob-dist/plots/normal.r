@@ -12,7 +12,8 @@ plot(x, y,
     lwd = 1,
     main = "Normal(0, 1)",
     xlab = "x",
-    ylab = "f(x)"
+    ylab = "f(x)",
+    ylim = c(0, 0.41)
 )
 
 mu <- 0
@@ -23,7 +24,8 @@ plot(x, y,
     lwd = 1,
     main = "Normal(0, 2)",
     xlab = "x",
-    ylab = "f(x)"
+    ylab = "f(x)",
+    ylim = c(0, 0.41)
 )
 
 mu <- 2
@@ -34,7 +36,8 @@ plot(x, y,
     lwd = 1,
     main = "Normal(2, 1)",
     xlab = "x",
-    ylab = "f(x)"
+    ylab = "f(x)",
+    ylim = c(0, 0.41)
 )
 
 dev.off()
