@@ -606,11 +606,6 @@ MCQ randomly (without knowing the correct answers)
 	\end{frame}
 
 
-	\begin{frame}{Normal Distribution}
-		
-	\end{frame}
-
-
 	\begin{frame}{Exponential Distribution}
 		Let \(X\) be a continuous random variable measuring the waiting time until an event occurs. The event is assumed to occur randomly but at a constant average rate. And let \(\lambda\) be the average number of events in one unit of time.
 
@@ -680,6 +675,187 @@ MCQ randomly (without knowing the correct answers)
 		\[
 			P(X>2) = \int_{0}^{\infty} 2 e^{-2x} dx = \big[-e^{-2x}\big]_0^{\infty} = \big[-0 + e^{2 \times 2}\big] = e^{-4} = 0.0183.
 		\]
+	\end{frame}
+
+
+		\begin{frame}{Normal Distribution}
+		A continuous random variable whose distribution is symmetric and bell shaped around its mean is called a normal random variable.
+
+		\vspace{0.5em}
+
+		Let \(X\) be a normally distributed random variable with mean \(\mu\) and variance \(\sigma^2\). It is written as
+		\[
+			X \sim \mathrm{N}(\mu, \sigma^2)
+		\]
+
+		\vspace{0.5em}
+
+		The probability density function of \(X\) is
+		\[
+			f(x) =
+			\frac{1}{\sqrt{2\pi \sigma^2}} \,
+			\mathrm{exp}(\frac{(x-\mu)^2}{2\sigma^2}) \, ;
+			\quad -\infty < x < \infty
+		\]
+
+		\begin{itemize}
+			\item \(\E(X) = \mu\)
+			\item \(\V(X) = \sigma^2\)
+		\end{itemize}
+	\end{frame}
+
+
+	\begin{frame}{Normal Distribution: Shape}
+		\centering
+		\includegraphics[width=\textwidth]{plots/normal_shapes.pdf}
+	\end{frame}
+
+
+	\begin{frame}{Properties of Normal Distribution}
+		\begin{itemize}
+			\item The distribution is symmetric around the mean \(\mu\)
+			\item Mean, median and mode are equal
+			\item The spread of the distribution depends on the standard deviation \(\sigma\)
+			\item Larger \(\sigma\) produces a wider and flatter curve
+			\item Total area under the curve is equal to \(1\)
+		\end{itemize}
+	\end{frame}
+
+
+	\begin{frame}{Standard Normal Distribution}
+		A special case of the normal distribution occurs when the mean is \(0\) and the standard deviation is \(1\).
+
+		\vspace{0.5em}
+
+		If \(X \sim \mathrm{N}(\mu, \sigma^2)\), then the standardized variable
+		\[
+			Z = \frac{X-\mu}{\sigma}
+		\]
+
+		follows the standard normal distribution.
+
+		\vspace{0.5em}
+
+		The standard normal distribution is written as
+		\[
+			Z \sim \mathrm{N}(0,1)
+		\]
+
+		\textbf{\emph{Probabilities for normal variables are usually obtained using standard normal tables}}.
+	\end{frame}
+
+
+	\begin{frame}{Standard Normal Table}
+		For a normal random variable \(X \sim \mathrm{N}(\mu, \sigma^2)\), probabilities are usually calculated using the standard normal distribution.
+
+		\vspace{0.5em}
+
+		Any normal variable can be converted into a standard normal variable using
+		\[
+			Z = \frac{X-\mu}{\sigma}
+		\]
+
+		\vspace{0.5em}
+
+		After converting \(X\) to \(Z\), the probability is obtained from the standard normal table (Z-table).
+
+		\vspace{0.5em}
+
+		The Z-table provides the cumulative probability: \(P(Z \leqslant z)\), which represents the area under the standard normal curve to the \textbf{left} of \(z\).
+	\end{frame}
+
+
+	\begin{frame}{Finding Probabilities Using Z-table}
+		Once the value of \(Z\) is obtained, probabilities can be computed using simple rules.
+
+		\begin{itemize}
+			\item Probability to the left of a value:
+			\[
+				P(Z < z)
+			\]
+
+			\item Probability to the right of a value:
+			\[
+				P(Z > z) = 1 - P(Z < z)
+			\]
+
+			\item Probability between two values:
+			\[
+				P(a < Z < b) = P(Z < b) - P(Z < a)
+			\]
+		\end{itemize}
+
+		These probabilities correspond to areas under the standard normal curve.
+	\end{frame}
+
+
+	\begin{frame}{Examples of Probability Regions}
+		The following types of probability regions commonly appear when working with the normal distribution.
+
+		\begin{itemize}
+			\item Probability that a variable is less than a value: \(P(Z < z)\)
+			\item Probability that a variable is greater than a value: \(P(Z > z)\)
+			\item Probability that a variable lies between two values: \(P(a < Z < b)\)
+			\item Probability that a variable lies outside an interval: \(P(Z<a \cup Z>b)\)
+		\end{itemize}
+
+		\vspace{0.5em}
+
+		In the next slides we will visualize these probabilities using shaded regions on the normal curve.
+	\end{frame}
+
+
+	\begin{frame}{Normal Distribution: Tail Probabilites}
+		\centering
+		\includegraphics[width=\textwidth]{plots/normal_tail_probabilities.pdf}
+	\end{frame}
+
+
+	\begin{frame}{Normal Distribution: Example}
+		The heights of students in a university are normally distributed with mean \(170\) cm and standard deviation \(10\) cm.
+
+		\vspace{0.5em}
+
+		Find the following:
+
+		\begin{enumerate}
+			\item The probability that a randomly selected student is taller than \(180\) cm
+			\item The probability that a student's height lies between \(160\) cm and \(180\) cm
+			\item The average height of students
+		\end{enumerate}
+	\end{frame}
+
+
+	\begin{frame}{Normal Distribution: Example Solution}
+		Let height \(X \sim \mathrm{N}(170, 10^2)\)
+
+		\begin{enumerate}
+			\item Probability that a student is taller than \(180\) cm:
+			\[
+				Z = \frac{180 - 170}{10} = 1
+			\]
+
+			\[
+				P(X>180) = P(Z>1) = 0.1587
+			\]
+
+			\item Probability that height lies between \(160\) and \(180\):
+			\[
+				Z_1 = \frac{160-170}{10} = -1
+			\]
+
+			\[
+				Z_2 = \frac{180-170}{10} = 1
+			\]
+
+			\[
+				P(160<X<180) = P(-1<Z<1) = 0.6826
+			\]
+		\end{enumerate}
+
+		\vspace{0.5em}
+
+		Average height of students: \(\E(X) = 170\)
 	\end{frame}
 
 	
