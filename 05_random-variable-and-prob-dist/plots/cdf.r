@@ -46,7 +46,7 @@ plot(
     lwd = 2,
     xlab = expression(x),
     ylab = "Density",
-    main = expression(P(X < x))
+    main = expression(F(x))
 )
 
 abline(v = z, lty = 2)
