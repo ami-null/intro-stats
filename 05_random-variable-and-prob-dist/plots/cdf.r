@@ -45,7 +45,7 @@ plot(
     type = "l",
     lwd = 2,
     xlab = expression(x),
-    ylab = "Density",
+    ylab = expression(F(x)),
     main = expression(F(x))
 )
 
