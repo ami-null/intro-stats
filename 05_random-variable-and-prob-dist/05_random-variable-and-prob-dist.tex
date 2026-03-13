@@ -181,6 +181,59 @@
 			\]
 		\end{enumerate}
 	\end{frame}
+
+
+	\begin{frame}{Probability at a single Point for Continuous Random Variables}
+		Let \(X\) be a continuous random variable with probability density function \(f(x)\). Probability over an interval is defined as
+		\[
+			P(a \le X \le b) = \int_a^b f(x)\,dx.
+		\]
+		Probability at a single point becomes
+		\[
+			P(X=a) = \int_a^a f(x)\,dx = 0.
+		\]
+		\begin{itemize}
+			\item The integral over an interval of zero width (\(a\) to \(a\)) is equal to zero
+			\item Therefore, a continuous random variable assigns no probability mass to any single value
+			\item Probability is non-zero over intervals of width greater than zero
+		\end{itemize}
+	\end{frame}
+
+
+	\begin{frame}{Why \(P(X \leqslant a)\) is equal to \(P(X < a)\) for Continuous Random Variables}
+		Since \(P(X=a)=0\), adding or removing a single boundary point does not change probability.
+		\begin{align*}
+			P(X \leqslant a) &= P(X < a) + P(X=a)\\
+			&= P(X < a) \, ; \quad (\text{because } P(X=a)=0)
+		\end{align*}
+
+		\vspace{0.5em}
+
+		Similarly,
+		\[
+			P(X \geqslant a) = P(X > a)
+		\]
+	\end{frame}
+
+
+	\begin{frame}{Example with an Interval: \(P(a \leqslant X \leqslant b) = P(a < X < b)\)}
+		Consider the probability between two values \(a\) and \(b\):
+		\[
+			P(a \leqslant X \leqslant b)
+		\]
+		Expanding,
+		\[
+			P(a \leqslant X \leqslant b) = P(a < X < b) + P(X=a) + P(X=b)
+		\]
+		Since
+		\[
+			P(X=a) = P(X=b) = 0
+		\]
+		we obtain
+		\[
+			P(a \leqslant X \leqslant b) = P(a < X < b)
+		\]
+	\end{frame}
 	
 
 	\begin{frame}{Cumulative Distribution Function (CDF)}
