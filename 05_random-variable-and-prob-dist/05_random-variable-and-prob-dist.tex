@@ -237,7 +237,7 @@
 	\begin{frame}{Probability at a single Point for Continuous Random Variables}
 		Let \(X\) be a continuous random variable with probability density function \(f(x)\). Probability over an interval is defined as
 		\[
-			P(a \le X \le b) = \int_a^b f(x)\,dx.
+			P(a \leqslant X \leqslant b) = \int_a^b f(x)\,dx.
 		\]
 		Probability at a single point becomes
 		\[
@@ -267,7 +267,7 @@
 	\end{frame}
 
 
-	\begin{frame}{Example with an Interval: \(P(a \leqslant X \leqslant b) = P(a < X < b)\)}
+	\begin{frame}{For Continuous RV: \(P(a \leqslant X \leqslant b) = P(a < X < b)\)}
 		Consider the probability between two values \(a\) and \(b\):
 		\[
 			P(a \leqslant X \leqslant b)
@@ -323,6 +323,39 @@
 			= \frac{3}{8} \big[(2x^2 - 2x^3/3) - 0 \big]
 			= \frac{3}{8} (2x^2 - 2x^3/3)
 		\end{align*}
+	\end{frame}
+
+
+	\begin{frame}{Finding Probability from CDF}
+		\begin{columns}
+			\begin{column}{0.5\textwidth}
+				For Continuous RV:
+				\begin{itemize}
+					\item \(P(X \leqslant a) = P(X < a) = F(a)\)
+					\item \(P(X = a) = 0\)
+					\item \(P(X \geqslant a) = P(X > a) = 1 - F(a)\)
+					\item \(P(a < X < b) = P(a \leqslant X \leqslant b) = F(b) - F(a)\)
+				\end{itemize}
+				
+				\vfill
+			\end{column}
+
+			\begin{column}{0.5\textwidth}
+				For Discrete RV:
+				\begin{itemize}
+					\item \(P(X \leqslant a) = F(a)\)
+					\item \(P(X < a) = F(a) - P(X = a)\)
+					\item \( P(X > a) = 1 - F(a)\)
+					\item \(P(a < X \leqslant b) = F(b) - F(a)\)
+					\item \(P(a \leqslant X \leqslant b) = F(b) - F(a) + P(X = a)\)
+				\end{itemize}
+			\end{column}
+		\end{columns}
+	\end{frame}
+
+
+	\begin{frame}{Example: Finding Probability from CDF}
+		
 	\end{frame}
 
 
@@ -833,7 +866,7 @@ MCQ randomly (without knowing the correct answers)
 	\end{frame}
 
 
-	\begin{frame}{Standard Normal Table}
+	\begin{frame}{Standard Normal Variable}
 		For a normal random variable \(X \sim \mathrm{N}(\mu, \sigma^2)\), probabilities are usually calculated using the standard normal distribution.
 
 		\vspace{0.5em}
