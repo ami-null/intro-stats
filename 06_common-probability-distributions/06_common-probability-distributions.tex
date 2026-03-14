@@ -455,6 +455,29 @@
 	\end{frame}
 
 
+	\begin{frame}{Symmetry of Normal Distribution}
+		The normal distribution is symmetric around the mean. Therefore the following relationship holds:
+		\begin{columns}
+			\begin{column}{0.5\textwidth}
+				\begin{align*}
+					P(Z <- k) &= P(Z > k) \\
+					& = 1 - P(Z < k)
+				\end{align*}
+				where \(k\) is a positive real number.
+				
+				\vspace{1em}
+
+				The area under the curve of the highlighted regions are equal.
+				\vspace{5em}
+			\end{column}
+			\begin{column}{0.5\textwidth}
+				\centering
+				\includegraphics[width=0.95\textwidth]{plots/normal_symmetry.pdf}
+			\end{column}
+		\end{columns}
+	\end{frame}
+
+
 	\begin{frame}{CDF of the Standard Normal Variable}
 		\begin{itemize}
 			\item For a normal random variable \(X \sim \mathrm{N}(\mu, \sigma^2)\), probabilities are usually calculated using the standard normal distribution CDF
@@ -484,10 +507,10 @@
 		Once the value of \(Z\) is obtained, probabilities can be computed using simple rules.
 
 		\begin{itemize}
-			\item Probability that a variable is less than a value: \(P(Z < z) = \Phi(z)\)
-			\item Probability that a variable is greater than a value: \(P(Z > z) = 1- P(Z < z) = 1 - \Phi(z)\)
-			\item Probability that a variable lies between two values: \(P(a < Z < b) = P(Z < b)- P(Z < a) = \Phi(b) - \Phi(a)\)
-			\item Probability that a variable lies outside an interval: \(P(Z < a \cup Z>b) = P(Z < a) + 1 - P(Z < b) = \Phi(a) + 1 - \Phi(b)\)
+			\item \(P(Z < z) = \Phi(z)\)
+			\item \(P(Z > z) = 1- P(Z < z) = 1 - \Phi(z)\)
+			\item \(P(a < Z < b) = P(Z < b)- P(Z < a) = \Phi(b) - \Phi(a)\)
+			\item \(P(Z < a \cup Z>b) = P(Z < a) + 1 - P(Z < b) = \Phi(a) + 1 - \Phi(b)\)
 			\item \(P(Z > k) = P(Z < -k)\), where \(k\) is a positive real number
 		\end{itemize}
 	\end{frame}
