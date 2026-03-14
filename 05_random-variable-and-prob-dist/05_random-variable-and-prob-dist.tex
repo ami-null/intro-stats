@@ -181,57 +181,6 @@
 			\]
 		\end{enumerate}
 	\end{frame}
-	
-
-	\begin{frame}{Cumulative Distribution Function (CDF)}
-		The cumulative distribution function (CDF) gives the probability that a random variable $X$ is lower than some value $x$. Sometimes, it is also called ``distribution function''.
-
-		\begin{itemize}
-			\item For discrete random variable, it is given by  $P(X<x) = \displaystyle \sum_{k=-\infty}^{x} p(k)$
-			\item For continuous case, it is denoted by $F(x)$
-			\[
-				F(x) = P(X<x) = \int_{-\infty}^{x} f(x) dx
-			\]
-			\item It is a non-decreasing function
-		\end{itemize}
-
-		Here, summing/integrating from $-\infty$ means that the lower limit of the sum/integral is the smallest value in the domain of the random variable $X$.
-	\end{frame}
-
-
-	\begin{frame}{Graphical Representaion of CDF}
-		\begin{columns}
-			\begin{column}{0.5\textwidth}
-				In the plot, \(X\) is a continuous random variable, it is randomly distributed (bell shaped curve).
-
-				\vspace{0.5em}
-
-				The shaded region highlights the probability that the random variable \(X\) is less than some value \(x\) (in the plot, this value is shown to be \(1\) as an example).
-
-				\vspace{0.5em}
-
-				Therefore, the highlighted area is the probability that \(X\) is less than \(1\).
-			\end{column}
-			\begin{column}{0.5\textwidth}
-				\centering
-				\includegraphics[width=\textwidth]{plots/pdf_area.pdf}
-			\end{column}
-		\end{columns}
-	\end{frame}
-
-
-	\begin{frame}{Graphical Representaion of CDF (cont.)}
-		\begin{columns}
-			\begin{column}{0.5\textwidth}
-				\centering
-				\includegraphics[width=\textwidth]{plots/pdf_area.pdf}
-			\end{column}
-			\begin{column}{0.5\textwidth}
-				\centering
-				\includegraphics[width=\textwidth]{plots/cdf.pdf}
-			\end{column}
-		\end{columns}
-	\end{frame}
 
 
 	\begin{frame}{Probability at a single Point for Continuous Random Variables}
@@ -284,6 +233,57 @@
 		\[
 			P(a \leqslant X \leqslant b) = P(a < X < b)
 		\]
+	\end{frame}
+	
+
+	\begin{frame}{Cumulative Distribution Function (CDF)}
+		The cumulative distribution function (CDF) gives the probability that a random variable $X$ is lower than some value $x$. Sometimes, it is also called ``distribution function''.
+
+		\begin{itemize}
+			\item For discrete random variable, it is given by  $P(X<x) = \displaystyle \sum_{k=-\infty}^{x} p(k)$
+			\item For continuous case, it is denoted by $F(x)$
+			\[
+				F(x) = P(X<x) = \int_{-\infty}^{x} f(x) dx
+			\]
+			\item It is a non-decreasing function
+		\end{itemize}
+
+		Here, summing/integrating from $-\infty$ means that the lower limit of the sum/integral is the smallest value in the domain of the random variable $X$.
+	\end{frame}
+
+
+	\begin{frame}{Graphical Representaion of CDF}
+		\begin{columns}
+			\begin{column}{0.5\textwidth}
+				In the plot, \(X\) is a continuous random variable, it is randomly distributed (bell shaped curve).
+
+				\vspace{0.5em}
+
+				The shaded region highlights the probability that the random variable \(X\) is less than some value \(x\) (in the plot, this value is shown to be \(1\) as an example).
+
+				\vspace{0.5em}
+
+				Therefore, the highlighted area is the probability that \(X\) is less than \(1\).
+			\end{column}
+			\begin{column}{0.5\textwidth}
+				\centering
+				\includegraphics[width=\textwidth]{plots/pdf_area.pdf}
+			\end{column}
+		\end{columns}
+	\end{frame}
+
+
+	\begin{frame}{Graphical Representaion of CDF (cont.)}
+		\begin{columns}
+			\begin{column}{0.5\textwidth}
+				\centering
+				\includegraphics[width=\textwidth]{plots/pdf_area.pdf}
+			\end{column}
+			\begin{column}{0.5\textwidth}
+				\centering
+				\includegraphics[width=\textwidth]{plots/cdf.pdf}
+			\end{column}
+		\end{columns}
 	\end{frame}
 
 
