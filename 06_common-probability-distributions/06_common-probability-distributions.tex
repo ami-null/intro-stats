@@ -451,67 +451,45 @@
 			Z \sim \mathrm{N}(0,1)
 		\]
 
-		\textbf{\emph{Probabilities for normal variables are usually obtained using standard normal tables}}.
+		\textbf{\emph{Probabilities for normal variables are usually obtained using standard normal table (Z-table).}}
 	\end{frame}
 
 
-	\begin{frame}{Standard Normal Variable}
-		For a normal random variable \(X \sim \mathrm{N}(\mu, \sigma^2)\), probabilities are usually calculated using the standard normal distribution.
-
-		\vspace{0.5em}
-
-		Any normal variable can be converted into a standard normal variable using
-		\[
-			Z = \frac{X-\mu}{\sigma}
-		\]
-
-		\vspace{0.5em}
-
-		After converting \(X\) to \(Z\), the probability is obtained from the standard normal table (Z-table).
-
-		\vspace{0.5em}
-
-		The Z-table provides the cumulative probability: \(P(Z \leqslant z)\), which represents the area under the standard normal curve to the \textbf{left} of \(z\).
+	\begin{frame}{CDF of the Standard Normal Variable}
+		\begin{itemize}
+			\item For a normal random variable \(X \sim \mathrm{N}(\mu, \sigma^2)\), probabilities are usually calculated using the standard normal distribution CDF
+			\item The cumulative distribution function (CDF) of the standard normal distribution denoted by \(\Phi(x)\) is a function that gives the probability: \(P(Z < z)\)
+			\item The Z-table provides the precalculated cumulative probability: \(\Phi(z) = P(Z \leqslant z)\), which represents the area under the standard normal curve to the \textbf{left} of \(z\)
+		\end{itemize}
 	\end{frame}
 
 
 	\begin{frame}{Finding Probabilities Using Z-table}
-		Once the value of \(Z\) is obtained, probabilities can be computed using simple rules.
-
 		\begin{itemize}
-			\item Probability to the left of a value:
-			\[
-				P(Z < z)
-			\]
-
-			\item Probability to the right of a value:
-			\[
-				P(Z > z) = 1 - P(Z < z)
-			\]
-
-			\item Probability between two values:
-			\[
-				P(a < Z < b) = P(Z < b) - P(Z < a)
-			\]
+			\item In order to find probabilities of normally dsitributed random variables we have to perform complex integration to areas under the standard normal curve
+			\item However, easier option is to use a calculator/computer or a Z-table
+			\item Suppose we need to find the probability: \(P(X < x)\)
+			\item First we convert the noraml distribution \(X\) value to to \(Z\) value as: \(z = (x - \mu)/\sigma\)
+			\item Then using the table we can find the probability \(\Phi(z) = P(Z < z) = P(X < x)\)
 		\end{itemize}
-
-		These probabilities correspond to areas under the standard normal curve.
 	\end{frame}
 
 
-	\begin{frame}{Examples of Probability Regions}
+	% \begin{frame}{Examples of Probability Regions}
+	\begin{frame}{Finding Probabilities Using Z-table}
 		The following types of probability regions commonly appear when working with the normal distribution.
 
-		\begin{itemize}
-			\item Probability that a variable is less than a value: \(P(Z < z)\)
-			\item Probability that a variable is greater than a value: \(P(Z > z)\)
-			\item Probability that a variable lies between two values: \(P(a < Z < b)\)
-			\item Probability that a variable lies outside an interval: \(P(Z<a \cup Z>b)\)
-		\end{itemize}
-
 		\vspace{0.5em}
+		
+		Once the value of \(Z\) is obtained, probabilities can be computed using simple rules.
 
-		In the next slides we will visualize these probabilities using shaded regions on the normal curve.
+		\begin{itemize}
+			\item Probability that a variable is less than a value: \(P(Z < z) = \Phi(z)\)
+			\item Probability that a variable is greater than a value: \(P(Z > z) = 1- P(Z < z) = 1 - \Phi(z)\)
+			\item Probability that a variable lies between two values: \(P(a < Z < b) = P(Z < b)- P(Z < a) = \Phi(b) - \Phi(a)\)
+			\item Probability that a variable lies outside an interval: \(P(Z < a \cup Z>b) = P(Z < a) + 1 - P(Z < b) = \Phi(a) + 1 - \Phi(b)\)
+			\item \(P(Z > k) = P(Z < -k)\), where \(k\) is a positive real number
+		\end{itemize}
 	\end{frame}
 
 
