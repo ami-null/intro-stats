@@ -234,18 +234,22 @@
 			P(a \leqslant X \leqslant b) = P(a < X < b)
 		\]
 	\end{frame}
+
+
+	\section{Cumulative Distribution Function (CDF)}
 	
 
 	\begin{frame}{Cumulative Distribution Function (CDF)}
-		The cumulative distribution function (CDF) gives the probability that a random variable $X$ is lower than some value $x$. Sometimes, it is also called ``distribution function''.
+		The cumulative distribution function (CDF) gives the probability that a random variable $X$ is lower than some value $x$. Sometimes, it is also called ``distribution function''. It is denoted by \(F(x)\).
 
 		\begin{itemize}
-			\item For discrete random variable, it is given by  $P(X<x) = \displaystyle \sum_{k=-\infty}^{x} p(k)$
-			\item For continuous case, it is denoted by $F(x)$
-			\[
-				F(x) = P(X<x) = \int_{-\infty}^{x} f(x) dx
-			\]
-			\item It is a non-decreasing function
+			\item For discrete random variable, \(
+				F(x) = P(X \leqslant x) = \displaystyle \sum_{k=-\infty}^{x} p(k)
+			\)
+			\item For continuous case, \(
+				F(x) = P(X<x) = \displaystyle \int_{-\infty}^{x} f(x) dx
+			\)
+			\item It is a non-decreasing function, the largest value \(F(x)\) can take is \(1\)
 		\end{itemize}
 
 		Here, summing/integrating from $-\infty$ means that the lower limit of the sum/integral is the smallest value in the domain of the random variable $X$.
