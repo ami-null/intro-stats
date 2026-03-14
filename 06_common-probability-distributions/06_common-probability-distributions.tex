@@ -38,13 +38,50 @@
 		\begin{itemize}
 			\item A variable which takes numerical values resulting from random experiments, is called a random variable (RV).
 			\item Recall that probability distribution means the distribution of the probabilities among the different values of a random variable
-			\item Depending on the type of variable, distributions are of two types:
-			\begin{itemize}
-				\item \textbf{Discrete probability distribution}: probability distribution of a discrete random variable, denoted by \(p(x)\) which gives the probability that the RV \(X\) is equal to some value \(x\)
-				\item \textbf{Continuous probability distribution}: probability distribution of a continuous random variable, denoted by \(f(x)\) which is used to find the probability that the RV \(X\) falls in some interval
-			\end{itemize}
 		\end{itemize}
 			There are some distributions that often arise frequently in real life. This slide shall discuss a few such distributions
+	\end{frame}
+
+
+	\begin{frame}{Types of Probability Distribution}
+		Recall that depending on the type of variable, distributions are of two types:
+		\begin{itemize}
+			\item \textbf{Discrete probability distribution}: probability distribution of a discrete random variable
+			\item \textbf{Continuous probability distribution}: probability distribution of a continuous random variable
+		\end{itemize}
+	\end{frame}
+
+
+	\begin{frame}{Probability Mass/Density Functions}
+		\begin{itemize}
+			\item The probability distribution of a discrete random variable is given by its probability mass function (PMF)
+			\begin{itemize}
+				\item Denoted by \(p(x)\), it gives the probability \(P(X = x)\)
+			\end{itemize}
+			\item The probability distribution of a continuous random variable is given by its probability density function (PDF)
+				\begin{itemize}
+					\item Denoted by \(f(x)\)
+					\item \(\displaystyle \int_a^b f(x) \, dx = P(a < X < b)\)
+				\end{itemize}
+		\end{itemize}
+		Only for the continuous case: \(P(X = k) = 0\), where \(k\) is some constant.
+	\end{frame}
+
+
+	\begin{frame}{Cumulative Distribution Function (CDF)}
+				\begin{itemize}
+			\item For discrete random variable, \(
+				F(x) = P(X \leqslant x) = \displaystyle \sum_{k=-\infty}^{x} p(k)
+			\)
+			\item For continuous case, \(
+				F(x) = P(X \leqslant x) = P(X<x) = \displaystyle \int_{-\infty}^{x} f(x) \, dx
+			\)
+			\item It is a non-decreasing function, the largest value \(F(x)\) can take is \(1\)
+		\end{itemize}
+
+		\vspace{0.5em}
+
+		Here, summing/integrating from $-\infty$ means that the lower limit of the sum/integral is the smallest value in the domain of the random variable $X$.
 	\end{frame}
 
 
