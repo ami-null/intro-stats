@@ -358,8 +358,44 @@
 	\end{frame}
 
 
-	\begin{frame}{Example: Finding Probability from CDF}
-		
+	\begin{frame}{Example: Finding Probability from CDF of a Continuous RV}
+		Suppose the CDF of a random variable \(X\) is
+		\[
+			F(x) = x^2 \quad \text{for } 0 \leqslant x \leqslant 1
+		\]
+
+		Find \(P(0.2 < X < 0.6)\) and \(P(0.2 \leq X \leq 0.6)\).
+
+		\vspace{0.5em}
+
+		Using the CDF rule:
+		\begin{align*}
+			P(0.2 < X < 0.6) = F(0.6) - F(0.2) &= (0.6)^2 - (0.2)^2 \\
+			&= 0.36 - 0.04 = 0.32.
+		\end{align*}
+
+		Since \(X\) is continuous, \(P(X=a)=0\).
+
+		Therefore, \(P(0.2 \leqslant X \leqslant 0.6) = 0.32\).
+	\end{frame}
+
+
+	\begin{frame}{Example: Finding Probability from CDF of a Discrete RV}
+		Suppose the CDF of a random variable \(X\) satisfies: \(F(2) = 0.35\), \(F(5) = 0.80\) and \(P(X=2) = 0.10\). Find \(P(2 < X \leqslant 5)\) and \(P(2 \leqslant X \leqslant 5)\).
+
+		\vspace{0.5em}
+
+		First,
+		\begin{align*}
+			P(2 < X \leqslant 5) &= F(5) - F(2) \\
+			&= 0.80 - 0.35 = 0.45.
+		\end{align*}
+		Next,
+		\begin{align*}
+			P(2 \leqslant X \leqslant 5) &= F(5) - F(2) + P(X=2) \\
+			&= 0.45 + 0.10 = 0.55.
+		\end{align*}
+			 
 	\end{frame}
 
 
