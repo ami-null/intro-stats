@@ -640,8 +640,90 @@
 	\end{frame}
 
 	
-	\section{Approximating Probabilities using the Normal Distribution}
+	\section{Approximating Probability of One Distribution with Another}
 
+	\begin{frame}{Approximating One Distribution with Another}
+		In many practical situations, a complicated distribution can be approximated by a simpler one.
+
+		\begin{itemize}
+			\item Exact probability calculations may be difficult for large parameters.
+			\item Approximation simplifies computation.
+			\item Several well-known relationships exist between common distributions.
+		\end{itemize}
+
+		In this section we discuss:
+		\begin{itemize}
+			\item Binomial approximation by Poisson
+			\item Binomial approximation by Normal
+			\item Poisson approximation by Normal
+			\item Relationship with Exponential distribution
+		\end{itemize}
+	\end{frame}
+
+
+	\begin{frame}{Binomial Approximation by Poisson}
+		Suppose \(X \sim \text{Binomial}(n,p)\).
+
+		When:
+		\begin{itemize}
+			\item \(n\) is large
+			\item \(p\) is small
+			\item \(\lambda = np\) is moderate
+		\end{itemize}
+		then the binomial distribution can be approximated by a Poisson distribution:
+		\[
+			X \approx \text{Poisson}(\lambda), \quad \lambda = np
+		\]
+
+		Rule of thumb:
+		\begin{itemize}
+			\item \(n \ge 20\)
+			\item \(p \le 0.05\)
+		\end{itemize}
+	\end{frame}
+
+
+	\begin{frame}{Binomial Approximation by Normal}
+		Suppose \(X \sim \text{Binomial}(n,p)\).
+
+		When \(n\) is large and \(p\) is not extremely close to 0 or 1, the binomial distribution can be approximated by a normal distribution.
+		\[
+			X \approx N(\mu, \sigma^2)
+		\]
+		where
+		\[
+			\mu = np, \qquad \sigma^2 = np(1-p)
+		\]
+
+		Rule of thumb:
+		\begin{itemize}
+			\item \(np \ge 5\)
+			\item \(n(1-p) \ge 5\)
+		\end{itemize}
+
+		A continuity correction is usually applied when using this approximation.
+	\end{frame}
+
+
+	\begin{frame}{Poisson Approximation by Normal}
+		Suppose \(X \sim \text{Poisson}(\lambda)\).
+
+		When \(\lambda\) is large, the Poisson distribution becomes approximately normal.
+		\[
+			X \approx N(\lambda, \lambda)
+		\]
+		since for a Poisson distribution:
+		\[
+			\mu = \lambda, \qquad \sigma^2 = \lambda
+		\]
+
+		Rule of thumb:
+		\begin{itemize}
+			\item \(\lambda \ge 10\)
+		\end{itemize}
+
+		As with the binomial case, a continuity correction is recommended.
+	\end{frame}
 
     \section*{Thank you.}
 
