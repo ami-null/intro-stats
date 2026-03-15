@@ -2,7 +2,12 @@ x <- seq(0, 10, length.out = 500)
 
 pdf("uniform_shapes.pdf", width = 6.5, height = 3.5)
 
-par(mfrow = c(1, 3))
+par(
+    mfrow = c(1, 3),
+    mar  = c(4.5, 3.1, 2, 1),  # minimal bottom/left for labels, almost nothing top/right
+    mgp  = c(2, 0.85, 0),
+    cex = 0.75
+)
 
 a <- 1
 b <- 3
