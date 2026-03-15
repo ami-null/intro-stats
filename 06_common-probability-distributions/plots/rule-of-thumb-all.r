@@ -19,8 +19,7 @@ plot(
     ylab = "Density",
     xlab = "X",
     main = expression(paste(mu, "±", sigma)),
-    lwd = 2,
-    cex = 1.5
+    lwd = 2
 )
 
 shade_x <- seq(-1, 1, length = 500)
