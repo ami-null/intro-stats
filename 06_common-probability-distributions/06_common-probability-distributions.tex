@@ -10,7 +10,7 @@
 \DeclareMathOperator{\C}{C}
 
 
-\title{Random Variable and Probabiilty Distribution}
+\title{Common Probabiilty Distributions}
 \author{Md. Aminul Islam Shazid}
 \date{}
 
@@ -305,7 +305,7 @@
 		\]
 
 		\begin{itemize}
-			\item \(\E(X) = \frac{1}{b-a}\)
+			\item \(\E(X) = \frac{b+a}{2}\)
 			\item \(\V(X) = \frac{(b-a)^2}{12}\)
 		\end{itemize}
 	\end{frame}
@@ -332,7 +332,7 @@
 		\begin{enumerate}
 			\item Probability of waiting at least 20 minutes:
 			\begin{align*}
-				P(X>20) = P(20 \leqslant X \leqslant 50) &= \int_{20}^{50} \frac{1}{50-10}\\
+				P(X>20) = P(20 \leqslant X \leqslant 50) &= \int_{20}^{50} \frac{1}{50-10} \, dx\\
 				&= \Big[\frac{x}{40}\Big]_{20}^{50} = 30/40
 			\end{align*}
 
@@ -407,14 +407,14 @@
 
 		Average time required to repare a machine:
 		\[
-			\E(X) = \frac{1}{\lambda} a= 0.5 \Rightarrow \lambda = 2
+			\E(X) = \frac{1}{\lambda}= 0.5 \Rightarrow \lambda = 2
 		\]
 
 		Therefore, \(X \sim \mathrm{exponential(2)}\)
 
 		Now, Probability that the next repair will take more than two hours:
 		\[
-			P(X>2) = \int_{0}^{\infty} 2 e^{-2x} dx = \big[-e^{-2x}\big]_0^{\infty} = \big[-0 + e^{2 \times 2}\big] = e^{-4} = 0.0183.
+			P(X>2) = \int_{2}^{\infty} 2 e^{-2x} dx = \big[-e^{-2x}\big]_2^{\infty} = \big[-0 + e^{2 \times 2}\big] = e^{-4} = 0.0183.
 		\]
 	\end{frame}
 
