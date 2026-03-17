@@ -317,7 +317,7 @@
 	\end{frame}
 
 
-	\begin{frame}{Uniform Distribution: Example}
+	\begin{frame}{Uniform Distribution: Example 1}
 		The waiting time (in minutes) for train is uniform($10, 50$). Find the following:
 		\begin{enumerate}
 			\item The probability that you have to wait at least $20$ minutes
@@ -327,7 +327,7 @@
 	\end{frame}
 
 
-	\begin{frame}{Uniform Distribution: Example Solution}
+	\begin{frame}{Uniform Distribution: Example 1 Solution}
 		Here, wait time, \(X \sim \mathrm{uniform}(10, 50)\)
 		\begin{enumerate}
 			\item Probability of waiting at least 20 minutes:
@@ -342,6 +342,19 @@
 		\vspace{0.5em}
 
 		Question 3 is left as an exercise.
+	\end{frame}
+
+
+	\begin{frame}{Uniform Distribution: Example 2}
+		Find the CDF of \(X \sim \mathrm{uniform}(a, b)\).
+
+		The CDF is given by:
+		\begin{align*}
+			F(X) = P(X < x) &= \int_{a}^{x} f(x) \, dx \\
+			&= \int_{a}^{x} \frac{1}{b-a} \, dx \\
+			&= \Big[\frac{x}{b-a}\Big]_a^x \\
+			&= \frac{x-a}{b-a}
+		\end{align*}
 	\end{frame}
 
 
@@ -419,6 +432,11 @@
 	\end{frame}
 
 
+	\begin{frame}{Exponential Distribuion: Exercise}
+		Find the CDF of the exponetial distribution.
+	\end{frame}
+
+
 	\subsection{Normal Distribution}
 
 	\begin{frame}{Normal Distribution}
@@ -437,7 +455,7 @@
 		\[
 			f(x) =
 			\frac{1}{\sqrt{2\pi \sigma^2}} \,
-			\mathrm{exp}(\frac{(x-\mu)^2}{2\sigma^2}) \, ;
+			\mathrm{exp}\Big[-\frac{(x-\mu)^2}{2\sigma^2}\Big] \, ;
 			\quad -\infty < x < \infty
 		\]
 
@@ -445,11 +463,6 @@
 			\item \(\E(X) = \mu\)
 			\item \(\V(X) = \sigma^2\)
 		\end{itemize}
-	\end{frame}
-
-
-	\begin{frame}{Exponential Distribuion: Exercise}
-		Find the CDF of the exponetial distribution.
 	\end{frame}
 
 
