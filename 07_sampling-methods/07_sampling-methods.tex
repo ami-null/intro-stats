@@ -303,6 +303,71 @@
     \end{frame}
 
 
+    \begin{frame}{Law of Large Numbers}
+        \begin{block}{Idea}
+            As the sample size increases, the sample mean tends to get closer to the population mean.
+        \end{block}
+
+        \begin{itemize}
+            \item Let $\mu$ denote the population mean
+
+            \item Let $\bar{X}$ denote the sample mean
+
+            \item When the sample size $n$ becomes large,
+            \[
+            \bar{X} \rightarrow \mu
+            \]
+
+            \item Thus, larger samples generally provide more reliable estimates of the population mean
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Law of Large Numbers (Interpretation)}
+        \begin{itemize}
+        \item Suppose we repeatedly draw samples from the same population
+
+        \item For small samples, the sample mean may vary substantially from the population mean
+
+        \item As the sample size increases, the variability of the sample mean decreases
+
+        \item Therefore, the sample mean becomes a better approximation of the population mean
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Central Limit Theorem}
+        \begin{block}{Statement}
+            For a sufficiently large sample size, the sampling distribution of the sample mean is approximately normal, regardless of the shape of the population distribution.
+        \end{block}
+
+        If the population mean is $\mu$ and population standard deviation is $\sigma$, then
+
+        \[
+            \bar{X} \sim N\left(\mu,\frac{\sigma}{\sqrt{n}}\right)
+        \]
+
+        for sufficiently large $n$.
+    \end{frame}
+
+
+    \begin{frame}{Implications of the Central Limit Theorem}
+        \begin{itemize}
+            \item The distribution of the sample mean approaches a normal distribution as the sample size increases
+
+            \item This holds even when the population distribution is not normal
+
+            \item The standard deviation of the sampling distribution of the sample mean is
+            \[
+                \frac{\sigma}{\sqrt{n}}
+            \]
+            which is called the \textbf{standard error of the mean}
+
+            \item When sample size increases the standard error decreases
+        \end{itemize}
+    \end{frame}
+
+
     \section*{Thank you.}
 
 \end{document}
