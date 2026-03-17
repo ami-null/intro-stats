@@ -1,0 +1,308 @@
+\documentclass[12pt, aspectratio=169]{beamer}
+
+\input{../header}
+% \usepackage{booktabs}
+% \usepackage{tikz}
+% \usetikzlibrary{patterns}
+% \DeclareMathOperator{\E}{E}
+% \DeclareMathOperator{\Var}{Var}
+% \DeclareMathOperator{\V}{V}
+% \DeclareMathOperator{\C}{C}
+
+
+\title{Sampling Methods}
+\author{Md. Aminul Islam Shazid}
+\date{}
+
+
+\begin{document}
+    {
+		\setbeamertemplate{footline}{}    % NO FOOTLINE FOR THESE TWO FRAMES
+		\addtocounter{framenumber}{-2}    % not counting the title page and the outline in frame numbers
+
+		\begin{frame}
+			\titlepage
+		\end{frame}
+
+		\begin{frame}{Outline}
+            \vfill
+			\tableofcontents[subsectionstyle=hide]
+            \vfill
+		\end{frame}
+	}
+
+
+	\section{Introduction}
+    \begin{frame}{Sampling}
+        \begin{itemize}
+            \item In many practical situations it is difficult or impossible to observe every unit in a population
+
+            \item Instead, we select a subset of the population and collect information from that subset
+
+            \item This process is called \textbf{sampling}
+
+            \item The selected subset of the population is called a \textbf{sample}
+            \end{itemize}
+
+        \begin{block}{Definition}
+            Sampling is the process of selecting a representative subset of units from a population in order to study the characteristics of the population
+        \end{block}
+    \end{frame}
+
+
+    \begin{frame}{Basic Concepts in Sampling}
+        \begin{itemize}
+            \item \textbf{Population}
+
+            The entire collection of individuals or units about which information is desired.
+
+            \item \textbf{Sample}
+
+            A subset of the population selected for analysis
+
+            \item \textbf{Sampling Method}
+
+            The procedure used to select the sample from the population
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Additional Sampling Terminology}
+        \begin{itemize}
+            \item \textbf{Sampling Unit}
+
+            The basic element or group of elements considered for selection.
+
+            Example: households, students, firms.
+
+            \item \textbf{Sampling Frame}
+
+            A complete list of all sampling units in the population.
+
+            \item \textbf{Sample Unit}
+
+            A sampling unit that is actually selected into the sample.
+
+            \item \textbf{Unit of Inquiry}
+
+            The unit about which information is collected. It may differ from the sampling unit.
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Sampling Methods}
+        Sampling methods can broadly be classified into two categories:
+
+        \begin{itemize}
+            \item \textbf{Probability Sampling}
+
+            Each unit in the population has a known and non-zero probability of being selected.
+
+            \item \textbf{Non-probability Sampling}
+
+            Selection of units depends on judgement, convenience, or other non-random mechanisms.
+        \end{itemize}
+    \end{frame}
+
+
+    \section{Probability Sampling}
+
+    \begin{frame}{Probability Sampling}
+        \begin{itemize}
+            \item Each element of the population has a known probability of being selected
+
+            \item Randomization is used to select sample units
+
+            \item Sampling bias can be reduced
+
+            \item Statistical inference about the population becomes possible
+        \end{itemize}
+
+        \textbf{Common probability sampling methods}
+
+        \begin{itemize}
+            \item Simple Random Sampling
+            \item Stratified Random Sampling
+            \item Systematic Sampling
+            \item Cluster Sampling
+        \end{itemize}
+    \end{frame}
+
+
+    \subsection{Simple Random Sampling}
+
+    \begin{frame}{Simple Random Sampling (SRS)}
+        \begin{block}{Definition}
+            A sampling method in which every unit in the population has an equal probability of being selected.
+        \end{block}
+
+        \begin{itemize}
+            \item If the population size is $N$, the probability of selecting any specific unit is
+            \[
+                \frac{1}{N}
+            \]
+
+            \item Every possible sample of size $n$ has equal probability of being selected
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Common Selection Methods in SRS}
+        Selection method means how items are selected into the sample.
+        \begin{itemize}
+            \item Lottery method
+            \item Random number table
+            \item Computer generated random numbers
+        \end{itemize}
+    \end{frame}
+
+
+    \subsection{Stratified Random Sampling}
+
+    \begin{frame}{Stratified Random Sampling}
+        \begin{block}{Definition}
+            In stratified sampling the population is divided into several non-overlapping groups called \textbf{strata}, and a random sample is selected from each stratum.
+        \end{block}
+
+        \begin{itemize}
+            \item Strata are formed using known characteristics
+
+            \item Units within each stratum are relatively homogeneous
+            
+            \item Units across different strata ar heterogeneous
+
+            \item Sampling is performed independently within each stratum
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Procedure of Stratified Random Sampling}
+        \begin{enumerate}
+            \item Divide the population into $L$ strata
+
+            \item Determine total sample size $n$
+
+            \item Allocate sample sizes $n_1, n_2, \dots, n_L$ to each stratum
+
+            \item Select a random sample from each stratum
+        \end{enumerate}
+
+        \begin{align*}
+            \text{Population sizes of each strata: } & N_1 + N_2 + \cdots + N_L = N \\
+            \text{Sample sizes of each strata: } & n_1 + n_2 + \cdots + n_L = n
+        \end{align*}
+    \end{frame}
+
+
+    \subsection{Systematic Sampling}
+
+    \begin{frame}{Systematic Sampling}
+        \begin{block}{Idea}
+            Sample units are selected at regular intervals from an ordered list of the population.
+        \end{block}
+
+        \begin{itemize}
+            \item Population size: $N$
+
+            \item Sample size: $n$
+
+            \item Sampling interval:
+            \[
+                k = \frac{N}{n}
+            \]
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Procedur of Systematic Sampling}
+        \begin{enumerate}
+            \item Number the population units from $1$ to $N$
+
+            \item Compute the sampling interval $k = N/n$
+
+            \item Randomly select the first unit from $1,2,\dots,k$
+
+            \item Select subsequent units as
+            \[
+                r, r+k, r+2k, \dots
+            \]
+        \end{enumerate}
+    \end{frame}
+
+
+    \subsection{Cluster Sampling}
+
+    \begin{frame}{Cluster Sampling}
+        \begin{block}{Definition}
+            Cluster sampling is a method in which the population is divided into groups called clusters and a random sample of clusters is selected.
+        \end{block}
+
+        \begin{itemize}
+            \item Each cluster contains multiple population elements
+
+            \item All elements in selected clusters may be included in the sample
+
+            \item Often used when a complete sampling frame is not available
+        \end{itemize}
+    \end{frame}
+
+
+    \section{Non-probability Sampling}
+
+    \begin{frame}{Non-probability Sampling}
+        \begin{itemize}
+            \item In non-probability sampling, the probability of selection is not known
+
+            \item Selection depends on judgement, accessibility, or convenience
+
+            \item These methods are easier to implement but may introduce bias
+        \end{itemize}
+
+        \textbf{Common types}
+
+        \begin{itemize}
+            \item Convenience sampling
+            \item Purposive sampling
+            \item Quota sampling
+            \item Snowball sampling
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Examples of Non-probability Sampling}
+        \begin{itemize}
+            \item \textbf{Convenience Sampling}
+
+            Selecting individuals who are easiest to reach.
+
+            \item \textbf{Purposive Sampling}
+
+            Selecting individuals based on specific characteristics.
+
+            \item \textbf{Quota Sampling}
+
+            Selecting units to satisfy predefined group proportions.
+
+            \item \textbf{Snowball Sampling}
+
+            Existing participants recruit additional participants.
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Summary}
+        \begin{itemize}
+            \item Sampling allows us to study large populations efficiently
+
+            \item Sampling methods are broadly classified as probability and non-probability methods
+
+            \item Probability sampling supports statistical inference
+
+            \item Common probability methods include simple random, stratified, systematic, and cluster sampling
+        \end{itemize}
+    \end{frame}
+
+
+    \section*{Thank you.}
+
+\end{document}
