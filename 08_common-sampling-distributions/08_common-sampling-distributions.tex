@@ -1,0 +1,169 @@
+\documentclass[12pt, aspectratio=169]{beamer}
+
+\input{../header}
+\usepackage{booktabs}
+% \usepackage{tikz}
+% \usetikzlibrary{patterns}
+% \DeclareMathOperator{\E}{E}
+% \DeclareMathOperator{\Var}{Var}
+% \DeclareMathOperator{\V}{V}
+% \DeclareMathOperator{\C}{C}
+
+
+\title{Common Sampling Distributions}
+\author{Md. Aminul Islam Shazid}
+\date{}
+
+
+\begin{document}
+    {
+		\setbeamertemplate{footline}{}    % NO FOOTLINE FOR THESE TWO FRAMES
+		\addtocounter{framenumber}{-2}    % not counting the title page and the outline in frame numbers
+
+		\begin{frame}
+			\titlepage
+		\end{frame}
+
+		\begin{frame}{Outline}
+            \vfill
+			\tableofcontents[subsectionstyle=hide]
+            \vfill
+		\end{frame}
+	}
+
+
+	\section{Introduction}
+    
+    \begin{frame}{Sampling Distributions}
+        \begin{itemize}
+            \item The value of a statistic varies across different samples
+            \item A \textbf{sampling distribution} is the theoretical probability distribution of a statistic computed from repeated random samples of a population
+            \item Common statistics include the sample mean, sample variance, and ratios of variances
+            \item Sampling distributions describe how these statistics vary from sample to sample
+            \item They form the theoretical basis for statistical inference and hypothesis testing
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Why Sampling Distributions Matter}
+        \begin{itemize}
+            \item Population parameters are usually unknown
+            \item Instead, we compute statistics from samples
+            \item Sampling distributions allow us to:
+            \begin{itemize}
+                \item quantify sampling variability,
+                \item calculate probabilities for observed statistics,
+                \item construct confidence intervals,
+                \item perform hypothesis tests.
+            \end{itemize}
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Degrees of Freedom}
+        \begin{itemize}
+            \item \textbf{Degrees of freedom (DoF)} refer to the number of independent pieces of information available when estimating a parameter
+
+            \item In many statistical calculations, some information is used to estimate parameters. This reduces the number of values that are free to vary
+
+            \item Example: suppose we have a sample of size \(n\) and we compute the sample mean \(\bar{X}\)
+
+            \item Once the mean is fixed, only \(n-1\) observations can vary freely. The final observation is determined by the requirement that the sample mean remains unchanged
+
+            \item Therefore, the sample variance uses \(n-1\) degrees of freedom
+
+            \item Many sampling distributions depend on degrees of freedom, including Chi-square distribution, Student's \(t\) distribution, \(F\) distribution
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Chi-Square \((\chi^2)\) Distribution}
+        \begin{itemize}
+            \item If \(Z_1, Z_2, \dots, Z_k\) are independent standard normal variables, then
+            \[
+                \chi^2 = Z_1^2 + Z_2^2 + \dots + Z_k^2
+            \]
+            follows a \textbf{Chi-Square distribution} with \(k\) degrees of freedom
+            \item The distribution depends on the parameter called \textbf{degrees of freedom}
+            \item It is defined only for positive values
+            \item The distribution is right-skewed, especially for small degrees of freedom
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Use of Chi-Square Distribution}
+        \begin{itemize}
+            \item Testing hypotheses about population variance
+            \item Goodness-of-fit tests
+            \item Tests of independence in contingency tables
+            \item Many statistical procedures rely on the Chi-square distribution of the sample variance
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Student's \(t\) Distribution}
+        \begin{itemize}
+            \item Let \(\bar{X}\) be the sample mean of the random variable \(X\). Then \(\bar{X}\) is also a random variable because the sample mean varies across different samples
+            \item The statistic
+            \[
+                t = \frac{\bar{X} - \mu}{s/\sqrt{n}}
+            \]
+            follows a \(t\)-distribution with \(n-1\) degrees of freedom, where:
+            \begin{itemize}
+                \item \(\mu\) is the population mean
+                \item \(s\) is the sample variance
+                \item \(n\) is the sample size
+            \end{itemize}
+            \item The distribution is symmetric around zero
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Use of \(t\) Distribution}
+        \begin{itemize}
+            \item Testing hypotheses about a population mean when variance is unknown
+            \item Constructing confidence intervals for the mean
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{\(F\) Distribution}
+        \begin{itemize}
+            \item The \textbf{\(F\) distribution} arises from the ratio of two independent Chi-square variables
+            \item If
+            \[
+                F = \frac{(U_1 / d_1)}{(U_2 / d_2)}
+            \]
+            where \(U_1 \sim \chi^2(d_1)\) and \(U_2 \sim \chi^2(d_2)\), then \(F\) follows an \(F(d_1,d_2)\) distribution
+            \item The distribution depends on two degrees of freedom parameters
+            \item It takes only positive values and is right-skewed
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Use of \(F\) Distribution}
+        \begin{itemize}
+            \item Comparing two population variances
+            \item Analysis of variance (ANOVA)
+            \item Regression model significance testing
+        \end{itemize}
+    \end{frame}
+
+
+    % \begin{frame}{Summary of Sampling Distributions}
+    %     \begin{center}
+    %         \begin{tabular}{lcc}
+    %             \toprule
+    %             Distribution & Main Use & Key Parameter \\
+    %             \midrule
+    %             Chi-square & Variance related tests & Degrees of freedom \\
+    %             \(t\) & Mean inference (small sample) & Degrees of freedom \\
+    %             \(F\) & Variance comparison / ANOVA & Two degrees of freedom \\
+    %             \bottomrule
+    %         \end{tabular}
+    %     \end{center}
+    % \end{frame}
+
+    \section*{Thank you.}
+
+\end{document}
