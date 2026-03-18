@@ -1,0 +1,287 @@
+\documentclass[12pt, aspectratio=169]{beamer}
+
+\input{../header}
+\usepackage{booktabs}
+% \usepackage{tikz}
+% \usetikzlibrary{patterns}
+% \DeclareMathOperator{\E}{E}
+% \DeclareMathOperator{\Var}{Var}
+% \DeclareMathOperator{\V}{V}
+% \DeclareMathOperator{\C}{C}
+
+
+\title{Sampling Methods and Common Sampling Distributions}
+\author{Md. Aminul Islam Shazid}
+\date{}
+
+
+\begin{document}
+    {
+		\setbeamertemplate{footline}{}    % NO FOOTLINE FOR THESE TWO FRAMES
+		\addtocounter{framenumber}{-2}    % not counting the title page and the outline in frame numbers
+
+		\begin{frame}
+			\titlepage
+		\end{frame}
+
+		\begin{frame}{Outline}
+            \vfill
+			\tableofcontents[subsectionstyle=hide]
+            \vfill
+		\end{frame}
+	}
+
+
+    \begin{frame}{Test of Hypothesis - Overview}
+        \begin{itemize}
+            \item A statistical hypothesis is a claim about a population parameter
+            \item We test this claim using sample data
+            \item The goal is to make a decision under uncertainty
+            \item Decisions are made using probability and sampling distributions
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Link with Sampling Distributions}
+        \begin{itemize}
+            \item Hypothesis testing relies on sampling distributions
+            \item If $H_0$ is true, the test statistic follows a known distribution
+            \item Example:
+            \[
+            Z = \frac{\bar{X} - \mu_0}{\sigma/\sqrt{n}} \sim N(0,1)
+            \]
+            \item This allows us to quantify "how unusual" a sample is
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Statistical Hypotheses}
+        \begin{itemize}
+            \item \textbf{Null hypothesis ($H_0$):} baseline assumption
+            \item \textbf{Alternative hypothesis ($H_A$):} competing claim
+            \item They are mutually exclusive and exhaustive
+            \item Example:
+            \[
+            H_0: \mu = 100 \quad \text{vs} \quad H_A: \mu \neq 100
+            \]
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Types of Alternative Hypotheses}
+        \begin{itemize}
+            \item Two-tailed:
+            \[
+            H_A: \mu \neq \mu_0
+            \]
+            \item Left-tailed:
+            \[
+            H_A: \mu < \mu_0
+            \]
+            \item Right-tailed:
+            \[
+            H_A: \mu > \mu_0
+            \]
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Test Statistic}
+        \begin{itemize}
+            \item A function of sample data used to test $H_0$
+            \item Example (Z-test):
+            \[
+            Z = \frac{\bar{X} - \mu_0}{\sigma/\sqrt{n}}
+            \]
+            \item Decision is based on the sampling distribution under $H_0$
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Rejection Region and Critical Value}
+        \begin{itemize}
+            \item Define a region where $H_0$ is rejected
+            \item Based on level of significance $\alpha$
+            \item For two-tailed test:
+            \[
+            P(\text{Reject } H_0 \mid H_0 \text{ true}) = \alpha
+            \]
+        \end{itemize}
+
+    % R code:
+    % x <- seq(-4,4,length=1000)
+    % y <- dnorm(x)
+    % plot(x,y,type="l")
+    % abline(v=c(-1.96,1.96))
+    % polygon(...)
+    \end{frame}
+
+
+        \begin{frame}{Type I Error}
+        \begin{itemize}
+            \item Rejecting $H_0$ when it is true
+            \item Probability:
+            \[
+            \alpha = P(\text{Reject } H_0 \mid H_0 \text{ true})
+            \]
+            \item Also called false positive
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Type II Error}
+        \begin{itemize}
+            \item Failing to reject $H_0$ when it is false
+            \item Probability:
+            \[
+            \beta = P(\text{Fail to reject } H_0 \mid H_0 \text{ false})
+            \]
+            \item Also called false negative
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Level of Significance}
+        \begin{itemize}
+            \item $\alpha = P(\text{Type I error})$
+            \item Common choices: $0.10,\ 0.05,\ 0.01$
+            \item Smaller $\alpha$ means stricter evidence required
+            \item Confidence level:
+            \[
+            1 - \alpha
+            \]
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Power of a Test}
+        \begin{itemize}
+            \item Power measures ability to detect false $H_0$
+            \[
+            \text{Power} = 1 - \beta
+            \]
+            \item Higher power is desirable
+            \item Depends on:
+            \begin{itemize}
+                \item sample size
+                \item effect size
+                \item variability
+                \item $\alpha$
+            \end{itemize}
+        \end{itemize}
+
+    % R code:
+    % curve(dnorm(x,0,1),-4,4)
+    % curve(dnorm(x,1,1),add=TRUE)
+    % shade alpha and beta regions
+    \end{frame}
+
+    \begin{frame}{Errors Summary Table}
+        \begin{center}
+            \begin{tabular}{c|cc}
+                \hline
+                & $H_0$ True & $H_0$ False \\
+                \hline
+                Reject $H_0$ & Type I ($\alpha$) & Correct ($1-\beta$) \\
+                Accept $H_0$ & Correct ($1-\alpha$) & Type II ($\beta$) \\
+                \hline
+            \end{tabular}
+        \end{center}
+    \end{frame}
+
+    \begin{frame}{General Testing Procedure}
+        \begin{itemize}
+            \item State $H_0$ and $H_A$
+            \item Choose $\alpha$
+            \item Select test statistic
+            \item Determine rejection region
+            \item Compute test statistic
+            \item Make decision
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Example Setup}
+        \begin{itemize}
+            \item Claim: teens sleep more than 10 hours
+            \item Sample mean: $\bar{x} = 11.5$
+            \item $\sigma = 5$, $n = 20$
+            \item Hypotheses:
+            \[
+            H_0: \mu \leq 10 \quad H_A: \mu > 10
+            \]
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Example Test Statistic}
+        \begin{itemize}
+            \item Test statistic:
+            \[
+            Z = \frac{11.5 - 10}{5/\sqrt{20}} = 1.34
+            \]
+            \item For $\alpha = 0.05$:
+            \[
+            Z_{0.05} = 1.64
+            \]
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Example Decision}
+        \begin{itemize}
+            \item Since $1.34 < 1.64$, fail to reject $H_0$
+            \item At $\alpha = 0.10$:
+            \[
+            Z_{0.10} = 1.28
+            \]
+            \item Since $1.34 > 1.28$, reject $H_0$
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{P-value}
+        \begin{itemize}
+            \item Probability of observing test statistic or more extreme
+            \item Under $H_0$
+            \[
+            p = P(Z > Z_{cal})
+            \]
+            \item Decision rule:
+            \begin{itemize}
+                \item $p \leq \alpha$ reject $H_0$
+                \item $p > \alpha$ fail to reject $H_0$
+            \end{itemize}
+        \end{itemize}
+
+    % R code:
+    % 1 - pnorm(1.34)
+    \end{frame}
+
+    \begin{frame}{P-value Interpretation}
+        \begin{itemize}
+            \item Smaller p-value implies stronger evidence against $H_0$
+            \item Typical interpretation:
+            \begin{itemize}
+                \item $p < 0.10$ some evidence
+                \item $p < 0.05$ strong evidence
+                \item $p < 0.01$ very strong evidence
+            \end{itemize}
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Connection with Confidence Interval}
+        \begin{itemize}
+            \item $100(1-\alpha)\%$ CI:
+            \[
+            \bar{x} \pm z_{\alpha/2}\frac{\sigma}{\sqrt{n}}
+            \]
+            \item If $\mu_0$ lies outside CI → reject $H_0$
+            \item Otherwise → fail to reject $H_0$
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Key Takeaways}
+        \begin{itemize}
+            \item Hypothesis testing is decision-making under uncertainty
+            \item $\alpha$ controls Type I error
+            \item $\beta$ and power describe sensitivity
+            \item P-value provides flexible decision rule
+            \item Sampling distributions are the foundation
+        \end{itemize}
+    \end{frame}
+
+    \section*{Thank you.}
+
+\end{document}
