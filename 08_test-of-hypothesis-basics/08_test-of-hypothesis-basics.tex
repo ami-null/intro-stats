@@ -10,7 +10,7 @@
 % \DeclareMathOperator{\C}{C}
 
 
-\title{Sampling Methods and Common Sampling Distributions}
+\title{Basics of Hypothesis Testing}
 \author{Md. Aminul Islam Shazid}
 \date{}
 
@@ -41,17 +41,6 @@
         \end{itemize}
     \end{frame}
 
-    \begin{frame}{Link with Sampling Distributions}
-        \begin{itemize}
-            \item Hypothesis testing relies on sampling distributions
-            \item If $H_0$ is true, the test statistic follows a known distribution
-            \item Example:
-            \[
-            Z = \frac{\bar{X} - \mu_0}{\sigma/\sqrt{n}} \sim N(0,1)
-            \]
-            \item This allows us to quantify "how unusual" a sample is
-        \end{itemize}
-    \end{frame}
 
     \begin{frame}{Statistical Hypotheses}
         \begin{itemize}
@@ -64,6 +53,7 @@
             \]
         \end{itemize}
     \end{frame}
+    
 
     \begin{frame}{Types of Alternative Hypotheses}
         \begin{itemize}
@@ -82,40 +72,11 @@
         \end{itemize}
     \end{frame}
 
-    \begin{frame}{Test Statistic}
-        \begin{itemize}
-            \item A function of sample data used to test $H_0$
-            \item Example (Z-test):
-            \[
-            Z = \frac{\bar{X} - \mu_0}{\sigma/\sqrt{n}}
-            \]
-            \item Decision is based on the sampling distribution under $H_0$
-        \end{itemize}
-    \end{frame}
 
-    \begin{frame}{Rejection Region and Critical Value}
-        \begin{itemize}
-            \item Define a region where $H_0$ is rejected
-            \item Based on level of significance $\alpha$
-            \item For two-tailed test:
-            \[
-            P(\text{Reject } H_0 \mid H_0 \text{ true}) = \alpha
-            \]
-        \end{itemize}
-
-    % R code:
-    % x <- seq(-4,4,length=1000)
-    % y <- dnorm(x)
-    % plot(x,y,type="l")
-    % abline(v=c(-1.96,1.96))
-    % polygon(...)
-    \end{frame}
-
-
-        \begin{frame}{Type I Error}
+    \begin{frame}{Type I Error}
         \begin{itemize}
             \item Rejecting $H_0$ when it is true
-            \item Probability:
+            \item Probability of type I error (also known as \emph{level of significance}):
             \[
             \alpha = P(\text{Reject } H_0 \mid H_0 \text{ true})
             \]
@@ -127,7 +88,7 @@
     \begin{frame}{Type II Error}
         \begin{itemize}
             \item Failing to reject $H_0$ when it is false
-            \item Probability:
+            \item Probability of type II error:
             \[
             \beta = P(\text{Fail to reject } H_0 \mid H_0 \text{ false})
             \]
@@ -184,14 +145,60 @@
         \end{center}
     \end{frame}
 
+
+    \begin{frame}{Test Statistic}
+        \begin{itemize}
+            \item The test statistic function of sample data used to test $H_0$
+            \item Example (Z-test):
+            \[
+            Z = \frac{\bar{X} - \mu_0}{\sigma/\sqrt{n}}
+            \]
+            \item Decision is based on the sampling distribution under $H_0$
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Sampling Distributions of Test Statistics}
+        \begin{itemize}
+            \item Disfferent test statistics follow different kinds of sampling distributions
+            \item Hypothesis testing relies on those sampling distributions
+            \item Assuming that $H_0$ is true, the test statistic follows a known distribution
+            \item Example:
+            \[
+            Z = \frac{\bar{X} - \mu_0}{\sigma/\sqrt{n}} \sim N(0,1)
+            \]
+            \item This allows us to quantify ``how unusual" a sample is, if the null hypothesis is true
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Rejection Region and Critical Value}
+        \begin{itemize}
+            \item Define a region in the distribution of the test statistic where $H_0$ is rejected
+            \item Based on level of significance $\alpha$
+            \item For two-tailed test:
+            \[
+            P(\text{Reject } H_0 \mid H_0 \text{ true}) = \alpha
+            \]
+        \end{itemize}
+
+    % R code:
+    % x <- seq(-4,4,length=1000)
+    % y <- dnorm(x)
+    % plot(x,y,type="l")
+    % abline(v=c(-1.96,1.96))
+    % polygon(...)
+    \end{frame}
+
+
     \begin{frame}{General Testing Procedure}
         \begin{itemize}
             \item State $H_0$ and $H_A$
             \item Choose $\alpha$
             \item Select test statistic
-            \item Determine rejection region
-            \item Compute test statistic
-            \item Make decision
+            \item Determine the rejection region
+            \item Compute the test statistic
+            \item Make decision: if the test statistic falls in the rejection region then \(H_0\) is rejected
         \end{itemize}
     \end{frame}
 
