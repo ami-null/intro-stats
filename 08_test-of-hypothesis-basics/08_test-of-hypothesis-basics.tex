@@ -51,6 +51,8 @@
             \[
             H_0: \mu = 100 \quad \text{vs} \quad H_A: \mu \neq 100
             \]
+            \item Based on the available data, we either reject the null hypothesis in favor of the alternative or ``fail to reject the null hypothesis"
+            \item Therefore, we do not ``accept'' the null hypothesis
         \end{itemize}
     \end{frame}
     
@@ -101,7 +103,8 @@
         \begin{itemize}
             \item $\alpha = P(\text{Type I error})$
             \item Common choices: $0.10,\ 0.05,\ 0.01$
-            \item Smaller $\alpha$ means stricter evidence required
+            \item It is essentially our ``tolerance'' for type I error
+            \item Smaller choice of $\alpha$ means stricter evidence required
             \item Confidence level:
             \[
             1 - \alpha
@@ -163,11 +166,9 @@
             \item Disfferent test statistics follow different kinds of sampling distributions
             \item Hypothesis testing relies on those sampling distributions
             \item Assuming that $H_0$ is true, the test statistic follows a known distribution
-            \item Example:
-            \[
-            Z = \frac{\bar{X} - \mu_0}{\sigma/\sqrt{n}} \sim N(0,1)
-            \]
-            \item This allows us to quantify ``how unusual" a sample is, if the null hypothesis is true
+            \item Example: \(Z = \frac{\bar{X} - \mu_0}{\sigma/\sqrt{n}} \sim N(0,1)\)
+            \item This allows us to quantify ``how unusual" a sample is, under the assumption that the null hypothesis is true
+            \item If the test statistic indicates that the data in the sample is too unusual, then the null hypothesis is rejected
         \end{itemize}
     \end{frame}
 
