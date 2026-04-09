@@ -214,6 +214,131 @@
         \end{itemize}
     \end{frame}
 
+
+    \begin{frame}{Sampling Distribution under the Null Hypothesis}
+        \begin{columns}
+            \begin{column}{0.5\textwidth}
+                Suppose the plot shows the sampling distribution of some test statistic \(Z\).
+
+                \vspace{0.5em}
+
+                Different test statistics have different sampling distribution.
+
+                \vspace{0.5em}
+
+                After obtaining the distribution of the test statistic, a region is determined where the calculated value of the test statistic is unlikely to appear.
+            \end{column}
+            \begin{column}{0.5\textwidth}
+                \begin{center}
+                    \includegraphics[width=\textwidth]{plots/sampling-dist-under-null.pdf}
+                \end{center}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+
+    \begin{frame}{Unlikely Region of the Test Statistic under the Null Hypothesis}
+        \begin{columns}
+            \begin{column}{0.5\textwidth}
+                The highlighted region in the plot shows a region of in sampling distribution of the test statistic in which the calculated value of the test staistic is unlikely to fall.
+
+                \vspace{0.5em}
+
+                The question remains as to how to determine this region.
+
+                \vspace{0.5em}
+
+                This region is determined using the level of significance.
+            \end{column}
+            \begin{column}{0.5\textwidth}
+                \begin{center}
+                    \includegraphics[width=\textwidth]{plots/unlikely-region-under-null.pdf}
+                \end{center}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    
+    \begin{frame}{Rejection Region in Two-tailed Tests}
+        \begin{columns}
+            \begin{column}{0.5\textwidth}
+                Suppose a value of the ``level of significance, \(\alpha\)" is chosen.
+
+                \vspace{0.5em}
+
+                Then the rejection region is chosen such that the area in the rejection region equals to \(\alpha\).
+
+                \vspace{0.5em}
+
+                Since this is a two-tailed test, the rejection region is on both sides of the distribution and each region has area equal to \(\alpha/2\).
+
+                \vspace{0.5em}
+
+                If the calculated value of the test statistic falls in this region, then the null hypothesis rejected.
+            \end{column}
+            \begin{column}{0.5\textwidth}
+                \begin{center}
+                    \includegraphics[width=\textwidth]{plots/two-tail-rejection-region.pdf}
+                \end{center}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+
+    \begin{frame}{Rejection Region in One-tailed Tests}
+        \begin{columns}
+            \begin{column}{0.5\textwidth}
+                \begin{center}
+                    \includegraphics[width=\textwidth]{plots/left-tailed-rejection-region.pdf}
+                \end{center}
+            \end{column}
+            \begin{column}{0.5\textwidth}
+                \begin{center}
+                    \includegraphics[width=\textwidth]{plots/right-tailed-rejection-region.pdf}
+                \end{center}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+
+    \begin{frame}{Rejection Region in Two-tailed Tests}
+        \begin{columns}
+            \begin{column}{0.5\textwidth}
+                Suppose a value of the ``level of significance, \(\alpha\)" is chosen.
+
+                \vspace{0.5em}
+
+                Then the rejection region is chosen such that the area in the rejection region equals to \(\alpha\).
+
+                \vspace{0.5em}
+
+                Since this is a two-tailed test, the rejection region is on both sides of the distribution and each region has area equal to \(\alpha/2\).
+            \end{column}
+            \begin{column}{0.5\textwidth}
+                \begin{center}
+                    \includegraphics[width=\textwidth]{plots/two-tail-rejection-region.pdf}
+                \end{center}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+
+    \begin{frame}{Decision Based on Calculated Value of the Test Statistic}
+        \begin{columns}
+            \begin{column}{0.5\textwidth}
+                \begin{center}
+                    \includegraphics[width=\textwidth]{plots/observed-fail-to-reject.pdf}
+                \end{center}
+            \end{column}
+            \begin{column}{0.5\textwidth}
+                \begin{center}
+                    \includegraphics[width=\textwidth]{plots/observed-reject.pdf}
+                \end{center}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+
     \begin{frame}{Example Setup}
         \begin{itemize}
             \item Claim: teens sleep more than 10 hours
@@ -241,12 +366,14 @@
 
     \begin{frame}{Example Decision}
         \begin{itemize}
-            \item Since $1.34 < 1.64$, fail to reject $H_0$
-            \item At $\alpha = 0.10$:
-            \[
-            Z_{0.10} = 1.28
-            \]
-            \item Since $1.34 > 1.28$, reject $H_0$
+            \item At $\alpha = 0.05$, the critical value from the sampling distribution of the test statistic, \(z_{0.05}\) is equal to \(1.64\)
+            \begin{itemize}
+                \item Since $1.34 < 1.64$, we fail to reject $H_0$
+            \end{itemize}
+            \item At $\alpha = 0.10$, the critical value from the sampling distribution of the test statistic, \(z_{0.10}\) is equal to \(1.28\)
+            \begin{itemize}
+                \item Since $1.34 < 1.64$, reject $H_0$
+            \end{itemize}
         \end{itemize}
     \end{frame}
 
