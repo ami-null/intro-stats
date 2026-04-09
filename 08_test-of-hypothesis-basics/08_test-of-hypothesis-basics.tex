@@ -161,13 +161,24 @@
     \end{frame}
 
 
+    \begin{frame}{How a Test is Performed}
+        \begin{itemize}
+            \item Suppose we have a hypothesis \(mu_x = mu_0\) regarding a random variable \(X\)
+            \item We collect the data and compute the sample mean \(\bar{x}\)
+            \item We either ``reject" or ``fail to reject'' the \(H_0\) based on how ``far'' \(\bar{x}\) is from \(\mu_0\)
+            \item In order to be able to quantify the distance between \(\bar{x}\) and \(\mu_0\) in a statistically meaningful way, we have to ``convert'' the sample mean to a test statistic
+            \item Then based on the value of the test statistic and the sampling distribution of the test statistic, a decision regarding the null hypothesis is made
+        \end{itemize}
+    \end{frame}
+
+
     \begin{frame}{Sampling Distributions of Test Statistics}
         \begin{itemize}
-            \item Disfferent test statistics follow different kinds of sampling distributions
+            \item Different test statistics follow different kinds of sampling distributions
             \item Hypothesis testing relies on those sampling distributions
-            \item Assuming that $H_0$ is true, the test statistic follows a known distribution
+            \item Assuming that $H_0$ is true, the test statistic follows a known sampling distribution
             \item Example: \(Z = \frac{\bar{X} - \mu_0}{\sigma/\sqrt{n}} \sim N(0,1)\)
-            \item This allows us to quantify ``how unusual" a sample is, under the assumption that the null hypothesis is true
+            \item This allows us to quantify ``how far'' \(\bar{X}\) is from \(\mu_0\), in other words, ``how unusual" our sample is if the null hypothesis is to be true
             \item If the test statistic indicates that the data in the sample is too unusual for the null hypothesis to be true, then the null hypothesis is rejected
         \end{itemize}
     \end{frame}
@@ -198,7 +209,7 @@
             \item Choose $\alpha$
             \item Select test statistic
             \item Determine the rejection region
-            \item Compute the test statistic
+            \item Compute the value of the test statistic
             \item Make decision: if the test statistic falls in the rejection region then \(H_0\) is rejected
         \end{itemize}
     \end{frame}
