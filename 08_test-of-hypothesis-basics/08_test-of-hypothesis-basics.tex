@@ -127,6 +127,7 @@
                 \item variability
                 \item $\alpha$
             \end{itemize}
+            \item A test with low power may miss a real effect even with a large sample
         \end{itemize}
 
     % R code:
@@ -142,7 +143,7 @@
                 & $H_0$ True & $H_0$ False \\
                 \hline
                 Reject $H_0$ & Type I ($\alpha$) & Correct ($1-\beta$) \\
-                Accept $H_0$ & Correct ($1-\alpha$) & Type II ($\beta$) \\
+                Fail to reject $H_0$ & Correct ($1-\alpha$) & Type II ($\beta$) \\
                 \hline
             \end{tabular}
         \end{center}
@@ -163,7 +164,7 @@
 
     \begin{frame}{How a Test is Performed}
         \begin{itemize}
-            \item Suppose we have a hypothesis \(mu_x = mu_0\) regarding a random variable \(X\)
+            \item Suppose we have a hypothesis \(\mu_x = \mu_0\) regarding a random variable \(X\)
             \item We collect the data and compute the sample mean \(\bar{x}\)
             \item We either ``reject" or ``fail to reject'' the \(H_0\) based on how ``far'' \(\bar{x}\) is from \(\mu_0\)
             \item In order to be able to quantify the distance between \(\bar{x}\) and \(\mu_0\) in a statistically meaningful way, we have to ``convert'' the sample mean to a test statistic
@@ -368,51 +369,118 @@
             \end{itemize}
             \item At $\alpha = 0.10$, the critical value from the sampling distribution of the test statistic, \(z_{0.10}\) is equal to \(1.28\)
             \begin{itemize}
-                \item Since $1.34 < 1.64$, reject $H_0$
+                \item Since $1.34 > 1.28$, we reject $H_0$
             \end{itemize}
         \end{itemize}
     \end{frame}
 
     \begin{frame}{P-value}
         \begin{itemize}
-            \item Probability of observing the calculated test statistic or a test statistic which is more extreme than the calculated test statistic
-            \item Under $H_0$
+            \item The \textbf{p-value} is the probability of observing a test statistic
+                as extreme as, or more extreme than, the one calculated from the sample ---
+                \emph{assuming $H_0$ is true}
+            \item It is \textbf{not} the probability that $H_0$ is true
+            \item It quantifies how ``surprising'' the data are under $H_0$
+            \item Formally, for a right-tailed test:
             \[
-            p = P(Z > Z_{cal})
+                p = P(Z \geqslant Z_{\text{cal}} \mid H_0 \text{ true})
             \]
             \item Decision rule:
             \begin{itemize}
-                \item $p \leq \alpha$ reject $H_0$
-                \item $p > \alpha$ fail to reject $H_0$
+                \item $p \leqslant \alpha$: reject $H_0$
+                \item $p > \alpha$: fail to reject $H_0$
             \end{itemize}
         \end{itemize}
-
-    % R code:
-    % 1 - pnorm(1.34)
     \end{frame}
+
 
     \begin{frame}{P-value Interpretation}
         \begin{itemize}
-            \item Smaller p-value implies stronger evidence against $H_0$
-            \item Typical interpretation:
+            \item A \textbf{small} p-value means the observed data would be very
+                unlikely if $H_0$ were true, which is evidence against $H_0$
+            \item A \textbf{large} p-value means the data are consistent with $H_0$, but this does \emph{not} prove $H_0$ is true. Therefore, we do not ``accept'' the \(H_0\), rather we ``fail to reject it''
+            \item Common thresholds (informal):
             \begin{itemize}
-                \item $p < 0.10$ some evidence
-                \item $p < 0.05$ strong evidence
-                \item $p < 0.01$ very strong evidence
+                \item $p < 0.10$: some evidence against $H_0$
+                \item $p < 0.05$: strong evidence against $H_0$
+                \item $p < 0.01$: very strong evidence against $H_0$
+            \end{itemize}
+            \item \textbf{Common misconceptions:}
+            \begin{itemize}
+                \item p-value is \emph{not} the probability the result occurred by chance
+                \item p-value is \emph{not} a measure of effect size or practical significance
+                \item A non-significant p-value does not ``accept'' $H_0$
             \end{itemize}
         \end{itemize}
     \end{frame}
 
-    \begin{frame}{Connection with Confidence Interval}
+
+    \begin{frame}{P-value: Tails and Computation}
         \begin{itemize}
-            \item $100(1-\alpha)\%$ CI:
+            \item The tail(s) used depend on the alternative hypothesis $H_A$:
+            \begin{itemize}
+                \item Right-tailed ($H_A: \mu > \mu_0$):
+                \quad $p = P(Z \geq Z_{\text{cal}})$
+                \item Left-tailed ($H_A: \mu < \mu_0$):
+                \quad $p = P(Z \leq Z_{\text{cal}})$
+                \item Two-tailed ($H_A: \mu \neq \mu_0$):
+                \quad $p = 2\,P(Z \geq |Z_{\text{cal}}|)$
+            \end{itemize}
+            \item \textbf{Example} (from earlier): $Z_{\text{cal}} = 1.34$,\;
+                right-tailed test
             \[
-            \bar{x} \pm z_{\alpha/2}\frac{\sigma}{\sqrt{n}}
+                p = P(Z \geq 1.34) \approx 0.090
             \]
-            \item If $\mu_0$ lies outside CI → reject $H_0$
-            \item Otherwise → fail to reject $H_0$
+            \item Since $p = 0.090 > 0.05 = \alpha$, we fail to reject $H_0$ at \(5\%\) of significance
+            \item Since $p = 0.090 < 0.10 = \alpha$, we reject $H_0$ at \(10\%\) level of significance
         \end{itemize}
     \end{frame}
+
+
+    \begin{frame}{Confidence Interval: Construction and Meaning}
+        \begin{itemize}
+            \item A $100(1-\alpha)\%$ CI is an interval constructed from sample data
+                such that, in repeated sampling, it contains the true parameter
+                $100(1-\alpha)\%$ of the time
+            \item \textbf{Correct interpretation:} if we drew many samples and built a CI
+                from each, $(1-\alpha)$ of those intervals would contain $\mu$
+            \item \textbf{Incorrect interpretation:} ``there is a $(1-\alpha)$ probability
+                that $\mu$ lies in \emph{this} interval'' ---
+                $\mu$ is fixed; probability here is a property of the \emph{procedure}
+            \item Width of CI:
+            \[
+                \text{Width} = 2\,z_{\alpha/2}\,\frac{\sigma}{\sqrt{n}}
+            \]
+            \item Wider CI: less precision; Narrower CI: more precision
+            \item Trade-off: higher confidence level $(1-\alpha)\uparrow$
+                $\Rightarrow$ wider interval
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Connection with Confidence Intervals}
+        \begin{itemize}
+            \item A $100(1-\alpha)\%$ confidence interval for $\mu$ is:
+            \[
+                \bar{x} \pm z_{\alpha/2}\,\frac{\sigma}{\sqrt{n}}
+            \]
+            \item A CI gives a \textbf{range of plausible values} for $\mu$,
+                whereas a hypothesis test gives a binary decision
+            \item The duality: for a two-tailed test at level $\alpha$,
+            \[
+                \text{Reject } H_0: \mu = \mu_0
+                \iff
+                \mu_0 \notin \left(\bar{x} - z_{\alpha/2}\tfrac{\sigma}{\sqrt{n}},\;
+                                    \bar{x} + z_{\alpha/2}\tfrac{\sigma}{\sqrt{n}}\right)
+            \]
+            \item \textbf{Advantage of CI over hypothesis test:}
+                a CI also communicates the magnitude and precision of the estimate,
+                not just whether to reject $H_0$
+            \item Narrower CI $\Rightarrow$ more precise estimate
+                (achieved by larger $n$ or smaller $\sigma$)
+        \end{itemize}
+    \end{frame}
+
 
     \begin{frame}{Key Takeaways}
         \begin{itemize}
