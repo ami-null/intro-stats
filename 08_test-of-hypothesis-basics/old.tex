@@ -1,7 +1,15 @@
+@ -1,559 +0,0 @@
 \documentclass[12pt, aspectratio=169]{beamer}
 
 \input{../header}
 \usepackage{booktabs}
+% \usepackage{tikz}
+% \usetikzlibrary{patterns}
+% \DeclareMathOperator{\E}{E}
+% \DeclareMathOperator{\Var}{Var}
+% \DeclareMathOperator{\V}{V}
+% \DeclareMathOperator{\C}{C}
+
 
 \title{Basics of Hypothesis Testing}
 \author{Md. Aminul Islam Shazid}
@@ -10,8 +18,8 @@
 
 \begin{document}
     {
-		\setbeamertemplate{footline}{}
-		\addtocounter{framenumber}{-2}
+		\setbeamertemplate{footline}{}    % NO FOOTLINE FOR THESE TWO FRAMES
+		\addtocounter{framenumber}{-2}    % not counting the title page and the outline in frame numbers
 
 		\begin{frame}
 			\titlepage
@@ -23,8 +31,6 @@
             \vfill
 		\end{frame}
 	}
-
-    \section{Introduction}
 
 
     \begin{frame}{Test of Hypothesis - Overview}
@@ -50,7 +56,7 @@
             \item Therefore, we do not ``accept'' the null hypothesis
         \end{itemize}
     \end{frame}
-
+    
 
     \begin{frame}{Types of Alternative Hypotheses}
         \begin{itemize}
@@ -70,8 +76,6 @@
     \end{frame}
 
 
-    \section{Testing Procedure}
-
     \begin{frame}{Test Statistic}
         \begin{itemize}
             \item The test statistic is function of sample data used to test $H_0$
@@ -80,29 +84,6 @@
             Z = \frac{\bar{X} - \mu_0}{\sigma/\sqrt{n}}
             \]
             \item Decision is based on the sampling distribution under $H_0$
-        \end{itemize}
-    \end{frame}
-
-
-    \begin{frame}{Sampling Distributions of Test Statistics}
-        \begin{itemize}
-            \item Different test statistics follow different kinds of sampling distributions
-            \item Hypothesis testing relies on those sampling distributions
-            \item Assuming that $H_0$ is true, the test statistic follows a known sampling distribution
-            \item Example: \(Z = \frac{\bar{X} - \mu_0}{\sigma/\sqrt{n}} \sim N(0,1)\)
-            \item This allows us to quantify ``how far'' \(\bar{X}\) is from \(\mu_0\), in other words, ``how unusual" our sample is if the null hypothesis is to be true
-            \item If the test statistic indicates that the data in the sample is too unusual for the null hypothesis to be true, then the null hypothesis is rejected
-        \end{itemize}
-    \end{frame}
-
-
-    \begin{frame}{How a Test is Performed}
-        \begin{itemize}
-            \item Suppose we have a hypothesis \(\mu_x = \mu_0\) regarding a random variable \(X\)
-            \item We collect the data and compute the sample mean \(\bar{x}\)
-            \item We either ``reject" or ``fail to reject'' the \(H_0\) based on how ``far'' \(\bar{x}\) is from \(\mu_0\)
-            \item In order to be able to quantify the distance between \(\bar{x}\) and \(\mu_0\) in a statistically meaningful way, we have to ``convert'' the sample mean to a test statistic
-            \item Then based on the value of the test statistic and the sampling distribution of the test statistic, a decision regarding the null hypothesis is made
         \end{itemize}
     \end{frame}
 
@@ -131,20 +112,6 @@
     \end{frame}
 
 
-    \begin{frame}{Errors Summary Table}
-        \begin{center}
-            \begin{tabular}{c|cc}
-                \hline
-                & $H_0$ True & $H_0$ False \\
-                \hline
-                Reject $H_0$ & Type I & Correct \\
-                Fail to reject $H_0$ & Correct & Type II \\
-                \hline
-            \end{tabular}
-        \end{center}
-    \end{frame}
-
-
     \begin{frame}{Level of Significance}
         \begin{itemize}
             \item $\alpha = P(\text{Type I error})$
@@ -159,154 +126,22 @@
     \end{frame}
 
 
-    \begin{frame}{Rejection Region and Critical Value}
-        \begin{itemize}
-            \item Define a region in the distribution of the test statistic where $H_0$ is rejected
-            \item Based on level of significance $\alpha$
-            \item For two-tailed test:
-            \[
-            P(\text{Reject } H_0 \mid H_0 \text{ true}) = \alpha
-            \]
-        \end{itemize}
+    \begin{frame}{Rejection Region and \(\alpha\) in Two-tailed Tests}
+        \centering
+        \includegraphics[width=0.75\textwidth]{plots/two-tail.pdf}
     \end{frame}
 
 
-    \begin{frame}{General Testing Procedure}
-        \begin{itemize}
-            \item State $H_0$ and $H_A$
-            \item Choose $\alpha$
-            \item Select test statistic
-            \item Determine the rejection region
-            \item Compute the value of the test statistic
-            \item Make decision: if the test statistic falls in the rejection region then \(H_0\) is rejected
-        \end{itemize}
+    \begin{frame}{Rejection Region and \(\alpha\) in Left-tailed Tests}
+        \centering
+        \includegraphics[width=0.75\textwidth]{plots/left-tailed.pdf}
     \end{frame}
 
 
-    \section{Visualizing the Test}
-
-
-    \begin{frame}{Sampling Distribution under the Null Hypothesis}
-        \begin{columns}
-            \begin{column}{0.5\textwidth}
-                Suppose the plot shows the sampling distribution of some test statistic \(Z\).
-
-                \vspace{0.5em}
-
-                Different test statistics have different sampling distribution.
-
-                \vspace{0.5em}
-
-                After obtaining the distribution of the test statistic, a region is determined where the calculated value of the test statistic is unlikely to appear.
-            \end{column}
-            \begin{column}{0.5\textwidth}
-                \begin{center}
-                    \includegraphics[width=\textwidth]{plots/sampling-dist-under-null.pdf}
-                \end{center}
-            \end{column}
-        \end{columns}
+    \begin{frame}{Rejection Region and \(\alpha\) in Right-tailed Tests}
+        \centering
+        \includegraphics[width=0.75\textwidth]{plots/right-tailed.pdf}
     \end{frame}
-
-
-    \begin{frame}{Unlikely Region of the Test Statistic under the Null Hypothesis}
-        \begin{columns}
-            \begin{column}{0.5\textwidth}
-                The highlighted region in the plot shows a region of in sampling distribution of the test statistic in which the calculated value of the test staistic is unlikely to fall.
-
-                \vspace{0.5em}
-
-                The question remains as to how to determine this region.
-
-                \vspace{0.5em}
-
-                This region is determined using the level of significance.
-            \end{column}
-            \begin{column}{0.5\textwidth}
-                \begin{center}
-                    \includegraphics[width=\textwidth]{plots/unlikely-region-under-null.pdf}
-                \end{center}
-            \end{column}
-        \end{columns}
-    \end{frame}
-
-
-    % \begin{frame}{Rejection Region and \(\alpha\) in Two-tailed Tests}
-    %     \centering
-    %     \includegraphics[width=0.75\textwidth]{plots/two-tail.pdf}
-    % \end{frame}
-
-
-    % \begin{frame}{Rejection Region and \(\alpha\) in Left-tailed Tests}
-    %     \centering
-    %     \includegraphics[width=0.75\textwidth]{plots/left-tailed.pdf}
-    % \end{frame}
-
-
-    % \begin{frame}{Rejection Region and \(\alpha\) in Right-tailed Tests}
-    %     \centering
-    %     \includegraphics[width=0.75\textwidth]{plots/right-tailed.pdf}
-    % \end{frame}
-
-
-    \begin{frame}{Rejection Region in Two-tailed Tests}
-        \begin{columns}
-            \begin{column}{0.5\textwidth}
-                Suppose a value of the ``level of significance, \(\alpha\)" is chosen.
-
-                \vspace{0.5em}
-
-                Then the rejection region is chosen such that the area in the rejection region equals to \(\alpha\).
-
-                \vspace{0.5em}
-
-                Since this is a two-tailed test, the rejection region is on both sides of the distribution and each region has area equal to \(\alpha/2\).
-
-                \vspace{0.5em}
-
-                If the calculated value of the test statistic falls in this region, then the null hypothesis rejected.
-            \end{column}
-            \begin{column}{0.5\textwidth}
-                \begin{center}
-                    \includegraphics[width=\textwidth]{plots/two-tail-rejection-region.pdf}
-                \end{center}
-            \end{column}
-        \end{columns}
-    \end{frame}
-
-
-    \begin{frame}{Rejection Region in One-tailed Tests}
-        \begin{columns}
-            \begin{column}{0.5\textwidth}
-                \begin{center}
-                    \includegraphics[width=\textwidth]{plots/left-tailed-rejection-region.pdf}
-                \end{center}
-            \end{column}
-            \begin{column}{0.5\textwidth}
-                \begin{center}
-                    \includegraphics[width=\textwidth]{plots/right-tailed-rejection-region.pdf}
-                \end{center}
-            \end{column}
-        \end{columns}
-    \end{frame}
-
-
-    \begin{frame}{Decision Based on Calculated Value of the Test Statistic}
-        \begin{columns}
-            \begin{column}{0.5\textwidth}
-                \begin{center}
-                    \includegraphics[width=\textwidth]{plots/observed-fail-to-reject.pdf}
-                \end{center}
-            \end{column}
-            \begin{column}{0.5\textwidth}
-                \begin{center}
-                    \includegraphics[width=\textwidth]{plots/observed-reject.pdf}
-                \end{center}
-            \end{column}
-        \end{columns}
-    \end{frame}
-
-
-    \section{Power}
 
 
     \begin{frame}{Power of a Test}
@@ -375,8 +210,8 @@
         \end{itemize}
     \end{frame}
 
-
-    \begin{frame}{Test Outcomes and Their Probabilities}
+    
+    \begin{frame}{Errors Summary Table}
         \begin{center}
             \begin{tabular}{c|cc}
                 \hline
@@ -390,10 +225,185 @@
     \end{frame}
 
 
-    \section{Example}
+    \begin{frame}{How a Test is Performed}
+        \begin{itemize}
+            \item Suppose we have a hypothesis \(\mu_x = \mu_0\) regarding a random variable \(X\)
+            \item We collect the data and compute the sample mean \(\bar{x}\)
+            \item We either ``reject" or ``fail to reject'' the \(H_0\) based on how ``far'' \(\bar{x}\) is from \(\mu_0\)
+            \item In order to be able to quantify the distance between \(\bar{x}\) and \(\mu_0\) in a statistically meaningful way, we have to ``convert'' the sample mean to a test statistic
+            \item Then based on the value of the test statistic and the sampling distribution of the test statistic, a decision regarding the null hypothesis is made
+        \end{itemize}
+    \end{frame}
 
 
-    \begin{frame}{Example}
+    \begin{frame}{Sampling Distributions of Test Statistics}
+        \begin{itemize}
+            \item Different test statistics follow different kinds of sampling distributions
+            \item Hypothesis testing relies on those sampling distributions
+            \item Assuming that $H_0$ is true, the test statistic follows a known sampling distribution
+            \item Example: \(Z = \frac{\bar{X} - \mu_0}{\sigma/\sqrt{n}} \sim N(0,1)\)
+            \item This allows us to quantify ``how far'' \(\bar{X}\) is from \(\mu_0\), in other words, ``how unusual" our sample is if the null hypothesis is to be true
+            \item If the test statistic indicates that the data in the sample is too unusual for the null hypothesis to be true, then the null hypothesis is rejected
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Rejection Region and Critical Value}
+        \begin{itemize}
+            \item Define a region in the distribution of the test statistic where $H_0$ is rejected
+            \item Based on level of significance $\alpha$
+            \item For two-tailed test:
+            \[
+            P(\text{Reject } H_0 \mid H_0 \text{ true}) = \alpha
+            \]
+        \end{itemize}
+
+    % R code:
+    % x <- seq(-4,4,length=1000)
+    % y <- dnorm(x)
+    % plot(x,y,type="l")
+    % abline(v=c(-1.96,1.96))
+    % polygon(...)
+    \end{frame}
+
+
+    \begin{frame}{General Testing Procedure}
+        \begin{itemize}
+            \item State $H_0$ and $H_A$
+            \item Choose $\alpha$
+            \item Select test statistic
+            \item Determine the rejection region
+            \item Compute the value of the test statistic
+            \item Make decision: if the test statistic falls in the rejection region then \(H_0\) is rejected
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Sampling Distribution under the Null Hypothesis}
+        \begin{columns}
+            \begin{column}{0.5\textwidth}
+                Suppose the plot shows the sampling distribution of some test statistic \(Z\).
+
+                \vspace{0.5em}
+
+                Different test statistics have different sampling distribution.
+
+                \vspace{0.5em}
+
+                After obtaining the distribution of the test statistic, a region is determined where the calculated value of the test statistic is unlikely to appear.
+            \end{column}
+            \begin{column}{0.5\textwidth}
+                \begin{center}
+                    \includegraphics[width=\textwidth]{plots/sampling-dist-under-null.pdf}
+                \end{center}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+
+    \begin{frame}{Unlikely Region of the Test Statistic under the Null Hypothesis}
+        \begin{columns}
+            \begin{column}{0.5\textwidth}
+                The highlighted region in the plot shows a region of in sampling distribution of the test statistic in which the calculated value of the test staistic is unlikely to fall.
+
+                \vspace{0.5em}
+
+                The question remains as to how to determine this region.
+
+                \vspace{0.5em}
+
+                This region is determined using the level of significance.
+            \end{column}
+            \begin{column}{0.5\textwidth}
+                \begin{center}
+                    \includegraphics[width=\textwidth]{plots/unlikely-region-under-null.pdf}
+                \end{center}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    
+    \begin{frame}{Rejection Region in Two-tailed Tests}
+        \begin{columns}
+            \begin{column}{0.5\textwidth}
+                Suppose a value of the ``level of significance, \(\alpha\)" is chosen.
+
+                \vspace{0.5em}
+
+                Then the rejection region is chosen such that the area in the rejection region equals to \(\alpha\).
+
+                \vspace{0.5em}
+
+                Since this is a two-tailed test, the rejection region is on both sides of the distribution and each region has area equal to \(\alpha/2\).
+
+                \vspace{0.5em}
+
+                If the calculated value of the test statistic falls in this region, then the null hypothesis rejected.
+            \end{column}
+            \begin{column}{0.5\textwidth}
+                \begin{center}
+                    \includegraphics[width=\textwidth]{plots/two-tail-rejection-region.pdf}
+                \end{center}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+
+    \begin{frame}{Rejection Region in One-tailed Tests}
+        \begin{columns}
+            \begin{column}{0.5\textwidth}
+                \begin{center}
+                    \includegraphics[width=\textwidth]{plots/left-tailed-rejection-region.pdf}
+                \end{center}
+            \end{column}
+            \begin{column}{0.5\textwidth}
+                \begin{center}
+                    \includegraphics[width=\textwidth]{plots/right-tailed-rejection-region.pdf}
+                \end{center}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+
+    \begin{frame}{Rejection Region in Two-tailed Tests}
+        \begin{columns}
+            \begin{column}{0.5\textwidth}
+                Suppose a value of the ``level of significance, \(\alpha\)" is chosen.
+
+                \vspace{0.5em}
+
+                Then the rejection region is chosen such that the area in the rejection region equals to \(\alpha\).
+
+                \vspace{0.5em}
+
+                Since this is a two-tailed test, the rejection region is on both sides of the distribution and each region has area equal to \(\alpha/2\).
+            \end{column}
+            \begin{column}{0.5\textwidth}
+                \begin{center}
+                    \includegraphics[width=\textwidth]{plots/two-tail-rejection-region.pdf}
+                \end{center}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+
+    \begin{frame}{Decision Based on Calculated Value of the Test Statistic}
+        \begin{columns}
+            \begin{column}{0.5\textwidth}
+                \begin{center}
+                    \includegraphics[width=\textwidth]{plots/observed-fail-to-reject.pdf}
+                \end{center}
+            \end{column}
+            \begin{column}{0.5\textwidth}
+                \begin{center}
+                    \includegraphics[width=\textwidth]{plots/observed-reject.pdf}
+                \end{center}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+
+    \begin{frame}{Example Setup}
         \begin{itemize}
             \item Claim: teens sleep more than 10 hours
             \item Sample mean: $\bar{x} = 11.5$
@@ -405,7 +415,6 @@
         \end{itemize}
     \end{frame}
 
-
     \begin{frame}{Example Test Statistic}
         \begin{itemize}
             \item Test statistic:
@@ -414,7 +423,6 @@
             \]
         \end{itemize}
     \end{frame}
-
 
     \begin{frame}{Example Decision}
         \begin{itemize}
@@ -428,10 +436,6 @@
             \end{itemize}
         \end{itemize}
     \end{frame}
-
-
-    \section{P-value and Confidence Intervals}
-
 
     \begin{frame}{P-value}
         \begin{itemize}
