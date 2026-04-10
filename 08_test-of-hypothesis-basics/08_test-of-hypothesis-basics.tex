@@ -115,27 +115,71 @@
 
     \begin{frame}{Power of a Test}
         \begin{itemize}
-            \item Power measures ability to detect false $H_0$
+            \item \textbf{Power} is the probability of correctly rejecting $H_0$
+                when it is actually false
             \[
-            \text{Power} = 1 - \beta
+                \text{Power} = 1 - \beta = P(\text{Reject } H_0 \mid H_0 \text{ false})
             \]
-            \item Higher power is desirable
-            \item Depends on:
+            \item A test with low power may fail to reject a false \(H_0\) which is a \emph{false negative} error
+            \item Power depends on:
             \begin{itemize}
-                \item sample size
-                \item effect size
-                \item variability
-                \item $\alpha$
+                \item \textbf{Sample size} $n$: larger $n$ $\Rightarrow$ higher power
+                \item \textbf{Effect size} $|\mu - \mu_0|$: larger effect $\Rightarrow$ easier to detect
+                \item \textbf{Variability} $\sigma$: smaller $\sigma$ $\Rightarrow$ higher power
+                \item \textbf{Significance level} $\alpha$: larger $\alpha$ $\Rightarrow$ higher power (but at the cost of higher Type I error probability)
             \end{itemize}
-            \item A test with low power may miss a real effect even with a large sample
+            \item Conventionally, power $\geq 0.80$ is considered adequate
         \end{itemize}
-
-    % R code:
-    % curve(dnorm(x,0,1),-4,4)
-    % curve(dnorm(x,1,1),add=TRUE)
-    % shade alpha and beta regions
     \end{frame}
 
+
+    \begin{frame}{Power: The Two Overlapping Distributions}
+        \begin{columns}
+            \begin{column}{0.5\textwidth}
+                \begin{itemize}
+                    \item Under $H_0$: test statistic is centered at $\mu_0$
+                    \item Under $H_A$: test statistic is centered at some true $\mu_A \neq \mu_0$
+                    \item The \textbf{rejection region} is fixed by $\alpha$ using the $H_0$ distribution
+                    \item \textbf{Power} is the area of the $H_A$ distribution
+                        that falls \emph{inside} the rejection region
+                    \item \textbf{$\beta$} is the area of the $H_A$ distribution
+                        that falls \emph{outside} the rejection region
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.5\textwidth}
+                \begin{center}
+                    \includegraphics[width=\textwidth]{plots/power-two-distributions.pdf}
+                \end{center}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+
+    \begin{frame}{Power: The $\alpha$--$\beta$ Trade-off}
+        \begin{itemize}
+            \item For a fixed sample size, reducing $\alpha$ (stricter test)
+                \textbf{moves the rejection region further into the tail}
+            \item This means less of the $H_A$ distribution falls in the rejection region
+                $\Rightarrow$ power \textbf{decreases} and $\beta$ \textbf{increases}
+            \item There is an unavoidable trade-off:
+            \begin{center}
+                \begin{tabular}{ccc}
+                    \toprule
+                    $\alpha$ & Type I Error & Power ($1-\beta$) \\
+                    \midrule
+                    Smaller & Lower  & Lower \\
+                    Larger  & Higher & Higher \\
+                    \bottomrule
+                \end{tabular}
+            \end{center}
+            \item The only way to reduce \emph{both} errors simultaneously is to
+                \textbf{increase the sample size}
+            \item In practice, $\alpha$ is fixed first (usually $0.05$),
+                then $n$ is chosen to achieve the desired power
+        \end{itemize}
+    \end{frame}
+
+    
     \begin{frame}{Errors Summary Table}
         \begin{center}
             \begin{tabular}{c|cc}
