@@ -20,8 +20,11 @@ shade <- function(from, to, mu = 0, sd = 1, col) {
 }
 
 # ── 1. Two-tailed (alpha = 0.05) ───────────────────────────────────────────────
-pdf("two-tail.pdf", width = 5, height = 3.75)
-
+pdf("two-tail.pdf", width = 5, height = 3.5)
+par(
+    mar  = c(3.4, 3.4, 1.6, 1),  # minimal bottom/left for labels, almost nothing top/right
+    mgp  = c(2.25, 0.85, 0)
+)
 alpha <- 0.050
 cv    <- qnorm(1 - alpha / 2)          # 1.96
 
@@ -42,12 +45,12 @@ text(-cv+.025,  0.04, expression(-z[alpha/2]), cex = 0.8, xpd = TRUE, pos = 1)
 
 legend(
     "topright",
-    # bty = "n",
-    cex = 0.85,
+    bty = "n",
+    # cex = 0.85,
     legend = c("Rejection region", "Fail-to-reject region"),
     fill   = c(col_reject, col_retain),
-    border = NA,
-    bg = "white"
+    border = NA#,
+    # bg = "white"
     # box.col = "white"
 )
 
@@ -55,8 +58,12 @@ dev.off()
 
 
 # ── 2. Left-tailed (alpha = 0.05) ──────────────────────────────────────────────
-pdf("left-tailed.pdf", width = 5, height = 3.75)
-
+pdf("left-tailed.pdf", width = 5, height = 3.5)
+par(
+    mar  = c(3.4, 3.4, 1.6, 1),  # minimal bottom/left for labels, almost nothing top/right
+    mgp  = c(2.25, 0.85, 0)#,
+    # cex = 0.8
+)
 alpha <- 0.05
 cv    <- qnorm(alpha)                  # -1.645
 
@@ -73,20 +80,24 @@ text(cv+.25, 0.03, expression(-z[alpha]),   cex = 0.8, xpd = TRUE, pos = 1)
 
 legend(
     "topright",
-    # bty = "n",
-    cex = 0.85,
+    bty = "n",
+    # cex = 0.85,
     legend = c("Rejection region", "Fail-to-reject region"),
     fill   = c(col_reject, col_retain),
-    border = NA,
-    bg = "white"
+    border = NA#,
+    # bg = "white"
 )
 
 dev.off()
 
 
 # ── 3. Right-tailed (alpha = 0.05) ─────────────────────────────────────────────
-pdf("right-tailed.pdf", width = 5, height = 3.75)
-
+pdf("right-tailed.pdf", width = 5, height = 3.5)
+par(
+    mar  = c(3.4, 3.4, 1.6, 1),  # minimal bottom/left for labels, almost nothing top/right
+    mgp  = c(2.25, 0.85, 0)#,
+    # cex = 0.8
+)
 alpha <- 0.05
 cv    <- qnorm(1 - alpha)              # 1.645
 
@@ -103,12 +114,12 @@ text(cv-0.25, 0.03, expression(z[alpha]),    cex = 0.8, xpd = TRUE, pos = 1)
 
 legend(
     "topright",
-    # bty = "n",
-    cex = 0.85,
+    bty = "n",
+    # cex = 0.85,
     legend = c("Rejection region", "Fail-to-reject region"),
     fill   = c(col_reject, col_retain),
-    border = NA,
-    bg = "white"
+    border = NA#,
+    # bg = "white"
 )
 
 dev.off()
