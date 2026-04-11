@@ -13,6 +13,8 @@ plot(x, dnorm(x, 0, 1), type = "l", lwd = 1,
 lines(x, dnorm(x, 2.5, 1), lwd = 1, lty = 2)
 abline(v = cv, lty = 3, col = "gray40")
 
+text(cv, 0, expression(z[alpha]))
+
 # beta region (under H_A, left of critical value)
 xb <- seq(-4, cv, length = 300)
 polygon(c(xb, rev(xb)), c(dnorm(xb, 2.5, 1), rep(0, 300)),
