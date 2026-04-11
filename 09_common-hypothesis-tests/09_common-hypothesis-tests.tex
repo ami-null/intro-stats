@@ -43,11 +43,10 @@
             \end{tabular}
         \end{center}
 
-        \vspace{0.5em}
-
         \begin{itemize}
             \item All three test statistics are computed the same way; only the
                 \textbf{sampling distribution} and critical values differ
+            \item The \(t\) distribution converges to the normal distribution when \(n\) is large. However, using the \(t\) test regardless of sample size, is more robust
         \end{itemize}
     \end{frame}
 
@@ -90,7 +89,7 @@
 
                 \vspace{0.5em}
 
-                \textbf{P-value:} \(p = 2\,P(Z \geqslant 5.27) \approx 0.000\)
+                \textbf{P-value:} \(p = 2\,P(Z \geqslant 5.27) \leqslant 0.001\)
 
                 \vspace{0.5em}
 
@@ -237,6 +236,7 @@
                 \bottomrule
             \end{tabular}
         \end{center}
+        The \(t\) distribution converges to the normal distribution when \(n\) is large. However, using the \(t\) test regardless of sample size, is more robust.
     \end{frame}
 
 
@@ -363,14 +363,14 @@
         \textbf{Test statistic:}
         \[
             t_{\text{cal}} = \frac{1309 - 1205}{S\sqrt{\tfrac{1}{9}+\tfrac{1}{16}}}
-            = 0.197
+            = 0.623
         \]
 
         \textbf{Critical value:} $t_{0.025,\,23} = 2.069$
 
         \vspace{0.5em}
 
-        \textbf{Decision:} Since $|t_{\text{cal}}| = 0.197 < 2.069$,
+        \textbf{Decision:} Since $|t_{\text{cal}}| = 0.623 < 2.069$,
         we \textbf{fail to reject} $H_0$ at 5\% level of significance.
         There is no significant difference between the mean lifetimes of the two companies' bulbs.
     \end{frame}
@@ -615,7 +615,7 @@
             \text{TSS} = (80^2 + 74^2 + \cdots + 50^2) - CT = 2021.16
         \)
         \(
-            \text{SSD} = \frac{577^2}{7}+\frac{282^2}{4}+\frac{341^2}{5}+\frac{191^2}{3} - CT
+            \text{SSD} = \frac{577^2}{7}+\frac{282^2}{5}+\frac{341^2}{4}+\frac{191^2}{3} - CT
             = 1022.98
         \)
         \(
