@@ -147,14 +147,14 @@
 
     \begin{frame}{Level of Significance}
         \begin{itemize}
-            \item $\alpha = P(\text{Type I error})$
+            \item $\alpha = P(\text{Type I error}) = P(\text{Reject } H_0 \mid H_0 \text{ true})$
             \item Common choices: $0.10,\ 0.05,\ 0.01$
             \item It is essentially our ``tolerance'' for type I error
             \item Smaller choice of $\alpha$ means stricter evidence required
-            \item Confidence level:
-            \[
-            1 - \alpha
-            \]
+            % \item Confidence level:
+            % \[
+            % 1 - \alpha
+            % \]
         \end{itemize}
     \end{frame}
 
@@ -163,10 +163,12 @@
         \begin{itemize}
             \item Define a region in the distribution of the test statistic where $H_0$ is rejected
             \item Based on level of significance $\alpha$
-            \item For two-tailed test:
-            \[
-            P(\text{Reject } H_0 \mid H_0 \text{ true}) = \alpha
-            \]
+            \item If the value of the test statistic falls inside the rejection region, the \(H_0\) is rejected
+            \item If it does not fall in the rejection, we fail to reject the \(H_0\)
+            % \item For two-tailed test:
+            % \[
+            % P(\text{Reject } H_0 \mid H_0 \text{ true}) = \alpha
+            % \]
         \end{itemize}
     \end{frame}
 
@@ -228,24 +230,6 @@
             \end{column}
         \end{columns}
     \end{frame}
-
-
-    % \begin{frame}{Rejection Region and \(\alpha\) in Two-tailed Tests}
-    %     \centering
-    %     \includegraphics[width=0.75\textwidth]{plots/two-tail.pdf}
-    % \end{frame}
-
-
-    % \begin{frame}{Rejection Region and \(\alpha\) in Left-tailed Tests}
-    %     \centering
-    %     \includegraphics[width=0.75\textwidth]{plots/left-tailed.pdf}
-    % \end{frame}
-
-
-    % \begin{frame}{Rejection Region and \(\alpha\) in Right-tailed Tests}
-    %     \centering
-    %     \includegraphics[width=0.75\textwidth]{plots/right-tailed.pdf}
-    % \end{frame}
 
 
     \begin{frame}{Rejection Region in Two-tailed Tests}
@@ -324,7 +308,7 @@
                 \item \textbf{Variability} $\sigma$: smaller $\sigma$ $\Rightarrow$ higher power
                 \item \textbf{Significance level} $\alpha$: larger $\alpha$ $\Rightarrow$ higher power (but at the cost of higher Type I error probability)
             \end{itemize}
-            \item Conventionally, power $\geq 0.80$ is considered adequate
+            \item Conventionally, power $\geqslant 0.80$ is considered adequate
         \end{itemize}
     \end{frame}
 
@@ -387,6 +371,11 @@
                 \hline
             \end{tabular}
         \end{center}
+
+        \begin{itemize}
+            \item \(\alpha = \) level of significance
+            \item \(a - \beta = \) power of a test
+        \end{itemize}
     \end{frame}
 
 
@@ -439,7 +428,7 @@
                 as extreme as, or more extreme than, the one calculated from the sample ---
                 \emph{assuming $H_0$ is true}
             \item It is \textbf{not} the probability that $H_0$ is true
-            \item It quantifies how ``surprising'' the data are under $H_0$
+            \item It quantifies how ``surprising'' or ``unusual'' the data if $H_0$ is to be true
             \item Formally, for a right-tailed test:
             \[
                 p = P(Z \geqslant Z_{\text{cal}} \mid H_0 \text{ true})
@@ -479,16 +468,16 @@
             \item The tail(s) used depend on the alternative hypothesis $H_A$:
             \begin{itemize}
                 \item Right-tailed ($H_A: \mu > \mu_0$):
-                \quad $p = P(Z \geq Z_{\text{cal}})$
+                \quad $p = P(Z \geqslant Z_{\text{cal}})$
                 \item Left-tailed ($H_A: \mu < \mu_0$):
-                \quad $p = P(Z \leq Z_{\text{cal}})$
+                \quad $p = P(Z \leqslant Z_{\text{cal}})$
                 \item Two-tailed ($H_A: \mu \neq \mu_0$):
-                \quad $p = 2\,P(Z \geq |Z_{\text{cal}}|)$
+                \quad $p = 2\,P(Z \geqslant |Z_{\text{cal}}|)$
             \end{itemize}
             \item \textbf{Example} (from earlier): $Z_{\text{cal}} = 1.34$,\;
                 right-tailed test
             \[
-                p = P(Z \geq 1.34) \approx 0.090
+                p = P(Z \geqslant 1.34) \approx 0.090
             \]
             \item Since $p = 0.090 > 0.05 = \alpha$, we fail to reject $H_0$ at \(5\%\) of significance
             \item Since $p = 0.090 < 0.10 = \alpha$, we reject $H_0$ at \(10\%\) level of significance
