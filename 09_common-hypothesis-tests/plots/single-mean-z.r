@@ -26,6 +26,7 @@ ggplot(df, aes(x, y)) +
       theme(
           panel.background = element_rect(fill = "transparent", colour = NA), # Transparent panel bg
           plot.background = element_rect(fill = "transparent", colour = NA),   # Transparent plot bg
+          plot.margin = margin(t = 5.5, r = 0, b = 5.5, l = -10, unit = "pt")
       )
 
 ggsave("single-mean-z-test.pdf", width = 4, height = 3, bg = "transparent")
