@@ -93,7 +93,7 @@
                 \textbf{P-value:} \(p = 2\,P(Z \geqslant 5.27) \approx 0.000\)
 
                 \vspace{0.5em}
-                
+
                 Since $p < \alpha = 0.01$, we reject $H_0$.
                 There is extremely strong evidence that the mean length has changed.
             \end{column}
@@ -277,18 +277,24 @@
         \[
             H_0: \mu_1 = \mu_2 \quad \text{vs} \quad H_A: \mu_1 \neq \mu_2
         \]
+
+
+        \vspace{1em}
+        Here, \textbf{Welch degrees of freedom:}
+                \[
+                    \nu = \frac{(S_1^2/n_1 + S_2^2/n_2)^2}
+                               {\frac{(S_1^2/n_1)^2}{n_1-1}+\frac{(S_2^2/n_2)^2}{n_2-1}}
+                    \approx 16
+                \]
     \end{frame}
 
 
     \begin{frame}{Two Means (Independent, Unequal Variances) --- Solution}
         \begin{columns}
             \begin{column}{0.55\textwidth}
-                \textbf{Welch degrees of freedom:}
-                \[
-                    \nu = \frac{(S_1^2/n_1 + S_2^2/n_2)^2}
-                               {\frac{(S_1^2/n_1)^2}{n_1-1}+\frac{(S_2^2/n_2)^2}{n_2-1}}
-                    \approx 16
-                \]
+                Welch degrees of freedom: \(\nu \approx 16\)
+
+                \vspace{0.5em}
 
                 \textbf{Critical value:} $t_{0.025,\,16} = 2.12$
 
@@ -428,9 +434,11 @@
         \begin{columns}
             \begin{column}{0.55\textwidth}
                 \textbf{Summary statistics:}
-                \[
+                \(
                     \bar{d} = \frac{4}{9} = 0.44, \qquad s_d^2 = 21.53
-                \]
+                \)
+
+                \vspace{0.25em}
 
                 \textbf{Test statistic:}
                 \[
@@ -439,12 +447,12 @@
 
                 \textbf{Critical value:} $t_{0.05,\,8} = 1.86$
 
-                \vspace{0.5em}
+                \vspace{0.25em}
 
                 \textbf{Decision:} Since $t_{\text{cal}} = 0.28 < 1.86$,
                 we \textbf{fail to reject} $H_0$ at 5\% level of significance.
 
-                \vspace{0.5em}
+                \vspace{0.25em}
 
                 \textbf{Conclusion:} There is insufficient evidence to conclude
                 that the new diet program reduces weight.
@@ -568,14 +576,12 @@
         below. Do the data indicate a significant difference in mean marks across
         departments? Use $\alpha = 0.05$.
 
-        \vspace{0.5em}
-
         \begin{center}
             \small
             \begin{tabular}{ccccc}
-                \toprule
+                \hline
                 & \textbf{GE} & \textbf{AS} & \textbf{EEE} & \textbf{BA} \\
-                \midrule
+                \hline
                 & 80 & 70 & 67 & 81 \\
                 & 74 & 64 & 66 & 60 \\
                 & 84 & 70 & 60 & 50 \\
@@ -583,10 +589,10 @@
                 & 86 & 80 & -- & -- \\
                 & 87 & -- & -- & -- \\
                 & 77 & -- & -- & -- \\
-                \midrule
-                $n_i$ & 7 & 4 & 5 & 3 \\
+                \hline
+                $n_i$ & 7 & 5 & 4 & 3 \\
                 $T_i$ & 577 & 282 & 341 & 191 \\
-                \bottomrule
+                \hline
             \end{tabular}
         \end{center}
 
@@ -601,19 +607,20 @@
     \begin{frame}{One-Way ANOVA --- Solution}
         \textbf{Calculations:} $n = 19$, $G = 1391$
 
-        \[
+        \(
             CT = \frac{1391^2}{19} = 101835.84
-        \]
-        \[
+        \)
+
+        \(
             \text{TSS} = (80^2 + 74^2 + \cdots + 50^2) - CT = 2021.16
-        \]
-        \[
+        \)
+        \(
             \text{SSD} = \frac{577^2}{7}+\frac{282^2}{4}+\frac{341^2}{5}+\frac{191^2}{3} - CT
             = 1022.98
-        \]
-        \[
+        \)
+        \(
             \text{SSE} = 2021.16 - 1022.98 = 998.18
-        \]
+        \)
 
         \begin{center}
             \begin{tabular}{lcccc}
@@ -676,9 +683,9 @@
         \begin{columns}
             \begin{column}{0.55\textwidth}
                 \textbf{Sample proportion:}
-                \[
+                \(
                     p = \frac{244}{300} = 0.813
-                \]
+                \)
 
                 \textbf{Test statistic:}
                 \[
@@ -771,16 +778,20 @@
         \begin{columns}
             \begin{column}{0.55\textwidth}
                 \textbf{Sample proportions:}
-                \[
+                \(
                     p_s = \frac{120}{200} = 0.60,
                     \quad
                     p_w = \frac{240}{500} = 0.48
-                \]
+                \)
+
+                \vspace{0.5em}
 
                 \textbf{Pooled proportion:}
-                \[
+                \(
                     p = \frac{120+240}{200+500} = \frac{360}{700} = 0.514
-                \]
+                \)
+
+                \vspace{0.5em}
 
                 \textbf{Test statistic:}
                 \[
