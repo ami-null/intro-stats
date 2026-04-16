@@ -18,8 +18,12 @@
         \end{frame}
 
         \begin{frame}{Outline}
+            \frametitle<1>{Table of Contents}
+            \frametitle<2>{Table of Contents (cont.)}
             \vfill
-            \tableofcontents[subsectionstyle=hide]
+            % \tableofcontents[subsectionstyle=hide]
+            \only<1>{\tableofcontents[sections={1-4},hideallsubsections]}
+            \only<2>{\tableofcontents[sections={5-8},hideallsubsections]}
             \vfill
         \end{frame}
     }
