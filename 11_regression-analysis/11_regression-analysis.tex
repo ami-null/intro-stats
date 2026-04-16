@@ -1,0 +1,685 @@
+\documentclass[12pt, aspectratio=169]{beamer}
+
+\input{../header}
+\usepackage{booktabs}
+
+\title{Regression Analysis}
+\author{Md. Aminul Islam Shazid}
+\date{}
+
+
+\begin{document}
+    {
+        \setbeamertemplate{footline}{}
+        \addtocounter{framenumber}{-2}
+
+        \begin{frame}
+            \titlepage
+        \end{frame}
+
+        \begin{frame}{Outline}
+            \vfill
+            \tableofcontents[subsectionstyle=hide]
+            \vfill
+        \end{frame}
+    }
+
+    %------------------------------------------------------------
+    \section{Introduction}
+    %------------------------------------------------------------
+
+    \begin{frame}{Regression Analysis --- Overview}
+        \begin{itemize}
+            \item Regression analysis examines the \textbf{statistical relationship}
+                between two or more variables
+            \item One variable is designated the \textbf{dependent variable} ($Y$,
+                the variable to be explained or predicted), and the remaining
+                variables are designated \textbf{independent variables}
+                ($X_1, X_2, \ldots$, the explanatory variables)
+            \item Regression \textbf{models} and \textbf{predicts} the average
+                value of $Y$ for given values of $X$
+            \item \textbf{Important:} regression describes a statistical
+                association, not necessarily a causal one --- the designation of
+                a variable as ``independent'' reflects the analyst's choice of
+                model, not a proven direction of causation
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Examples}
+        \begin{itemize}
+            \item Number of family members ($X$) and monthly food expenditure ($Y$, thousand taka)
+            \item Weather temperature as \(X\) and sales of ice cream \(Y\)
+            \item Income as \(X\) and expenditure as \(Y\)
+        \end{itemize}
+    \end{frame}
+
+
+    %------------------------------------------------------------
+    \section{Simple Linear Regression}
+    %------------------------------------------------------------
+
+    \begin{frame}{Simple Linear Regression Model}
+        \textbf{Population model:}
+        \[
+            Y_i = \alpha + \beta X_i + \epsilon_i, \quad i = 1, 2, \ldots, n
+        \]
+        \begin{itemize}
+            \item $Y$ --- dependent variable
+            \item $X$ --- independent variable
+            \item $\alpha$ --- intercept (regression parameter)
+            \item $\beta$ --- slope (regression parameter)
+            \item $\epsilon_i$ --- error term (unexplained variation)
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Estimated Model}
+        \begin{itemize}
+            \item The population model is estimated using data from sample
+            \item Sample (estimated) model:
+            \[
+                \hat{y}_i = a + b\,x_i
+            \]
+            so that the \textbf{residual} $e_i = y_i - \hat{y}_i$
+            \item \(\hat{y}_i\) are the predicted values, \(a\) is the estimate for \(\alpha\) and \(b\) is the estimate for \(\beta\)
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Assumptions of Simple Linear Regression}
+        \begin{enumerate}
+            \item $X$ values are fixed (non-random)
+            \item The relationship between $X$ and $Y$ is \textbf{linear}
+            \item Error terms are normally distributed with mean zero and constant variance:
+                \[
+                    \epsilon_i \sim N(0,\,\sigma^2)
+                \]
+            \item $X$ and $\epsilon$ are uncorrelated:
+                $\mathrm{Corr}(X, \epsilon) = 0$
+        \end{enumerate}
+    \end{frame}
+
+
+    \begin{frame}{Estimation --- Least Squares Method}
+        \begin{itemize}
+            \item \textbf{Principle:} find $a$ and $b$ that minimise the
+                \emph{sum of squared errors} (SSE):
+                \[
+                    \min_{a,b}\;\sum_{i=1}^{n} e_i^2
+                    = \min_{a,b}\;\sum_{i=1}^{n}(y_i - \hat{y}_i)^2
+                \]
+            \item \textbf{Least squares estimates (LSE):}
+                \[
+                    b = \frac{n\sum xy - \sum x\sum y}{n\sum x^2 - \left(\sum x\right)^2},
+                    \qquad
+                    a = \frac{\sum y}{n} - b\,\frac{\sum x}{n}
+                      = \bar{y} - b\bar{x}
+                \]
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Interpretation of Estimated Parameters}
+        \begin{columns}
+            \begin{column}{0.55\textwidth}
+                \begin{itemize}
+                    \item \textbf{Intercept} $a$: the estimated value of $Y$ when $X = 0$ (baseline level)
+                    \item \textbf{Slope} $b$: for every \textbf{1-unit increase} in $X$, the average change in $Y$ is $b$ units
+                        \begin{itemize}
+                            \item $b > 0$: $Y$ increases on average
+                            \item $b < 0$: $Y$ decreases on average
+                        \end{itemize}
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.45\textwidth}
+                \begin{center}
+                    % Schematic diagram of the regression line
+                    \begin{tikzpicture}[scale=0.85]
+                        \draw[->] (0,0) -- (4.2,0) node[right] {$x$};
+                        \draw[->] (0,0) -- (0,3.5) node[above] {$y$};
+                        \draw[thick, blue] (0,0.6) -- (4,3.4)
+                            node[right] {$\hat{y}=a+bx$};
+                        \draw[dashed] (0,0.6) -- (-0.1,0.6)
+                            node[left] {$a$};
+                        % slope triangle
+                        \draw[<->] (1.5,1.35) -- (2.5,1.35)
+                            node[midway, below] {$1$};
+                        \draw[<->] (2.5,1.35) -- (2.5,2.05)
+                            node[midway, right] {$b$};
+                    \end{tikzpicture}
+                \end{center}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+
+    %------------------------------------------------------------
+    \section{Goodness of Fit}
+    %------------------------------------------------------------
+
+    \begin{frame}{Goodness of Fit --- $R^2$}
+        \textbf{Decomposition of total variation:}
+        \[
+            \underbrace{\sum(y_i - \bar{y})^2}_{\text{TSS (Total)}}
+            = \underbrace{\sum(\hat{y}_i - \bar{y})^2}_{\text{SSR (Regression)}}
+            + \underbrace{\sum(y_i - \hat{y}_i)^2}_{\text{SSE (Error)}}
+        \]
+
+        \vspace{0.5em}
+
+        \textbf{Coefficient of determination:}
+        \[
+            R^2 = \frac{\text{SSR}}{\text{TSS}} = 1 - \frac{\text{SSE}}{\text{TSS}}
+            = 1 - \frac{\sum e_i^2}{\sum y_i^2 - \dfrac{(\sum y_i)^2}{n}}
+        \]
+
+        \textbf{Interpretation:}
+        \begin{itemize}
+            \item $0 \leqslant R^2 \leqslant 1$
+            \item $R^2 \to 0$: poor fit; $R^2 \to 1$: good fit
+            \item ``$R^2 \times 100$\,\% of the variation in $Y$ is explained
+                by the variation in $X$''
+        \end{itemize}
+    \end{frame}
+
+
+    %------------------------------------------------------------
+    \section{Example (Simple Linear Regression)}
+    %------------------------------------------------------------
+
+    \begin{frame}{Example --- Family Members vs.\ Food Expenditure}
+        \textbf{Problem:} Fit a regression of monthly food expenditure ($y$, thousand
+        taka) on number of family members ($x$). Interpret the estimates and
+        compute $R^2$.  Predict expenditure when $x = 10$.
+
+        \begin{center}
+            \small
+            \begin{tabular}{ccccc}
+                \toprule
+                $x$ & $y$ & $x^2$ & $xy$ & $y^2$ \\
+                \midrule
+                2 & 5  & 4  & 10 & 25  \\
+                3 & 7  & 9  & 21 & 49  \\
+                6 & 11 & 36 & 66 & 121 \\
+                4 & 8  & 16 & 32 & 64  \\
+                7 & 13 & 49 & 91 & 169 \\
+                3 & 6  & 9  & 18 & 36  \\
+                6 & 12 & 36 & 72 & 144 \\
+                \midrule
+                $\sum x = 31$ & $\sum y = 62$ & $\sum x^2 = 159$ &
+                $\sum xy = 310$ & $\sum y^2 = 608$ \\
+                \bottomrule
+            \end{tabular}
+        \end{center}
+    \end{frame}
+
+
+    \begin{frame}{Example --- Solution}
+        \textbf{Least squares estimates} ($n = 7$):
+        \[
+            b = \frac{7(310) - 31(62)}{7(159) - 31^2} = 1.63,
+            \qquad
+            a = \frac{62}{7} - 1.63 \times \frac{31}{7} = 1.64
+        \]
+
+        \textbf{Estimated regression equation:}
+        \[
+            \hat{y} = 1.64 + 1.63\,x
+        \]
+
+        \textbf{Interpretation:}
+        \begin{itemize}
+            \item $a = 1.64$: when no family members ($x=0$), baseline food
+                expenditure is 1.64 thousand taka
+            \item $b = 1.63$: adding one family member increases average food
+                expenditure by 1.63 thousand taka
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Example --- $R^2$ and Prediction}
+        \textbf{Residuals:} $\sum e_i^2 = 1.05$
+
+        \[
+            R^2 = 1 - \frac{1.05}{608 - \dfrac{62^2}{7}} = 0.9821
+        \]
+
+        \textbf{Interpretation:} 98.21\% of the variation in monthly food
+        expenditure is explained by the number of family members.
+        The model has an excellent fit.
+
+        \vspace{0.8em}
+
+        \textbf{Prediction} (for $x = 10$ family members):
+        \[
+            \hat{y} = 1.64 + 1.63 \times 10 = 17.93 \text{ thousand taka}
+        \]
+    \end{frame}
+
+
+    %------------------------------------------------------------
+    \section{Test of Hypothesis for Regression Parameters}
+    %------------------------------------------------------------
+
+    \begin{frame}{Why Test Regression Parameters?}
+        \begin{itemize}
+            \item The slope $b$ is estimated from a \emph{sample}; we need to
+                know whether a non-zero $b$ reflects a true population
+                relationship or just random sampling variation
+            \item \textbf{Testing $H_0: \beta = 0$} asks:
+                ``Does $X$ have a statistically significant linear effect on $Y$?''
+            \item If we fail to reject $H_0: \beta = 0$, the regression line
+                adds no predictive value over simply using $\bar{y}$
+            \item Two complementary approaches:
+            \begin{itemize}
+                \item \textbf{$t$-test} for individual coefficients
+                \item \textbf{$F$-test} for overall significance of the model
+            \end{itemize}
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Regression ANOVA Table}
+        \begin{itemize}
+            \item Just as in one-way ANOVA, we partition the total variation:
+                \[
+                    \text{TSS} = \text{SSR} + \text{SSE}
+                \]
+            \item Mean squares:
+                \[
+                    \text{MSR} = \frac{\text{SSR}}{1},
+                    \qquad
+                    \text{MSE} = \frac{\text{SSE}}{n-2}
+                    \quad \text{(estimated } \sigma^2 \text{)}
+                \]
+        \end{itemize}
+
+        \vspace{0.4em}
+
+        \begin{center}
+            \begin{tabular}{lcccc}
+                \toprule
+                \textbf{Source} & \textbf{df} & \textbf{SS} & \textbf{MS} & \textbf{F} \\
+                \midrule
+                Regression & $1$   & SSR & MSR & $\text{MSR}/\text{MSE}$ \\
+                Error      & $n-2$ & SSE & MSE & \\
+                Total      & $n-1$ & TSS & & \\
+                \bottomrule
+            \end{tabular}
+        \end{center}
+    \end{frame}
+
+
+    \begin{frame}{$F$-test for Overall Significance}
+        \begin{itemize}
+            \item \textbf{Hypotheses:}
+                \[
+                    H_0: \beta = 0 \quad \text{vs} \quad H_A: \beta \neq 0
+                \]
+            \item \textbf{Test statistic:}
+                \[
+                    F_{\text{cal}} = \frac{\text{MSR}}{\text{MSE}}
+                    \sim F_{1,\,n-2} \quad \text{under } H_0
+                \]
+            \item \textbf{Decision rule:}
+                \begin{itemize}
+                    \item Reject $H_0$ if $F_{\text{cal}} > F_{\alpha,\,1,\,n-2}$
+                    \item Or equivalently, reject if $p\text{-value} \leqslant \alpha$
+                \end{itemize}
+            \item \textbf{Note:} For simple linear regression (one predictor),
+                the $F$-test and the two-tailed $t$-test for $\beta$ are
+                equivalent; $F_{\text{cal}} = t_{\text{cal}}^2$
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{$t$-test for the Slope $\beta$}
+        \begin{itemize}
+            \item \textbf{Hypotheses:} \quad $H_0: \beta = 0$ \; vs \;
+                $H_A: \beta \neq 0$ \quad (two-tailed)
+            \item \textbf{Standard error of $b$:}
+                \[
+                    \mathrm{SE}(b) = \sqrt{\frac{\text{MSE}}{\sum(x_i - \bar{x})^2}}
+                    = \frac{s}{\sqrt{\sum(x_i-\bar{x})^2}},
+                    \quad s = \sqrt{\text{MSE}}
+                \]
+            \item \textbf{Test statistic:}
+                \[
+                    t_{\text{cal}} = \frac{b - 0}{\mathrm{SE}(b)} \sim t_{n-2}
+                    \quad \text{under } H_0
+                \]
+            \item \textbf{Decision:} reject $H_0$ if $|t_{\text{cal}}| > t_{\alpha/2,\,n-2}$
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{$t$-test for the Intercept $\alpha$}
+        \begin{itemize}
+            \item \textbf{Hypotheses:} \quad $H_0: \alpha = 0$ \; vs \;
+                $H_A: \alpha \neq 0$
+            \item \textbf{Standard error of $a$:}
+                \[
+                    \mathrm{SE}(a) = s\sqrt{\frac{1}{n} + \frac{\bar{x}^2}{\sum(x_i - \bar{x})^2}}
+                \]
+            \item \textbf{Test statistic:}
+                \[
+                    t_{\text{cal}} = \frac{a - 0}{\mathrm{SE}(a)} \sim t_{n-2}
+                    \quad \text{under } H_0
+                \]
+            \item In practice, the intercept test is often less relevant than the slope test
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Example --- Hypothesis Test for the Slope}
+        Using the family-expenditure data ($n = 7$, $b = 1.63$, $\text{SSE} = 1.05$):
+
+        \[
+            \text{MSE} = \frac{1.05}{7-2} = 0.21,
+            \qquad
+            s = \sqrt{0.21} = 0.458
+        \]
+
+        \[
+            \sum(x_i - \bar{x})^2 = \sum x_i^2 - \frac{(\sum x_i)^2}{n}
+            = 159 - \frac{31^2}{7} = 22.86
+        \]
+
+        \[
+            \mathrm{SE}(b) = \frac{0.458}{\sqrt{22.86}} = 0.096,
+            \qquad
+            t_{\text{cal}} = \frac{1.63}{0.096} = 16.98
+        \]
+
+        \textbf{Critical value:} $t_{0.025,\,5} = 2.571$
+
+        \vspace{0.25em}
+
+        \textbf{Decision:} Since $|t_{\text{cal}}| = 16.98 > 2.571$, we
+        \textbf{reject} $H_0: \beta = 0$ at 5\% level of significance.
+        There is a statistically significant linear relationship between the number
+        of family members and monthly food expenditure.
+    \end{frame}
+
+
+    \begin{frame}{Confidence Interval for $\beta$}
+        \begin{itemize}
+            \item A $100(1-\alpha)\%$ confidence interval for the true slope $\beta$:
+                \[
+                    b \pm t_{\alpha/2,\,n-2}\;\mathrm{SE}(b)
+                \]
+            \item \textbf{Example} (95\% CI, family-expenditure data):
+                \[
+                    1.63 \pm 2.571 \times 0.096 = 1.63 \pm 0.247
+                    = (1.383,\;1.877)
+                \]
+            \item \textbf{Interpretation:} we are 95\% confident that for each
+                additional family member, mean monthly food expenditure increases
+                by between 1.383 and 1.877 thousand taka
+            \item If the interval does not contain 0, this is equivalent to
+                rejecting $H_0: \beta = 0$ at the 5\% level
+        \end{itemize}
+    \end{frame}
+
+
+    %------------------------------------------------------------
+    \section{Multiple Linear Regression}
+    %------------------------------------------------------------
+
+    \begin{frame}{Multiple Linear Regression --- Model}
+        When there are $k$ independent variables $X_1, X_2, \ldots, X_k$:
+        \[
+            Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i}
+            + \cdots + \beta_k X_{ki} + \epsilon_i
+        \]
+
+        \begin{itemize}
+            \item $\beta_0$ --- intercept
+            \item $\beta_j$ --- \textbf{partial regression coefficient} of $X_j$;
+                the expected change in $Y$ per unit increase in $X_j$,
+                holding all other $X$'s constant
+            \item \textbf{Assumption:} no strong linear correlation (multicollinearity)
+                among the $X$ variables
+        \end{itemize}
+
+        \textbf{Matrix form:}
+        \[
+            \mathbf{Y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\epsilon}
+            \qquad \Rightarrow \qquad
+            \hat{\boldsymbol{\beta}} = (\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}'\mathbf{y}
+        \]
+    \end{frame}
+
+
+    \begin{frame}{Matrix Notation --- What Each Object Represents}
+        \begin{columns}
+            \begin{column}{0.48\textwidth}
+                $\mathbf{Y}$ is an $n \times 1$ \textbf{column vector} of observed
+                responses:
+                \[
+                    \mathbf{Y} =
+                    \begin{pmatrix} Y_1 \\ Y_2 \\ \vdots \\ Y_n \end{pmatrix}_{n \times 1}
+                \]
+
+                \vspace{0.4em}
+
+                $\boldsymbol{\beta}$ is a $(k+1) \times 1$ vector of unknown parameters:
+                \[
+                    \boldsymbol{\beta} =
+                    \begin{pmatrix} \beta_0 \\ \beta_1 \\ \vdots \\ \beta_k \end{pmatrix}_{(k+1)\times 1}
+                \]
+            \end{column}
+            \begin{column}{0.52\textwidth}
+                $\mathbf{X}$ is the $n \times (k+1)$ \textbf{design matrix}. The
+                \textbf{first column is all 1s} (for the intercept $\beta_0$);
+                the remaining $k$ columns contain the observed values of
+                $X_1, \ldots, X_k$:
+                \[
+                    \mathbf{X} =
+                    \begin{pmatrix}
+                        1 & x_{11} & x_{21} & \cdots & x_{k1} \\
+                        1 & x_{12} & x_{22} & \cdots & x_{k2} \\
+                        \vdots & \vdots & \vdots & \ddots & \vdots \\
+                        1 & x_{1n} & x_{2n} & \cdots & x_{kn}
+                    \end{pmatrix}_{n\times(k+1)}
+                \]
+
+                $\boldsymbol{\epsilon}$ is an $n \times 1$ vector of errors,
+                $\boldsymbol{\epsilon} \sim N(\mathbf{0},\,\sigma^2 \mathbf{I})$
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+
+    \begin{frame}{Multiple Regression --- $F$-test for Overall Significance}
+        \begin{itemize}
+            \item \textbf{Hypotheses:}
+                \[
+                    H_0: \beta_1 = \beta_2 = \cdots = \beta_k = 0
+                    \quad \text{vs} \quad
+                    H_A: \text{at least one } \beta_j \neq 0
+                \]
+            \item ANOVA table for multiple regression:
+        \end{itemize}
+        \begin{center}
+            \begin{tabular}{lcccc}
+                \toprule
+                \textbf{Source} & \textbf{df} & \textbf{SS} & \textbf{MS} & \textbf{F} \\
+                \midrule
+                Regression & $k$     & SSR & $\text{SSR}/k$     & $\text{MSR}/\text{MSE}$ \\
+                Error      & $n-k-1$ & SSE & $\text{SSE}/(n-k-1)$ & \\
+                Total      & $n-1$   & TSS & & \\
+                \bottomrule
+            \end{tabular}
+        \end{center}
+        \[
+            F_{\text{cal}} = \frac{\text{MSR}}{\text{MSE}} \sim F_{k,\,n-k-1}
+            \quad \text{under } H_0
+        \]
+        \textbf{Decision:} reject $H_0$ if $F_{\text{cal}} > F_{\alpha,\,k,\,n-k-1}$
+    \end{frame}
+
+
+    \begin{frame}{Multiple Regression --- $t$-tests for Individual Coefficients}
+        \begin{itemize}
+            \item For each $\beta_j$ ($j = 1, 2, \ldots, k$):
+                \[
+                    H_0: \beta_j = 0 \quad \text{vs} \quad H_A: \beta_j \neq 0
+                \]
+            \item \textbf{Test statistic:}
+                \[
+                    t_{\text{cal}} = \frac{b_j}{\mathrm{SE}(b_j)} \sim t_{n-k-1}
+                    \quad \text{under } H_0
+                \]
+            \item \textbf{Decision:} reject $H_0$ if
+                $|t_{\text{cal}}| > t_{\alpha/2,\,n-k-1}$
+            \item A non-significant $t$-test for $\beta_j$ suggests that
+                $X_j$ may not contribute significantly to $Y$ given all other
+                predictors are in the model
+            \item These individual tests should be interpreted \emph{after}
+                the overall $F$-test confirms at least one predictor is useful
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Multiple Regression --- Example (Automobile Data)}
+        \textbf{Model:} Mileage ($y$) on displacement ($x_1$), horsepower ($x_2$),
+        weight ($x_{10}$), and transmission type (\texttt{Auto})
+
+        \[
+            \hat{y} = 34.5 - 0.05\,x_1 + 0.03\,x_2 - 0.001\,x_{10} - 0.19\,\text{Auto}
+        \]
+
+        \begin{center}
+            \small
+            \begin{tabular}{lrrrrr}
+                \toprule
+                \textbf{Variable} & \textbf{Coeff.} & \textbf{SE} & \textbf{t-stat} &
+                    \textbf{p-value} \\
+                \midrule
+                Intercept   &  34.50 & 3.11 & 11.08 & $< 0.001$ \\
+                $x_1$ (Displacement) & $-0.047$ & 0.026 & $-1.85$ & 0.076 \\
+                $x_2$ (Horsepower)   & $+0.025$ & 0.042 & $+0.60$ & 0.552 \\
+                $x_{10}$ (Weight)    & $-0.001$ & 0.002 & $-0.75$ & 0.460 \\
+                Auto                 & $-0.193$ & 2.448 & $-0.08$ & 0.938 \\
+                \midrule
+                \multicolumn{4}{l}{$F_{\text{cal}} = 24.17$, $p < 0.001$;
+                    \quad $R^2 = 0.782$} \\
+                \bottomrule
+            \end{tabular}
+        \end{center}
+    \end{frame}
+
+
+    \begin{frame}{Multiple Regression --- Example: Interpretation}
+        \begin{itemize}
+            \item \textbf{Overall $F$-test:} $F_{\text{cal}} = 24.17 \gg F_{0.05,\,4,\,27}$;
+                \textbf{reject} $H_0$ --- the model is statistically significant overall
+            \item \textbf{Individual $t$-tests at $\alpha = 0.05$:}
+            \begin{itemize}
+                \item All four predictors have $p > 0.05$ --- individually,  none is significant at 5\% when the others are present
+                \item This apparent contradiction (significant $F$, non-significant $t$'s) can occur due to \textbf{multicollinearity} among predictors
+            \end{itemize}
+            \item \textbf{Goodness of fit:} $R^2 = 0.782$ --- 78.2\% of the variation in mileage is explained by the model
+            \item \textbf{Prediction} ($x_1=25$, $x_2=350$, $x_{10}=3800$, Auto):
+                \[
+                    \hat{y} = 34.5 - 0.05(25) + 0.03(350) - 0.001(3800) - 0.19(1)
+                    \approx 39.76 \text{ mpg}
+                \]
+        \end{itemize}
+    \end{frame}
+
+
+    %------------------------------------------------------------
+    \section{Indicator Variables}
+    %------------------------------------------------------------
+
+    \begin{frame}{Indicator (Dummy) Variables}
+        \begin{itemize}
+            \item Regression requires numerical inputs, but predictors may be \textbf{qualitative} (categorical), e.g.\ transmission type, tool type, sex
+            \item A qualitative variable with $a$ categories is encoded using $(a - 1)$ \textbf{indicator (dummy) variables}, each taking values 0 or 1
+            \item \textbf{Example} --- tool type (A, B, C):
+                \[
+                    x_B = \begin{cases} 1 & \text{if tool type B} \\ 0 & \text{otherwise} \end{cases},
+                    \qquad
+                    x_C = \begin{cases} 1 & \text{if tool type C} \\ 0 & \text{otherwise} \end{cases}
+                \]
+            \item Model: $y = \beta_0 + \beta_1 x_1 + \beta_2 x_B + \beta_3 x_C + \epsilon$
+            \item Category A is the \textbf{reference group} ($x_B = x_C = 0$); $\beta_2$ and $\beta_3$ measure the \emph{difference} in mean $Y$ relative to category A
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{The Problem with $R^2$ in Multiple Regression}
+        \begin{itemize}
+            \item $R^2$ \textbf{never decreases} when a new predictor is added to the model --- even if that predictor is completely irrelevant
+            \item Adding any variable, even random noise, will slightly increase (or at worst leave unchanged) $R^2$
+            \item \textbf{Why?} Each new predictor uses up one more degree of freedom to ``fit'' by chance alone
+            \item This means $R^2$ \textbf{rewards model complexity} and cannot be used to compare models with different numbers of predictors
+            \item \textbf{Example:} adding 10 random noise variables to a model will still raise  $R^2$, even though the model has not improved We need a measure that \textbf{penalises} unnecessary predictors $\Rightarrow$ \textbf{Adjusted $R^2$}
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Adjusted $R^2$}
+        \textbf{Formula:}
+        \[
+            R^2_{\text{adj}}
+            = 1 - \frac{\text{SSE}/(n - k - 1)}{\text{TSS}/(n - 1)}
+            = 1 - \left(\frac{n-1}{n-k-1}\right)(1 - R^2)
+        \]
+        where $k$ is the number of predictors in the model.
+
+        \vspace{0.5em}
+
+        \begin{itemize}
+            \item The penalty factor $\dfrac{n-1}{n-k-1} > 1$ increases as $k$ grows, \textbf{discounting} $R^2$ for model complexity
+            \item Adding a predictor increases $R^2_{\text{adj}}$ \emph{only if} that predictor reduces MSE, i.e.\ if it genuinely improves fit beyond what is expected by chance
+            \item $R^2_{\text{adj}} \leqslant R^2$; it can be negative for very poor models
+            \item \textbf{Use $R^2_{\text{adj}}$} when comparing models with different numbers of predictors; use $R^2$ when reporting the fit of a single, already-selected model
+        \end{itemize}
+    \end{frame}
+
+
+    %------------------------------------------------------------
+    \section{Steps and Uses of Regression Analysis}
+    %------------------------------------------------------------
+
+    \begin{frame}{Steps of Regression Analysis}
+        \begin{enumerate}
+            \item \textbf{Hypothesize} a model of relationship (e.g.\ linear, multiple, logistic)
+            \item \textbf{Estimate} the regression equation (LSE / OLS)
+            \item \textbf{Test hypotheses} about the parameters ($F$-test for overall significance; $t$-tests for individual coefficients)
+            \item Evaluate \textbf{goodness of fit} ($R^2$, residual plots)
+            \item Use the model for \textbf{prediction}
+        \end{enumerate}
+    \end{frame}
+
+
+    \begin{frame}{Uses of Regression Analysis}
+        \begin{itemize}
+            \item \textbf{Estimate} the average relationship between $Y$ and the predictors
+            \item \textbf{Identify} which explanatory variables significantly affect $Y$, controlling for others
+            \item \textbf{Predict} the value of $Y$ for given values of the predictors
+            \item \textbf{Other regression types} (depending on $Y$):
+            \begin{center}
+                \small
+                \begin{tabular}{ll}
+                    \toprule
+                    \textbf{Type of $Y$} & \textbf{Model} \\
+                    \midrule
+                    Continuous (normal) & Linear regression \\
+                    Binary (0/1) & Logistic regression \\
+                    Count & Poisson regression \\
+                    Multiple correlated $Y$'s & Multivariate regression \\
+                    \bottomrule
+                \end{tabular}
+            \end{center}
+        \end{itemize}
+    \end{frame}
+
+
+    \section*{Thank you.}
+
+\end{document}
