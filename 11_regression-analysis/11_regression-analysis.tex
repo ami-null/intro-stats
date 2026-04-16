@@ -110,13 +110,43 @@
                     = \min_{a,b}\;\sum_{i=1}^{n}(y_i - \hat{y}_i)^2
                 \]
             \item \textbf{Least squares estimates (LSE):}
-                \[
-                    b = \frac{n\sum xy - \sum x\sum y}{n\sum x^2 - \left(\sum x\right)^2},
-                    \qquad
-                    a = \frac{\sum y}{n} - b\,\frac{\sum x}{n}
-                      = \bar{y} - b\bar{x}
-                \]
+                \begin{align*}
+                    b &= \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i - \bar{x})^2} = \frac{n\sum xy - \sum x \sum y}{n\sum x^2 - (\sum x)^2} \\[10pt]
+                    a &= \frac{\sum y}{n} - b\,\frac{\sum x}{n} = \bar{y} - b\bar{x}
+                \end{align*}
         \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{SLR Derivation --- The Least Squares Criterion}
+        Our goal is to find $a$ and $b$ that minimize the \textbf{Sum of Squared Errors (SSE)}:
+        \begin{equation*}
+            S(a, b) = \sum_{i=1}^{n} e_i^2 = \sum_{i=1}^{n} (y_i - \hat{y}_i)^2 = \sum_{i=1}^{n} (y_i - a - bx_i)^2
+        \end{equation*}
+
+        To find the minimum, we take partial derivatives with respect to $a$ and $b$ and set them to zero:
+        \begin{align}
+            \frac{\partial S}{\partial a} &= -2 \sum_{i=1}^{n} (y_i - a - bx_i) = 0 \notag \\
+            \frac{\partial S}{\partial b} &= -2 \sum_{i=1}^{n} x_i (y_i - a - bx_i) = 0 \label{eq:deriv2}
+        \end{align}
+    \end{frame}
+
+
+    \begin{frame}{SLR Derivation --- Solving the Normal Equations}
+    From the first derivative, we get the first \textbf{Normal Equation}:
+    \begin{equation*}
+        \sum y_i = na + b \sum x_i \implies \bar{y} = a + b\bar{x} \implies a = \bar{y} - b\bar{x}
+    \end{equation*}
+
+        Substitute $a = \bar{y} - b\bar{x}$ into equation \ref{eq:deriv2}:
+        \begin{align*}
+            & \sum x_i (y_i - (\bar{y} - b\bar{x}) - bx_i) = 0 \\
+            \rightarrow & \sum x_i (y_i - \bar{y}) - b \sum x_i (x_i - \bar{x}) = 0
+        \end{align*}
+        Solving for $b$ gives the standard estimator:
+        \begin{equation*}
+            b = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i - \bar{x})^2} = \frac{n\sum xy - \sum x \sum y}{n\sum x^2 - (\sum x)^2}
+        \end{equation*}
     \end{frame}
 
 
@@ -457,14 +487,13 @@
             \begin{column}{0.48\textwidth}
                 $\mathbf{Y}$ is an $n \times 1$ \textbf{column vector} of observed
                 responses:
+                \vspace{-0.5em}
                 \[
                     \mathbf{Y} =
                     \begin{pmatrix} Y_1 \\ Y_2 \\ \vdots \\ Y_n \end{pmatrix}_{n \times 1}
                 \]
-
-                \vspace{0.4em}
-
                 $\boldsymbol{\beta}$ is a $(k+1) \times 1$ vector of unknown parameters:
+                \vspace{-0.5em}
                 \[
                     \boldsymbol{\beta} =
                     \begin{pmatrix} \beta_0 \\ \beta_1 \\ \vdots \\ \beta_k \end{pmatrix}_{(k+1)\times 1}
@@ -489,6 +518,34 @@
                 $\boldsymbol{\epsilon} \sim N(\mathbf{0},\,\sigma^2 \mathbf{I})$
             \end{column}
         \end{columns}
+    \end{frame}
+
+
+    \begin{frame}{MLR Derivation --- The Matrix Approach}
+        In matrix form, the model is $\mathbf{y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\epsilon}$. We minimize the residual sum of squares:
+        \begin{equation*}
+            S(\boldsymbol{\beta}) = \boldsymbol{\epsilon}'\boldsymbol{\epsilon} = (\mathbf{y} - \mathbf{X}\boldsymbol{\beta})'(\mathbf{y} - \mathbf{X}\boldsymbol{\beta})
+        \end{equation*}
+
+        \begin{block}{Expansion and Gradient}
+            Expanding the quadratic form:
+            \begin{equation*}
+                S(\boldsymbol{\beta}) = \mathbf{y}'\mathbf{y} - 2\boldsymbol{\beta}'\mathbf{X}'\mathbf{y} + \boldsymbol{\beta}'\mathbf{X}'\mathbf{X}\boldsymbol{\beta}
+            \end{equation*}
+            Taking the gradient with respect to $\boldsymbol{\beta}$ and setting to $\mathbf{0}$:
+            \begin{equation*}
+                \frac{\partial S}{\partial \boldsymbol{\beta}} = -2\mathbf{X}'\mathbf{y} + 2\mathbf{X}'\mathbf{X}\boldsymbol{\beta} = \mathbf{0}
+            \end{equation*}
+        \end{block}
+    \end{frame}
+
+
+    \begin{frame}{MLR Derivation --- The Matrix Approach (cont.)}
+            Rearranging gives the \textbf{Normal Equations}: $\mathbf{X}'\mathbf{X}\hat{\boldsymbol{\beta}} = \mathbf{X}'\mathbf{y}$.
+
+            \vspace{1em}
+
+            Assuming $\mathbf{X}'\mathbf{X}$ is non-singular: \quad $\mathbf{\hat{\boldsymbol{\beta}} = (X'X)^{-1}X'y}$
     \end{frame}
 
 
