@@ -22,7 +22,10 @@
             \frametitle<2>{Table of Contents (cont.)}
             \vfill
             % \tableofcontents[subsectionstyle=hide]
-            \only<1>{\tableofcontents[sections={1-4},hideallsubsections]}
+            \only<1>{
+                \tableofcontents[sections={1-4},hideallsubsections]
+                Table of contents continued in the next page\dots
+            }
             \only<2>{\tableofcontents[sections={5-8},hideallsubsections]}
             \vfill
         \end{frame}
@@ -34,18 +37,10 @@
 
     \begin{frame}{Regression Analysis --- Overview}
         \begin{itemize}
-            \item Regression analysis examines the \textbf{statistical relationship}
-                between two or more variables
-            \item One variable is designated the \textbf{dependent variable} ($Y$,
-                the variable to be explained or predicted), and the remaining
-                variables are designated \textbf{independent variables}
-                ($X_1, X_2, \ldots$, the explanatory variables)
-            \item Regression \textbf{models} and \textbf{predicts} the average
-                value of $Y$ for given values of $X$
-            \item \textbf{Important:} regression describes a statistical
-                association, not necessarily a causal one --- the designation of
-                a variable as ``independent'' reflects the analyst's choice of
-                model, not a proven direction of causation
+            \item Regression analysis examines the \textbf{statistical relationship} between two or more variables
+            \item One variable is designated the \textbf{dependent variable} ($Y$, the variable to be explained or predicted), and the remaining variables are designated \textbf{independent variables} $X_1, X_2, \ldots$, the explanatory variables)
+            \item Regression \textbf{models} and \textbf{predicts} the average value of $Y$ for given values of $X$
+            \item \textbf{Important:} regression describes a statistical association, not necessarily a causal one --- the designation of a variable as ``independent'' reflects the analyst's choice of model, not a proven direction of causation
         \end{itemize}
     \end{frame}
 
@@ -223,9 +218,7 @@
     %------------------------------------------------------------
 
     \begin{frame}{Example --- Family Members vs.\ Food Expenditure}
-        \textbf{Problem:} Fit a regression of monthly food expenditure ($y$, thousand
-        taka) on number of family members ($x$). Interpret the estimates and
-        compute $R^2$.  Predict expenditure when $x = 10$.
+        \textbf{Problem:} Fit a regression of monthly food expenditure ($y$, thousand taka) on number of family members ($x$). Interpret the estimates and compute $R^2$.  Predict expenditure when $x = 10$.
 
         \begin{center}
             \small
@@ -264,10 +257,8 @@
 
         \textbf{Interpretation:}
         \begin{itemize}
-            \item $a = 1.64$: when no family members ($x=0$), baseline food
-                expenditure is 1.64 thousand taka
-            \item $b = 1.63$: adding one family member increases average food
-                expenditure by 1.63 thousand taka
+            \item $a = 1.64$: when no family members ($x=0$), baseline food expenditure is 1.64 thousand taka
+            \item $b = 1.63$: adding one family member increases average food expenditure by 1.63 thousand taka
         \end{itemize}
     \end{frame}
 
@@ -279,9 +270,7 @@
             R^2 = 1 - \frac{1.05}{608 - \dfrac{62^2}{7}} = 0.9821
         \]
 
-        \textbf{Interpretation:} 98.21\% of the variation in monthly food
-        expenditure is explained by the number of family members.
-        The model has an excellent fit.
+        \textbf{Interpretation:} 98.21\% of the variation in monthly food expenditure is explained by the number of family members. The model has an excellent fit.
 
         \vspace{0.8em}
 
@@ -298,13 +287,9 @@
 
     \begin{frame}{Why Test Regression Parameters?}
         \begin{itemize}
-            \item The slope $b$ is estimated from a \emph{sample}; we need to
-                know whether a non-zero $b$ reflects a true population
-                relationship or just random sampling variation
-            \item \textbf{Testing $H_0: \beta = 0$} asks:
-                ``Does $X$ have a statistically significant linear effect on $Y$?''
-            \item If we fail to reject $H_0: \beta = 0$, the regression line
-                adds no predictive value over simply using $\bar{y}$
+            \item The slope $b$ is estimated from a \emph{sample}; we need to know whether a non-zero $b$ reflects a true population relationship or just random sampling variation
+            \item \textbf{Testing $H_0: \beta = 0$} asks: ``Does $X$ have a statistically significant linear effect on $Y$?''
+            \item If we fail to reject $H_0: \beta = 0$, the regression line adds no predictive value over simply using $\bar{y}$
             \item Two complementary approaches:
             \begin{itemize}
                 \item \textbf{$t$-test} for individual coefficients
@@ -361,9 +346,7 @@
                     \item Reject $H_0$ if $F_{\text{cal}} > F_{\alpha,\,1,\,n-2}$
                     \item Or equivalently, reject if $p\text{-value} \leqslant \alpha$
                 \end{itemize}
-            \item \textbf{Note:} For simple linear regression (one predictor),
-                the $F$-test and the two-tailed $t$-test for $\beta$ are
-                equivalent; $F_{\text{cal}} = t_{\text{cal}}^2$
+            \item \textbf{Note:} For simple linear regression (one predictor), the $F$-test and the two-tailed $t$-test for $\beta$ are equivalent; $F_{\text{cal}} = t_{\text{cal}}^2$
         \end{itemize}
     \end{frame}
 
@@ -431,9 +414,7 @@
         \vspace{0.25em}
 
         \textbf{Decision:} Since $|t_{\text{cal}}| = 16.98 > 2.571$, we
-        \textbf{reject} $H_0: \beta = 0$ at 5\% level of significance.
-        There is a statistically significant linear relationship between the number
-        of family members and monthly food expenditure.
+        \textbf{reject} $H_0: \beta = 0$ at 5\% level of significance. There is a statistically significant linear relationship between the number of family members and monthly food expenditure.
     \end{frame}
 
 
@@ -470,11 +451,8 @@
 
         \begin{itemize}
             \item $\beta_0$ --- intercept
-            \item $\beta_j$ --- \textbf{partial regression coefficient} of $X_j$;
-                the expected change in $Y$ per unit increase in $X_j$,
-                holding all other $X$'s constant
-            \item \textbf{Assumption:} no strong linear correlation (multicollinearity)
-                among the $X$ variables
+            \item $\beta_j$ --- \textbf{partial regression coefficient} of $X_j$; the expected change in $Y$ per unit increase in $X_j$, holding all other $X$'s constant
+            \item \textbf{Assumption:} no strong linear correlation (multicollinearity) among the $X$ variables
         \end{itemize}
 
         \textbf{Matrix form:}
@@ -504,9 +482,7 @@
                 \]
             \end{column}
             \begin{column}{0.52\textwidth}
-                $\mathbf{X}$ is the $n \times (k+1)$ \textbf{design matrix}. The
-                \textbf{first column is all 1s} (for the intercept $\beta_0$);
-                the remaining $k$ columns contain the observed values of
+                $\mathbf{X}$ is the $n \times (k+1)$ \textbf{design matrix}. The \textbf{first column is all 1s} (for the intercept $\beta_0$); the remaining $k$ columns contain the observed values of
                 $X_1, \ldots, X_k$:
                 \[
                     \mathbf{X} =
@@ -595,18 +571,14 @@
                 \]
             \item \textbf{Decision:} reject $H_0$ if
                 $|t_{\text{cal}}| > t_{\alpha/2,\,n-k-1}$
-            \item A non-significant $t$-test for $\beta_j$ suggests that
-                $X_j$ may not contribute significantly to $Y$ given all other
-                predictors are in the model
-            \item These individual tests should be interpreted \emph{after}
-                the overall $F$-test confirms at least one predictor is useful
+            \item A non-significant $t$-test for $\beta_j$ suggests that $X_j$ may not contribute significantly to $Y$ given all other predictors are in the model
+            \item These individual tests should be interpreted \emph{after} the overall $F$-test confirms at least one predictor is useful
         \end{itemize}
     \end{frame}
 
 
     \begin{frame}{Multiple Regression --- Example (Automobile Data)}
-        \textbf{Model:} Mileage ($y$) on displacement ($x_1$), horsepower ($x_2$),
-        weight ($x_{10}$), and transmission type (\texttt{Auto})
+        \textbf{Model:} Mileage ($y$) on displacement ($x_1$), horsepower ($x_2$), weight ($x_{10}$), and transmission type (\texttt{Auto})
 
         \[
             \hat{y} = 34.5 - 0.05\,x_1 + 0.03\,x_2 - 0.001\,x_{10} - 0.19\,\text{Auto}
@@ -635,8 +607,7 @@
 
     \begin{frame}{Multiple Regression --- Example: Interpretation}
         \begin{itemize}
-            \item \textbf{Overall $F$-test:} $F_{\text{cal}} = 24.17 \gg F_{0.05,\,4,\,27}$;
-                \textbf{reject} $H_0$ --- the model is statistically significant overall
+            \item \textbf{Overall $F$-test:} $F_{\text{cal}} = 24.17 \gg F_{0.05,\,4,\,27}$; \textbf{reject} $H_0$ --- the model is statistically significant overall
             \item \textbf{Individual $t$-tests at $\alpha = 0.05$:}
             \begin{itemize}
                 \item All four predictors have $p > 0.05$ --- individually,  none is significant at 5\% when the others are present
