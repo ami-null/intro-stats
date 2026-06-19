@@ -10,7 +10,7 @@
 \DeclareMathOperator{\C}{C}
 
 
-\title{Random Variable and Probabiilty Distribution}
+\title{Random Variable and Probability Distribution}
 \author{Md. Aminul Islam Shazid}
 \date{}
 
@@ -58,8 +58,8 @@
 			\end{itemize}
 			\item \textbf{Continuous random variable}: A random variable defined over a continuous sample space
 			\begin{itemize}
-				\item Monthly income, $S = \{X: 0 \leq x < \infty\}$
-				\item Monthly profit, $S = \{X: -\infty < x < \infty\}$
+				\item Monthly income, $S = \{x: 0 \leq x < \infty\}$
+				\item Monthly profit, $S = \{x: -\infty < x < \infty\}$
 			\end{itemize}
 		\end{itemize}
 	\end{frame}
@@ -200,39 +200,59 @@
 	\end{frame}
 
 
-	\begin{frame}{Why \(P(X \leqslant a)\) is equal to \(P(X < a)\) for Continuous Random Variables}
-		Since \(P(X=a)=0\), adding or removing a single boundary point does not change probability.
-		\begin{align*}
-			P(X \leqslant a) &= P(X < a) + P(X=a)\\
-			&= P(X < a) \, ; \quad (\text{because } P(X=a)=0)
-		\end{align*}
+	% \begin{frame}{Why \(P(X \leqslant a)\) is equal to \(P(X < a)\) for Continuous Random Variables}
+	% 	Since \(P(X=a)=0\), adding or removing a single boundary point does not change probability.
+	% 	\begin{align*}
+	% 		P(X \leqslant a) &= P(X < a) + P(X=a)\\
+	% 		&= P(X < a) \, ; \quad (\text{because } P(X=a)=0)
+	% 	\end{align*}
+
+	% 	\vspace{0.5em}
+
+	% 	Similarly,
+	% 	\[
+	% 		P(X \geqslant a) = P(X > a)
+	% 	\]
+	% \end{frame}
+
+
+	% \begin{frame}{For Continuous RV: \(P(a \leqslant X \leqslant b) = P(a < X < b)\)}
+	% 	Consider the probability between two values \(a\) and \(b\):
+	% 	\[
+	% 		P(a \leqslant X \leqslant b)
+	% 	\]
+	% 	Expanding,
+	% 	\[
+	% 		P(a \leqslant X \leqslant b) = P(a < X < b) + P(X=a) + P(X=b)
+	% 	\]
+	% 	Since
+	% 	\[
+	% 		P(X=a) = P(X=b) = 0
+	% 	\]
+	% 	we obtain
+	% 	\[
+	% 		P(a \leqslant X \leqslant b) = P(a < X < b)
+	% 	\]
+	% \end{frame}
+
+
+	\begin{frame}{Probability at a Single Point for Continuous Random Variables}
+		For a continuous RV, probability over an interval is:
+		\[
+			P(a \leqslant X \leqslant b) = \int_a^b f(x)\,dx
+		\]
+		At a single point, the interval collapses to zero width, so:
+		\[
+			P(X = a) = \int_a^a f(x)\,dx = 0
+		\]
 
 		\vspace{0.5em}
 
-		Similarly,
-		\[
-			P(X \geqslant a) = P(X > a)
-		\]
-	\end{frame}
-
-
-	\begin{frame}{For Continuous RV: \(P(a \leqslant X \leqslant b) = P(a < X < b)\)}
-		Consider the probability between two values \(a\) and \(b\):
-		\[
-			P(a \leqslant X \leqslant b)
-		\]
-		Expanding,
-		\[
-			P(a \leqslant X \leqslant b) = P(a < X < b) + P(X=a) + P(X=b)
-		\]
-		Since
-		\[
-			P(X=a) = P(X=b) = 0
-		\]
-		we obtain
-		\[
-			P(a \leqslant X \leqslant b) = P(a < X < b)
-		\]
+		Since $P(X = a) = 0$, adding or removing a boundary point never changes probability:
+		\begin{itemize}
+			\item $P(X \leqslant a) = P(X < a)$ \quad and \quad $P(X \geqslant a) = P(X > a)$
+			\item $P(a \leqslant X \leqslant b) = P(a < X < b)$
+		\end{itemize}
 	\end{frame}
 
 
@@ -247,7 +267,7 @@
 				F(x) = P(X \leqslant x) = \displaystyle \sum_{k=-\infty}^{x} p(k)
 			\)
 			\item For continuous case, \(
-				F(x) = P(X<x) = \displaystyle \int_{-\infty}^{x} f(x) dx
+				F(x) = P(X<x) = P(X \leqslant x) = \displaystyle \int_{-\infty}^{x} f(x) dx
 			\)
 			\item It is a non-decreasing function, the largest value \(F(x)\) can take is \(1\)
 		\end{itemize}
@@ -259,7 +279,7 @@
 	\begin{frame}{Graphical Representaion of CDF}
 		\begin{columns}
 			\begin{column}{0.5\textwidth}
-				In the plot, \(X\) is a continuous random variable, it is randomly distributed (bell shaped curve).
+				In the plot, \(X\) is a continuous random variable, it is ``normally" distributed (bell shaped curve).
 
 				\vspace{0.5em}
 
@@ -333,19 +353,19 @@
 	\begin{frame}{Finding Probability from CDF}
 		\begin{columns}
 			\begin{column}{0.5\textwidth}
-				For Continuous RV:
+				\textbf{Continuous RV:}
 				\begin{itemize}
-					\item \(P(X \leqslant a) = P(X < a) = F(a)\)
-					\item \(P(X = a) = 0\)
-					\item \(P(X \geqslant a) = P(X > a) = 1 - F(a)\)
-					\item \(P(a < X < b) = P(a \leqslant X \leqslant b) = F(b) - F(a)\)
+					\item $P(X \leqslant a) = F(a)$
+					\item $P(X > a) = 1 - F(a)$
+					\item $P(a < X < b) = F(b) - F(a)$
 				\end{itemize}
-				
-				\vfill
+
+				\vspace{0.5em}
+				{\small Since $P(X=a)=0$, the $\leqslant$ and $<$ signs are interchangeable for continuous RVs.}
 			\end{column}
 
 			\begin{column}{0.5\textwidth}
-				For Discrete RV:
+				\textbf{Discrete RV:}
 				\begin{itemize}
 					\item \(P(X \leqslant a) = F(a)\)
 					\item \(P(X < a) = F(a) - P(X = a)\)
