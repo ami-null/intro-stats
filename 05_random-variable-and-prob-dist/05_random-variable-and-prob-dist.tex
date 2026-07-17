@@ -387,24 +387,25 @@
 
 
 	\begin{frame}{Example: Finding Probability from CDF of a Continuous RV}
-		Suppose the CDF of a random variable \(X\) is
-		\[
-			F(x) = x^2 \quad \text{for } 0 \leqslant x \leqslant 1
-		\]
+		In page \ref{pdf}, we found that for a continuous RV $X$ with PDF given by \(f(x) = \frac{3}{8}(4x-2x^2)\) for \(0 < x < 2\), the CDF is \(F(x) = \frac{3}{8}\big(2x^2 - \frac{2x^3}{3}\big)\).
 
-		Find \(P(0.2 < X < 0.6)\) and \(P(0.2 \leqslant X \leqslant 0.6)\).
+		\vspace{0.5em}
+		
+		Find \(P(0.5 < X < 1.5)\) and \(P(0.5 \leqslant X \leqslant 1.5)\):
 
 		\vspace{0.5em}
 
 		Using the CDF rule:
 		\begin{align*}
-			P(0.2 < X < 0.6) = F(0.6) - F(0.2) &= (0.6)^2 - (0.2)^2 \\
-			&= 0.36 - 0.04 = 0.32.
+			P(0.5 < X < 1.5) = F(1.5) - F(0.5) &= 0.84375 - 0.15625 \\
+			&= 0.6875.
 		\end{align*}
 
 		Since \(X\) is continuous, \(P(X=a)=0\).
 
-		Therefore, \(P(0.2 \leqslant X \leqslant 0.6) = 0.32\).
+		\vspace{0.5em}
+
+		Therefore, \(P(0.5 \leqslant X \leqslant 1.5) = 0.6875\).
 	\end{frame}
 
 
@@ -490,7 +491,7 @@
 
 
 	\begin{frame}{Properties of Expectation and Variance}
-		Let $a$, $b$ and $C$ be some constants, and $X$ and $Y$ be two independent random variables.
+		Let $a$, $b$ and $c$ be some constants, and $X$ and $Y$ be two independent random variables.
 		\begin{columns}
 			\begin{column}{0.5\textwidth}
 				\begin{enumerate}
@@ -530,12 +531,43 @@
 			\item \(\E(2X - 3) = 2 \E(X) - 3 = 2 \times 5 - 3= 10 - 3 = 7\)
 			\item \(\V(2X - 3) = 2^2 \V(X)= 4 \times 2 = 8\)
 		\end{itemize}
-	\end{frame}	
+	\end{frame}
 
 
-	% \begin{frame}{Properties of Expectation and Variance: Exercise}
-		
-	% \end{frame}
+	\begin{frame}{Properties of Expectation and Variance: Example 2}
+		Suppose $X$ and $Y$ are two random variables with \(\E(X) = 5\), \(\V(X)=2\), \(\E(Y) = 3\) and \(\V(Y) = 4\).
+
+		\vspace{0.5em}
+
+		\textbf{If $X$ and $Y$ are independent:}
+		\begin{itemize}
+			\item \(\E(X+Y) = \E(X) + \E(Y) = 5 + 3 = 8\)
+			\item \(\V(X+Y) = \V(X) + \V(Y) = 2 + 4 = 6\)
+			\item \(\E(2X - 3Y) = 2\E(X) - 3\E(Y) = 10 - 9 = 1\)
+			\item \(\V(2X - 3Y) = 2^2\V(X) + 3^2\V(Y) = 8 + 36 = 44\)
+		\end{itemize}
+
+		\vspace{0.5em}
+
+		\textbf{If instead $X$ and $Y$ are dependent, with \(\operatorname{CoV}(X,Y) = 1\):}
+		\begin{itemize}
+			\item \(\V(2X - 3Y) = 2^2\V(X) + 3^2\V(Y) + 2(2)(-3)\operatorname{CoV}(X,Y) = 8 + 36 - 12 = 32\)
+		\end{itemize}
+	\end{frame}
+
+
+	\begin{frame}[allowframebreaks=0.75]{Exercises}
+		\begin{enumerate}
+			\item A discrete random variable \(X\) has PMF \(p(x) = k(5-x)\) for \(x = 1, 2, 3, 4\), and \(p(x) = 0\) otherwise. Find the value of \(k\), then find \(P(X \geqslant 3)\).
+			\item A continuous random variable \(X\) has PDF \(f(x) = kx\) for \(0 < x < 4\), and \(f(x) = 0\) otherwise. Find the value of \(k\), then find \(P(X>2)\).
+			\item A discrete random variable \(X\) has PMF \(P(X=1)=0.2\), \(P(X=2)=0.3\) and \(P(X=3)=0.5\). Find the CDF \(F(x)\) of \(X\).
+			\item A continuous random variable \(X\) has PDF \(f(x) = 2x\) for \(0 < x < 1\), and \(f(x)=0\) otherwise. Find the CDF \(F(x)\) of \(X\).
+			\item Suppose the CDF of a discrete random variable \(X\) satisfies \(F(3) = 0.45\), \(F(7) = 0.85\) and \(P(X=3) = 0.15\). Find \(P(3 < X \leqslant 7)\) and \(P(3 \leqslant X \leqslant 7)\).
+			\item Suppose the CDF of a continuous random variable \(X\) is \(F(x) = x^2\) for \(0 \leqslant x \leqslant 1\). Find \(P(0.3 < X < 0.7)\).
+			\item A discrete random variable \(X\) has PMF \(P(X=0) = 0.3\), \(P(X=1) = 0.4\) and \(P(X=2) = 0.3\). Find \(E(X)\) and \(V(X)\).
+			\item A continuous random variable \(X\) has PDF \(f(x) = 3x^2\) for \(0 < x < 1\), and \(f(x)=0\) otherwise. Find \(E(X)\) and \(V(X)\).
+		\end{enumerate}
+	\end{frame}
 
     \section*{Thank you.}
 
