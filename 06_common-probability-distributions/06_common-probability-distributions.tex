@@ -539,13 +539,13 @@
 	\end{frame}
 
 
-	\begin{frame}{Symmetry of Normal Distribution}
-		The normal distribution is symmetric around the mean. Therefore the following relationship holds:
+	\begin{frame}{Symmetry of the Standard Normal Distribution}
+		The normal distribution is symmetric around the mean (which is 0 for standard normal distribution). Therefore the following relationship holds:
 		\begin{columns}
 			\begin{column}{0.5\textwidth}
 				\begin{align*}
-					P(Z <- k) &= P(Z > k) \\
-					& = 1 - P(Z < k)
+					P(Z <- k) &= P(Z > k) %\\
+					% & = 1 - P(Z < k)
 				\end{align*}
 				where \(k\) is a positive real number.
 				
@@ -601,16 +601,14 @@
 
 
 	\begin{frame}{Example: Finding Probability of Normal Random Variable}
-		Let a random variable \(X \sim \N(10, 25)\). Find \(P(X<4) \text{ and } P(X>6)\):
-
-		\vspace{0.5em}
+		Let a random variable \(X \sim \N(10, 25)\). Find \(P(X<4) \text{ and } P(X>16)\):
 
 		\[
 			P(X < 4) = P\left(\frac{X-10}{\sqrt{25}} < \frac{4-10}{\sqrt{25}}\right) = P(Z < -1.2) = \Phi(-1.2) = 0.115
 		\]
 		\begin{align*}
-			P(X > 6) = P\left(\frac{X-10}{\sqrt{25}} > \frac{6-10}{\sqrt{25}}\right) = P(Z > 1.2) &= 1 - P(Z < 1.2)\\
-			&= 1 - \Phi(1.2) = 0.885
+			P(X > 16) = P\left(\frac{X-10}{\sqrt{25}} > \frac{16-10}{\sqrt{25}}\right) = P(Z > 1.2) &= 1 - P(Z < 1.2)\\
+			&= 1 - \Phi(1.2)\\ &= 1 - 0.885\\ &= 0.115
 		\end{align*}
 
 		The above values of \(\Phi(\cdot)\) are found using the Z-table.
