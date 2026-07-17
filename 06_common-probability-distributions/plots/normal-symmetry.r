@@ -45,7 +45,7 @@ polygon(
 abline(v = a, lty = 2)
 abline(v = b, lty = 2)
 
-text(a-0.18, 0.01, "-1", pos = 4)
-text(b+0.18, 0.01, "1", pos = 2)
+text(a-0, -0.0025, "-1", pos = 1, xpd = TRUE)
+text(b+0, -0.0025, "1", pos = 1, xpd = TRUE)
 
 dev.off()

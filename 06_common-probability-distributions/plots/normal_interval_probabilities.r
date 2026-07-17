@@ -41,8 +41,8 @@ polygon(
 abline(v = a, lty = 2)
 abline(v = b, lty = 2)
 
-text(a+.18, 0.02, "a", pos = 2)
-text(b-.18, 0.02, "b", pos = 4)
+text(a+0, -0.0025, "a", pos = 1, xpd = T)
+text(b-0, -0.0025, "b", pos = 1, xpd = T)
 
 
 # ---- P(Z < a or Z > b)
@@ -78,7 +78,7 @@ polygon(
 abline(v = a, lty = 2)
 abline(v = b, lty = 2)
 
-text(a-0.18, 0.02, "a", pos = 4)
-text(b+0.18, 0.02, "b", pos = 2)
+text(a-0, -0.0025, "a", pos = 1, xpd = T)
+text(b+0, -0.0025, "b", pos = 1, xpd = T)
 
 dev.off()

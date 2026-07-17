@@ -23,7 +23,7 @@ polygon(c(-4, x_fill, z),
         density = 20)
 
 abline(v = z, lty = 2)
-text(z, 0.02, "z", pos = 4)
+text(z, -0.0025, "z", pos = 1, xpd = TRUE)
 
 
 # ---- P(Z > z)
@@ -42,6 +42,6 @@ polygon(c(z, x_fill, 4),
         density = 20)
 
 abline(v = z, lty = 2)
-text(z, 0.02, "z", pos = 2)
+text(z, -0.0025, "z", pos = 1, xpd = TRUE)
 
 dev.off()
