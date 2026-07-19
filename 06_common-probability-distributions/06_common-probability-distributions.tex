@@ -319,7 +319,7 @@
 
 
 	\begin{frame}{Uniform Distribution: Example 1}
-		The waiting time (in minutes) for train is uniform($10, 50$). Find the following:
+		The waiting time (in minutes) for train is uniform($10, 50$). Find the following: \label{train-example}
 		\begin{enumerate}
 			\item The probability that you have to wait at least $20$ minutes
 			\item Average waiting time
@@ -347,8 +347,17 @@
 
 
 	\begin{frame}{Uniform Distribution: Example 2}
-		Find the CDF of \(X \sim \mathrm{uniform}(a, b)\).
+		Find the CDF of \(X \sim \mathrm{uniform}(a, b)\). Then find the CDF the train station waiting example in page \ref{train-example}, i.e., when \(a = 10\) and \(b = 50\). Using this CDF, find the following probabilites:
+		\begin{enumerate}
+			\item Probability that you have to wait less than \(25\) minutes
+			\item Probablity that you have to wait more than 25 minutes
+			\item Probability that the wait time is between 26 and 36 minutes
+			\item Probability that the wait time is less than 32 minutes or more than 42 minutes
+		\end{enumerate}
+	\end{frame}
 
+
+	\begin{frame}{Uniform Distribution: Example 2 Solution}
 		The CDF is given by:
 		\begin{align*}
 			F(X) = P(X < x) &= \int_{a}^{x} f(x) \, dx \\
@@ -356,6 +365,36 @@
 			&= \Big[\frac{x}{b-a}\Big]_a^x \\
 			&= \frac{x-a}{b-a}
 		\end{align*}
+	\end{frame}
+
+
+	\begin{frame}{Uniform Distribution: Example 2 Solution (cont.)}
+		From the previous page: \(F(x) = \frac{x-a}{b-a}.\)
+
+		\vspace{0.5em}
+
+		When \(a = 10, b = 50\): \(F(x) = \frac{x-10}{50-10} = \frac{x-10}{40}.\)
+
+		\begin{enumerate}
+			\item \(P(X < 25) = F(25) = \frac{25-10}{40} = 15/40\)
+			\item \(P(X > 25) = 1 - F(25)\)
+			\item \(P(26 < X < 36) = F(36) - F(26)\)
+			\item \(P(X < 32 \cup X > 42) = P(X < 32) + P(X > 42) = F(32) + 1 - F(42)\)
+		\end{enumerate}
+	\end{frame}
+
+	
+	\begin{frame}{Uniform Distribution: Example 3}
+		Derive the expected value of the uniform distribution:
+
+		\begin{align*}
+			E(X) &= \int_{a}^{b} x \cdot \frac{1}{b-a} \mathrm{d}x \\
+			     &= \frac{1}{b-a} \int_{a}^{b} x \mathrm{d}x \\
+				 &= \frac{1}{b-a} \left[\frac{x^2}{2}\right]_a^b \\
+				 &= \frac{1}{b-a} \cdot \frac{b^2 - a^2}{2} \\
+				 &= \frac{b+a}{2}
+		\end{align*}
+		
 	\end{frame}
 
 
