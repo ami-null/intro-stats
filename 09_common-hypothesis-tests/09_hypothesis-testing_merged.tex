@@ -31,7 +31,7 @@
 
     \begin{frame}{Test of Hypothesis - Overview}
         \begin{itemize}
-            \item A statistical hypothesis is a claim about a population parameter
+            \item A statistical hypothesis is a claim about a population parameter (population mean, population proportion, population variance etc.)
             \item We test this claim using sample data
             \item The goal is to make a decision under uncertainty
             \item Decisions are made using probability and sampling distributions
@@ -48,6 +48,7 @@
             \[
             H_0: \mu = 100 \quad \text{vs} \quad H_A: \mu \neq 100
             \]
+            \item We use sample to assess whether the data provides any evidence \emph{against} the null hypothesis
             \item Based on the available data, we either reject the null hypothesis in favor of the alternative or ``fail to reject the null hypothesis"
             \item Therefore, we do not ``accept'' the null hypothesis
         \end{itemize}
@@ -165,9 +166,9 @@
     \begin{frame}{Choosing Sample Size via Power}
         \begin{itemize}
             \item Sample size should be decided \textbf{before} data collection, not after
-            \item Given a target power (typically $0.80$), an expected effect size, the variability $\sigma$, and a chosen $\alpha$, the minimum required $n$ can be calculated
-            \item Rule of thumb: smaller effect size or larger $\sigma$ $\Rightarrow$ larger $n$ needed to keep power adequate
-            \item Trade-off: larger $n$ costs more time and resources, but too small an $n$ risks a high $\beta$ (missing a real effect)
+            \item Given a target power (typical convention is to set power at $0.80$), the minimum required $n$ can be calculated
+            % \item Rule of thumb: smaller effect size or larger $\sigma$ $\Rightarrow$ larger $n$ needed to keep power adequate
+            \item Larger $n$ costs more time and resources, but too small an $n$ can lead too too low power (a high $\beta$)
             \item In practice, this calculation is done using statistical software (power analysis), not by hand
         \end{itemize}
     \end{frame}
@@ -188,27 +189,6 @@
         \begin{itemize}
             \item \(\alpha = \) level of significance
             \item \(1 - \beta = \) power of a test
-        \end{itemize}
-    \end{frame}
-
-
-    \section{P-value}
-
-
-    \begin{frame}{P-value: Meaning and Decision Rule}
-        \begin{itemize}
-            \item The \textbf{p-value} is the probability of observing a test statistic
-                as extreme as, or more extreme than, the one calculated from the sample ---
-                \emph{assuming $H_0$ is true}
-            \item It is \textbf{not} the probability that $H_0$ is true
-            \item A \textbf{small} p-value means the observed data would be very
-                unlikely if $H_0$ were true --- evidence against $H_0$
-            \item A \textbf{large} p-value means the data are consistent with $H_0$, but this does \emph{not} prove $H_0$ is true
-            \item Decision rule:
-            \begin{itemize}
-                \item $p \leqslant \alpha$: reject $H_0$
-                \item $p > \alpha$: fail to reject $H_0$
-            \end{itemize}
         \end{itemize}
     \end{frame}
 
@@ -519,6 +499,28 @@
     %         \end{column}
     %     \end{columns}
     % \end{frame}
+
+
+    
+    \section{P-value}
+
+    \begin{frame}{P-value: Meaning and Decision Rule}
+        \begin{itemize}
+            \item The \textbf{p-value} is the probability of observing a test statistic
+                as extreme as, or more extreme than, the one calculated from the sample ---
+                \emph{assuming $H_0$ is true}
+            \item It is \textbf{not} the probability that $H_0$ is true
+            \item A \textbf{small} p-value means the observed data would be very
+                unlikely if $H_0$ were true --- evidence against $H_0$
+            \item A \textbf{large} p-value means the data are consistent with $H_0$, but this does \emph{not} prove $H_0$ is true
+            \item Decision rule:
+            \begin{itemize}
+                \item $p \leqslant \alpha$: reject $H_0$
+                \item $p > \alpha$: fail to reject $H_0$
+            \end{itemize}
+            \item P-value is reported statistical software, and usually not calculated by hand
+        \end{itemize}
+    \end{frame}
 
 
     \section*{Thank you.}
